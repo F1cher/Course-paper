@@ -104,13 +104,21 @@ namespace Tiunov
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string query = "Delete From Pomeshenya Where Pnum=@Pnum";
-            cmd = new OleDbCommand(query, con);
-            cmd.Parameters.AddWithValue("@Pnum", dataGridView1.CurrentRow.Cells[0].Value);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GetPom();
+            DialogResult dialogResult = MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Delete From Pomeshenya Where Pnum=@Pnum";
+                cmd = new OleDbCommand(query, con);
+                cmd.Parameters.AddWithValue("@Pnum", dataGridView1.CurrentRow.Cells[0].Value);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetPom();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -188,13 +196,21 @@ namespace Tiunov
 
         private void SbtnDelete_Click(object sender, EventArgs e)
         {
-            string query = "Delete From Sotrudniki Where Snum=@Snum";
-            cmd = new OleDbCommand(query, con);
-            cmd.Parameters.AddWithValue("@Snum", dataGridView2.CurrentRow.Cells[0].Value);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GetSotr();
+            DialogResult dialogResult = MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Delete From Sotrudniki Where Snum=@Snum";
+                cmd = new OleDbCommand(query, con);
+                cmd.Parameters.AddWithValue("@Snum", dataGridView2.CurrentRow.Cells[0].Value);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetSotr();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void dataGridView2_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -236,13 +252,21 @@ namespace Tiunov
 
         private void EbtnDelete_Click(object sender, EventArgs e)
         {
-            string query = "Delete From Exponat Where Enum=@Enum";
-            cmd = new OleDbCommand(query, con);
-            cmd.Parameters.AddWithValue("@Enum", dataGridView3.CurrentRow.Cells[0].Value);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GetExp();
+            DialogResult dialogResult = MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Delete From Exponat Where Enum=@Enum";
+                cmd = new OleDbCommand(query, con);
+                cmd.Parameters.AddWithValue("@Enum", dataGridView3.CurrentRow.Cells[0].Value);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetExp();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void dataGridView3_CellEnter(object sender, DataGridViewCellEventArgs e)
