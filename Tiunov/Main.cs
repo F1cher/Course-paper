@@ -53,24 +53,20 @@ namespace Tiunov
             dataGridView3.DataSource = ds.Tables["Exponat"];
             con.Close();
         }
-        public void ClearTextBoxes()
+        public void ClearTextBoxes(TabPage tabPageName)
         {
-            Action<Control.ControlCollection> func = null;
-            func = (controls) =>
+           foreach (Control control in tabPageName.Controls)
             {
-                foreach (Control control in controls)
-                    if (control is TextBox)
-                        (control as TextBox).Clear();
-                    else
-                        func(control.Controls);
-                foreach (Control control in controls)
-                    if (control is ComboBox)
-                        (control as ComboBox).SelectedValue = -1;
-                    else
-                        func(control.Controls);
-            };
+                if (control is TextBox)
+                {
+                    control.Text = string.Empty;
+                }
 
-            func(Controls);
+                if (control is ComboBox)
+                {
+                    (control as ComboBox).SelectedValue = -1;
+                }
+            }
         }
         private void Main_Load(object sender, EventArgs e)
         {
@@ -278,17 +274,17 @@ namespace Tiunov
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearTextBoxes();
+            ClearTextBoxes(tabPage1);
         }
 
         private void SbtnClear_Click(object sender, EventArgs e)
         {
-            ClearTextBoxes();
+            ClearTextBoxes(tabPage2);
         }
 
         private void EbtnClear_Click(object sender, EventArgs e)
         {
-            ClearTextBoxes();
+            ClearTextBoxes(tabPage3);
         }
     }
 }
