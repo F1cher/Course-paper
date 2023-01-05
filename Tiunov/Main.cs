@@ -53,7 +53,25 @@ namespace Tiunov
             dataGridView3.DataSource = ds.Tables["Exponat"];
             con.Close();
         }
+        public void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+                foreach (Control control in controls)
+                    if (control is ComboBox)
+                        (control as ComboBox).SelectedValue = -1;
+                    else
+                        func(control.Controls);
+            };
 
+            func(Controls);
+        }
         private void Main_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunov_BDDataSet.Grafiki". При необходимости она может быть перемещена или удалена.
@@ -232,6 +250,21 @@ namespace Tiunov
             Enum.Text = dataGridView3.CurrentRow.Cells[0].Value.ToString();
             Enam.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString();
             Etip.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
+        }
+
+        private void SbtnClear_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
+        }
+
+        private void EbtnClear_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
         }
     }
 }
