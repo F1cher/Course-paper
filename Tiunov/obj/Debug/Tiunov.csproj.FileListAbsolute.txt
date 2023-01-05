@@ -1,0 +1,12 @@
+E:\Program Files\projects\Tiunov\bin\Debug\Tiunov_BD.mdb
+E:\Program Files\projects\Tiunov\bin\Debug\Tiunov.exe.config
+E:\Program Files\projects\Tiunov\bin\Debug\Tiunov.exe
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Authorization.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Main.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Properties.Resources.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.csproj.GenerateResource.cache
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.csproj.CoreCompileInputs.cache
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.exe
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.pdb
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.csproj.AssemblyReference.cache
+E:\Program Files\projects\Tiunov\bin\Debug\Tiunov.pdb
