@@ -51,6 +51,9 @@ namespace Tiunov
             this.pomeshenyaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiunov_BDDataSet = new Tiunov.Tiunov_BDDataSet();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.AddGraf = new System.Windows.Forms.Button();
+            this.AddKval = new System.Windows.Forms.Button();
+            this.SbtnClear = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Pass = new System.Windows.Forms.TextBox();
@@ -78,13 +81,16 @@ namespace Tiunov
             this.sotchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.skvalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sgrafDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sotrudnikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.AddTips = new System.Windows.Forms.Button();
+            this.Etip = new System.Windows.Forms.ComboBox();
+            this.exponattipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EbtnClear = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.Etip = new System.Windows.Forms.TextBox();
             this.Enum = new System.Windows.Forms.TextBox();
             this.Enam = new System.Windows.Forms.TextBox();
             this.EbtnDelete = new System.Windows.Forms.Button();
@@ -105,8 +111,8 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kvalifikacyaTableAdapter = new Tiunov.Tiunov_BDDataSetTableAdapters.KvalifikacyaTableAdapter();
             this.grafikiTableAdapter = new Tiunov.Tiunov_BDDataSetTableAdapters.GrafikiTableAdapter();
-            this.SbtnClear = new System.Windows.Forms.Button();
-            this.EbtnClear = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.exponat_tipTableAdapter = new Tiunov.Tiunov_BDDataSetTableAdapters.Exponat_tipTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -118,6 +124,7 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exponatBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -134,7 +141,7 @@ namespace Tiunov
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(971, 423);
+            this.tabControl1.Size = new System.Drawing.Size(1074, 423);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -154,7 +161,7 @@ namespace Tiunov
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(963, 397);
+            this.tabPage1.Size = new System.Drawing.Size(1066, 397);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Помещения";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -175,6 +182,7 @@ namespace Tiunov
             this.Pnum.Name = "Pnum";
             this.Pnum.Size = new System.Drawing.Size(100, 20);
             this.Pnum.TabIndex = 10;
+            this.Pnum.Visible = false;
             // 
             // label3
             // 
@@ -310,6 +318,8 @@ namespace Tiunov
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.AddGraf);
+            this.tabPage2.Controls.Add(this.AddKval);
             this.tabPage2.Controls.Add(this.SbtnClear);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
@@ -333,15 +343,45 @@ namespace Tiunov
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(963, 397);
+            this.tabPage2.Size = new System.Drawing.Size(1066, 397);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Сотрудники";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // AddGraf
+            // 
+            this.AddGraf.Location = new System.Drawing.Point(785, 48);
+            this.AddGraf.Name = "AddGraf";
+            this.AddGraf.Size = new System.Drawing.Size(27, 20);
+            this.AddGraf.TabIndex = 23;
+            this.AddGraf.Text = "+";
+            this.AddGraf.UseVisualStyleBackColor = true;
+            this.AddGraf.Click += new System.EventHandler(this.AddGraf_Click);
+            // 
+            // AddKval
+            // 
+            this.AddKval.Location = new System.Drawing.Point(633, 48);
+            this.AddKval.Name = "AddKval";
+            this.AddKval.Size = new System.Drawing.Size(27, 20);
+            this.AddKval.TabIndex = 22;
+            this.AddKval.Text = "+";
+            this.AddKval.UseVisualStyleBackColor = true;
+            this.AddKval.Click += new System.EventHandler(this.AddKval_Click);
+            // 
+            // SbtnClear
+            // 
+            this.SbtnClear.Location = new System.Drawing.Point(90, 76);
+            this.SbtnClear.Name = "SbtnClear";
+            this.SbtnClear.Size = new System.Drawing.Size(75, 23);
+            this.SbtnClear.TabIndex = 21;
+            this.SbtnClear.Text = "Очистить";
+            this.SbtnClear.UseVisualStyleBackColor = true;
+            this.SbtnClear.Click += new System.EventHandler(this.SbtnClear_Click);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(842, 29);
+            this.label12.Location = new System.Drawing.Point(937, 28);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(45, 13);
             this.label12.TabIndex = 20;
@@ -350,7 +390,7 @@ namespace Tiunov
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(736, 29);
+            this.label11.Location = new System.Drawing.Point(831, 28);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 19;
@@ -358,14 +398,14 @@ namespace Tiunov
             // 
             // Pass
             // 
-            this.Pass.Location = new System.Drawing.Point(845, 48);
+            this.Pass.Location = new System.Drawing.Point(940, 47);
             this.Pass.Name = "Pass";
             this.Pass.Size = new System.Drawing.Size(100, 20);
             this.Pass.TabIndex = 18;
             // 
             // Login
             // 
-            this.Login.Location = new System.Drawing.Point(739, 48);
+            this.Login.Location = new System.Drawing.Point(834, 47);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(100, 20);
             this.Login.TabIndex = 17;
@@ -375,7 +415,7 @@ namespace Tiunov
             this.Sgraf.DataSource = this.grafikiBindingSource;
             this.Sgraf.DisplayMember = "Grafik";
             this.Sgraf.FormattingEnabled = true;
-            this.Sgraf.Location = new System.Drawing.Point(633, 47);
+            this.Sgraf.Location = new System.Drawing.Point(679, 47);
             this.Sgraf.Name = "Sgraf";
             this.Sgraf.Size = new System.Drawing.Size(100, 21);
             this.Sgraf.TabIndex = 16;
@@ -408,11 +448,12 @@ namespace Tiunov
             this.Snum.Name = "Snum";
             this.Snum.Size = new System.Drawing.Size(100, 20);
             this.Snum.TabIndex = 14;
+            this.Snum.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(630, 29);
+            this.label8.Location = new System.Drawing.Point(676, 29);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 13;
@@ -460,6 +501,7 @@ namespace Tiunov
             this.Sotch.Name = "Sotch";
             this.Sotch.Size = new System.Drawing.Size(100, 20);
             this.Sotch.TabIndex = 6;
+            this.Sotch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Sotch_KeyPress);
             // 
             // Snam
             // 
@@ -467,6 +509,7 @@ namespace Tiunov
             this.Snam.Name = "Snam";
             this.Snam.Size = new System.Drawing.Size(100, 20);
             this.Snam.TabIndex = 5;
+            this.Snam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Snam_KeyPress);
             // 
             // Sfam
             // 
@@ -474,6 +517,7 @@ namespace Tiunov
             this.Sfam.Name = "Sfam";
             this.Sfam.Size = new System.Drawing.Size(100, 20);
             this.Sfam.TabIndex = 4;
+            this.Sfam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Sfam_KeyPress);
             // 
             // SbtnDelete
             // 
@@ -520,12 +564,12 @@ namespace Tiunov
             this.sotchDataGridViewTextBoxColumn,
             this.skvalDataGridViewTextBoxColumn,
             this.sgrafDataGridViewTextBoxColumn,
-            this.loginDataGridViewTextBoxColumn,
-            this.passDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
             this.dataGridView2.DataSource = this.sotrudnikiBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(8, 105);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(951, 286);
+            this.dataGridView2.Size = new System.Drawing.Size(1052, 286);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEnter);
             // 
@@ -565,17 +609,19 @@ namespace Tiunov
             this.sgrafDataGridViewTextBoxColumn.HeaderText = "Sgraf";
             this.sgrafDataGridViewTextBoxColumn.Name = "sgrafDataGridViewTextBoxColumn";
             // 
-            // loginDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Login";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Login";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Login";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
-            // passDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.passDataGridViewTextBoxColumn.DataPropertyName = "Pass";
-            this.passDataGridViewTextBoxColumn.HeaderText = "Pass";
-            this.passDataGridViewTextBoxColumn.Name = "passDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Pass";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Pass";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // sotrudnikiBindingSource
             // 
@@ -584,10 +630,11 @@ namespace Tiunov
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.AddTips);
+            this.tabPage3.Controls.Add(this.Etip);
             this.tabPage3.Controls.Add(this.EbtnClear);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.Etip);
             this.tabPage3.Controls.Add(this.Enum);
             this.tabPage3.Controls.Add(this.Enam);
             this.tabPage3.Controls.Add(this.EbtnDelete);
@@ -596,10 +643,46 @@ namespace Tiunov
             this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(963, 397);
+            this.tabPage3.Size = new System.Drawing.Size(1066, 397);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Экспонаты";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // AddTips
+            // 
+            this.AddTips.Location = new System.Drawing.Point(464, 39);
+            this.AddTips.Name = "AddTips";
+            this.AddTips.Size = new System.Drawing.Size(22, 23);
+            this.AddTips.TabIndex = 12;
+            this.AddTips.Text = "+";
+            this.AddTips.UseVisualStyleBackColor = true;
+            this.AddTips.Click += new System.EventHandler(this.AddTips_Click);
+            // 
+            // Etip
+            // 
+            this.Etip.DataSource = this.exponattipBindingSource;
+            this.Etip.DisplayMember = "Tip";
+            this.Etip.FormattingEnabled = true;
+            this.Etip.Location = new System.Drawing.Point(337, 40);
+            this.Etip.Name = "Etip";
+            this.Etip.Size = new System.Drawing.Size(121, 21);
+            this.Etip.TabIndex = 11;
+            this.Etip.ValueMember = "Etip";
+            // 
+            // exponattipBindingSource
+            // 
+            this.exponattipBindingSource.DataMember = "Exponat_tip";
+            this.exponattipBindingSource.DataSource = this.tiunov_BDDataSet;
+            // 
+            // EbtnClear
+            // 
+            this.EbtnClear.Location = new System.Drawing.Point(89, 70);
+            this.EbtnClear.Name = "EbtnClear";
+            this.EbtnClear.Size = new System.Drawing.Size(75, 23);
+            this.EbtnClear.TabIndex = 10;
+            this.EbtnClear.Text = "Очистить";
+            this.EbtnClear.UseVisualStyleBackColor = true;
+            this.EbtnClear.Click += new System.EventHandler(this.EbtnClear_Click);
             // 
             // label10
             // 
@@ -619,19 +702,13 @@ namespace Tiunov
             this.label9.TabIndex = 8;
             this.label9.Text = "Наименование";
             // 
-            // Etip
-            // 
-            this.Etip.Location = new System.Drawing.Point(337, 41);
-            this.Etip.Name = "Etip";
-            this.Etip.Size = new System.Drawing.Size(100, 20);
-            this.Etip.TabIndex = 7;
-            // 
             // Enum
             // 
             this.Enum.Location = new System.Drawing.Point(125, 41);
             this.Enum.Name = "Enum";
             this.Enum.Size = new System.Drawing.Size(100, 20);
             this.Enum.TabIndex = 6;
+            this.Enum.Visible = false;
             // 
             // Enam
             // 
@@ -639,6 +716,7 @@ namespace Tiunov
             this.Enam.Name = "Enam";
             this.Enam.Size = new System.Drawing.Size(100, 20);
             this.Enam.TabIndex = 4;
+            this.Enam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Enam_KeyPress);
             // 
             // EbtnDelete
             // 
@@ -685,7 +763,7 @@ namespace Tiunov
             this.dataGridView3.DataSource = this.exponatBindingSource;
             this.dataGridView3.Location = new System.Drawing.Point(8, 99);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(947, 290);
+            this.dataGridView3.Size = new System.Drawing.Size(1001, 290);
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellEnter);
             // 
@@ -731,7 +809,7 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1074, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -773,31 +851,15 @@ namespace Tiunov
             // 
             this.grafikiTableAdapter.ClearBeforeFill = true;
             // 
-            // SbtnClear
+            // exponat_tipTableAdapter
             // 
-            this.SbtnClear.Location = new System.Drawing.Point(90, 76);
-            this.SbtnClear.Name = "SbtnClear";
-            this.SbtnClear.Size = new System.Drawing.Size(75, 23);
-            this.SbtnClear.TabIndex = 21;
-            this.SbtnClear.Text = "Очистить";
-            this.SbtnClear.UseVisualStyleBackColor = true;
-            this.SbtnClear.Click += new System.EventHandler(this.SbtnClear_Click);
-            // 
-            // EbtnClear
-            // 
-            this.EbtnClear.Location = new System.Drawing.Point(89, 70);
-            this.EbtnClear.Name = "EbtnClear";
-            this.EbtnClear.Size = new System.Drawing.Size(75, 23);
-            this.EbtnClear.TabIndex = 10;
-            this.EbtnClear.Text = "Очистить";
-            this.EbtnClear.UseVisualStyleBackColor = true;
-            this.EbtnClear.Click += new System.EventHandler(this.EbtnClear_Click);
+            this.exponat_tipTableAdapter.ClearBeforeFill = true;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 450);
+            this.ClientSize = new System.Drawing.Size(1074, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Main";
@@ -817,6 +879,7 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exponatBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -875,7 +938,6 @@ namespace Tiunov
         private System.Windows.Forms.TextBox Sfam;
         private System.Windows.Forms.TextBox Pnum;
         private System.Windows.Forms.TextBox Snum;
-        private System.Windows.Forms.TextBox Etip;
         private System.Windows.Forms.TextBox Enum;
         private System.Windows.Forms.TextBox Enam;
         private System.Windows.Forms.Button EbtnDelete;
@@ -893,18 +955,25 @@ namespace Tiunov
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox Pass;
         private System.Windows.Forms.TextBox Login;
+        private System.Windows.Forms.BindingSource sotrudnikiBindingSource;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button SbtnClear;
+        private System.Windows.Forms.Button EbtnClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn snumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sotchDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn skvalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sgrafDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource sotrudnikiBindingSource;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button SbtnClear;
-        private System.Windows.Forms.Button EbtnClear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.ComboBox Etip;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.BindingSource exponattipBindingSource;
+        private Tiunov_BDDataSetTableAdapters.Exponat_tipTableAdapter exponat_tipTableAdapter;
+        private System.Windows.Forms.Button AddTips;
+        private System.Windows.Forms.Button AddGraf;
+        private System.Windows.Forms.Button AddKval;
     }
 }
 

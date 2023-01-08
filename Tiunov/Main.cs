@@ -70,6 +70,8 @@ namespace Tiunov
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunov_BDDataSet.Exponat_tip". При необходимости она может быть перемещена или удалена.
+            this.exponat_tipTableAdapter.Fill(this.tiunov_BDDataSet.Exponat_tip);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunov_BDDataSet.Grafiki". При необходимости она может быть перемещена или удалена.
             this.grafikiTableAdapter.Fill(this.tiunov_BDDataSet.Grafiki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunov_BDDataSet.Kvalifikacya". При необходимости она может быть перемещена или удалена.
@@ -80,13 +82,15 @@ namespace Tiunov
             this.sotrudnikiTableAdapter.Fill(this.tiunov_BDDataSet.Sotrudniki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunov_BDDataSet.Pomeshenya". При необходимости она может быть перемещена или удалена.
             this.pomeshenyaTableAdapter.Fill(this.tiunov_BDDataSet.Pomeshenya);
-            Pnum.Visible = false;
-            Snum.Visible = false;
-            Enum.Visible = false;
             GetPom();
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            if (Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
+            {
+                MessageBox.Show("Заполните все значения");
+                return;
+            }
             string query = "Insert into Pomeshenya (Padres,Pnaz, Ptreb) values (@Padres,@Pnaz,@Ptreb)";
             cmd = new OleDbCommand(query, con);
             cmd.Parameters.AddWithValue("@Padres", Padres.Text);
@@ -157,6 +161,11 @@ namespace Tiunov
 
         private void SbtnInsert_Click(object sender, EventArgs e)
         {
+            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "")
+            {
+                MessageBox.Show("Заполните все значения");
+                return;
+            }
             string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Skval, Sgraf, Login, Pass) values (@Sfam,@Snam,@Sotch,@Skval,@Sgraf,@Login,@Pass)";
             cmd = new OleDbCommand(query, con);
             cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
@@ -223,10 +232,15 @@ namespace Tiunov
 
         private void EbtnInsert_Click(object sender, EventArgs e)
         {
+            if (Enam.Text == "" || Etip.Text == "")
+            {
+                MessageBox.Show("Заполните все значения");
+                return;
+            }
             string query = "Insert into Exponat (Enam,Etip) values (@Enam,@Etip)";
             cmd = new OleDbCommand(query, con);
             cmd.Parameters.AddWithValue("@Enam", Enam.Text);
-            cmd.Parameters.AddWithValue("@Etip", Etip.Text);
+            cmd.Parameters.AddWithValue("@Etip", Etip.SelectedValue);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -238,7 +252,7 @@ namespace Tiunov
             string query = "Update Exponat Set Enam=@Enam,Etip=@Etip Where Enum=@Enum";
             cmd = new OleDbCommand(query, con);
             cmd.Parameters.AddWithValue("@Enam", Enam.Text);
-            cmd.Parameters.AddWithValue("@Etip", Etip.Text);
+            cmd.Parameters.AddWithValue("@Etip", Etip.SelectedValue);
             cmd.Parameters.AddWithValue("@Enum", Convert.ToInt32(Enum.Text));
             con.Open();
             cmd.ExecuteNonQuery();
@@ -269,7 +283,7 @@ namespace Tiunov
         {
             Enum.Text = dataGridView3.CurrentRow.Cells[0].Value.ToString();
             Enam.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString();
-            Etip.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+            Etip.SelectedValue = dataGridView3.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -285,6 +299,52 @@ namespace Tiunov
         private void EbtnClear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes(tabPage3);
+        }
+
+        private void Enam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void Sfam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void Snam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void Sotch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void AddTips_Click(object sender, EventArgs e)
+        {
+            Tips_Exp Tips_Exp = new Tips_Exp();
+            Tips_Exp.Show();
+        }
+
+        private void AddKval_Click(object sender, EventArgs e)
+        {
+            Qualifications Qualifications = new Qualifications();
+            Qualifications.Show();
+        }
+
+        private void AddGraf_Click(object sender, EventArgs e)
+        {
+            Charts Charts = new Charts();
+            Charts.Show();
         }
     }
 }

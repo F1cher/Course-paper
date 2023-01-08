@@ -10,3 +10,6 @@ E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.exe
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.pdb
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.csproj.AssemblyReference.cache
 E:\Program Files\projects\Tiunov\bin\Debug\Tiunov.pdb
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Tips_Exp.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Charts.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Qualifications.resources
