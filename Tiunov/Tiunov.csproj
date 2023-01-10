@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D38B57B8-A97E-459C-913D-9942EA6C14E5}</ProjectGuid>
+    <ProjectGuid>{6DA21921-1B61-4309-9CCA-F67D46440754}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Tiunov</RootNamespace>
     <AssemblyName>Tiunov</AssemblyName>
@@ -78,10 +78,10 @@
     <Compile Include="Tips_Exp.Designer.cs">
       <DependentUpon>Tips_Exp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tiunov_BDDataSet.Designer.cs">
+    <Compile Include="TiunovDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Tiunov_BDDataSet.xsd</DependentUpon>
+      <DependentUpon>TiunovDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
@@ -116,25 +116,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Tiunov_BDDataSet.xsc">
-      <DependentUpon>Tiunov_BDDataSet.xsd</DependentUpon>
+    <None Include="TiunovDataSet.xsc">
+      <DependentUpon>TiunovDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Tiunov_BDDataSet.xsd">
+    <None Include="TiunovDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Tiunov_BDDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>TiunovDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Tiunov_BDDataSet.xss">
-      <DependentUpon>Tiunov_BDDataSet.xsd</DependentUpon>
+    <None Include="TiunovDataSet.xss">
+      <DependentUpon>TiunovDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Tiunov_BD.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

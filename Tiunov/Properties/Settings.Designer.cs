@@ -26,10 +26,10 @@ namespace Tiunov.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\Tiunov_BD.mdb")]
-        public string Tiunov_BDConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True")]
+        public string TiunovConnectionString {
             get {
-                return ((string)(this["Tiunov_BDConnectionString"]));
+                return ((string)(this["TiunovConnectionString"]));
             }
         }
     }

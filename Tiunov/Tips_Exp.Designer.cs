@@ -30,12 +30,6 @@ namespace Tiunov
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.etipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exponattipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tiunov_BDDataSet = new Tiunov.Tiunov_BDDataSet();
-            this.exponat_tipTableAdapter = new Tiunov.Tiunov_BDDataSetTableAdapters.Exponat_tipTableAdapter();
             this.Etip = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Tip = new System.Windows.Forms.TextBox();
@@ -43,10 +37,76 @@ namespace Tiunov
             this.TbtnDelete = new System.Windows.Forms.Button();
             this.TbtnUpdate = new System.Windows.Forms.Button();
             this.TbtnInsert = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tiunovDataSet = new Tiunov.TiunovDataSet();
+            this.exponattipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.exponat_tipTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Exponat_tipTableAdapter();
+            this.etipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiunov_BDDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Etip
+            // 
+            this.Etip.Location = new System.Drawing.Point(93, 43);
+            this.Etip.Name = "Etip";
+            this.Etip.Size = new System.Drawing.Size(100, 20);
+            this.Etip.TabIndex = 43;
+            this.Etip.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(208, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Наименование";
+            // 
+            // Tip
+            // 
+            this.Tip.Location = new System.Drawing.Point(208, 43);
+            this.Tip.Name = "Tip";
+            this.Tip.Size = new System.Drawing.Size(100, 20);
+            this.Tip.TabIndex = 41;
+            // 
+            // TbtnClear
+            // 
+            this.TbtnClear.Location = new System.Drawing.Point(93, 69);
+            this.TbtnClear.Name = "TbtnClear";
+            this.TbtnClear.Size = new System.Drawing.Size(75, 23);
+            this.TbtnClear.TabIndex = 40;
+            this.TbtnClear.Text = "Очистить";
+            this.TbtnClear.UseVisualStyleBackColor = true;
+            // 
+            // TbtnDelete
+            // 
+            this.TbtnDelete.Location = new System.Drawing.Point(12, 69);
+            this.TbtnDelete.Name = "TbtnDelete";
+            this.TbtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.TbtnDelete.TabIndex = 39;
+            this.TbtnDelete.Text = "Удалить";
+            this.TbtnDelete.UseVisualStyleBackColor = true;
+            // 
+            // TbtnUpdate
+            // 
+            this.TbtnUpdate.Location = new System.Drawing.Point(12, 40);
+            this.TbtnUpdate.Name = "TbtnUpdate";
+            this.TbtnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.TbtnUpdate.TabIndex = 38;
+            this.TbtnUpdate.Text = "Изменить";
+            this.TbtnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // TbtnInsert
+            // 
+            this.TbtnInsert.Location = new System.Drawing.Point(12, 11);
+            this.TbtnInsert.Name = "TbtnInsert";
+            this.TbtnInsert.Size = new System.Drawing.Size(75, 23);
+            this.TbtnInsert.TabIndex = 37;
+            this.TbtnInsert.Text = "Добавить";
+            this.TbtnInsert.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -60,11 +120,24 @@ namespace Tiunov
             this.etipDataGridViewTextBoxColumn,
             this.tipDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.exponattipBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 103);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 337);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
+            this.dataGridView1.TabIndex = 36;
+            // 
+            // tiunovDataSet
+            // 
+            this.tiunovDataSet.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // exponattipBindingSource
+            // 
+            this.exponattipBindingSource.DataMember = "Exponat_tip";
+            this.exponattipBindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // exponat_tipTableAdapter
+            // 
+            this.exponat_tipTableAdapter.ClearBeforeFill = true;
             // 
             // etipDataGridViewTextBoxColumn
             // 
@@ -77,84 +150,6 @@ namespace Tiunov
             this.tipDataGridViewTextBoxColumn.DataPropertyName = "Tip";
             this.tipDataGridViewTextBoxColumn.HeaderText = "Tip";
             this.tipDataGridViewTextBoxColumn.Name = "tipDataGridViewTextBoxColumn";
-            // 
-            // exponattipBindingSource
-            // 
-            this.exponattipBindingSource.DataMember = "Exponat_tip";
-            this.exponattipBindingSource.DataSource = this.tiunov_BDDataSet;
-            // 
-            // tiunov_BDDataSet
-            // 
-            this.tiunov_BDDataSet.DataSetName = "Tiunov_BDDataSet";
-            this.tiunov_BDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // exponat_tipTableAdapter
-            // 
-            this.exponat_tipTableAdapter.ClearBeforeFill = true;
-            // 
-            // Etip
-            // 
-            this.Etip.Location = new System.Drawing.Point(93, 41);
-            this.Etip.Name = "Etip";
-            this.Etip.Size = new System.Drawing.Size(100, 20);
-            this.Etip.TabIndex = 35;
-            this.Etip.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Наименование";
-            // 
-            // Tip
-            // 
-            this.Tip.Location = new System.Drawing.Point(208, 41);
-            this.Tip.Name = "Tip";
-            this.Tip.Size = new System.Drawing.Size(100, 20);
-            this.Tip.TabIndex = 33;
-            // 
-            // TbtnClear
-            // 
-            this.TbtnClear.Location = new System.Drawing.Point(93, 67);
-            this.TbtnClear.Name = "TbtnClear";
-            this.TbtnClear.Size = new System.Drawing.Size(75, 23);
-            this.TbtnClear.TabIndex = 32;
-            this.TbtnClear.Text = "Очистить";
-            this.TbtnClear.UseVisualStyleBackColor = true;
-            this.TbtnClear.Click += new System.EventHandler(this.TbtnClear_Click);
-            // 
-            // TbtnDelete
-            // 
-            this.TbtnDelete.Location = new System.Drawing.Point(12, 67);
-            this.TbtnDelete.Name = "TbtnDelete";
-            this.TbtnDelete.Size = new System.Drawing.Size(75, 23);
-            this.TbtnDelete.TabIndex = 31;
-            this.TbtnDelete.Text = "Удалить";
-            this.TbtnDelete.UseVisualStyleBackColor = true;
-            this.TbtnDelete.Click += new System.EventHandler(this.TbtnDelete_Click);
-            // 
-            // TbtnUpdate
-            // 
-            this.TbtnUpdate.Location = new System.Drawing.Point(12, 38);
-            this.TbtnUpdate.Name = "TbtnUpdate";
-            this.TbtnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.TbtnUpdate.TabIndex = 30;
-            this.TbtnUpdate.Text = "Изменить";
-            this.TbtnUpdate.UseVisualStyleBackColor = true;
-            this.TbtnUpdate.Click += new System.EventHandler(this.TbtnUpdate_Click);
-            // 
-            // TbtnInsert
-            // 
-            this.TbtnInsert.Location = new System.Drawing.Point(12, 9);
-            this.TbtnInsert.Name = "TbtnInsert";
-            this.TbtnInsert.Size = new System.Drawing.Size(75, 23);
-            this.TbtnInsert.TabIndex = 29;
-            this.TbtnInsert.Text = "Добавить";
-            this.TbtnInsert.UseVisualStyleBackColor = true;
-            this.TbtnInsert.Click += new System.EventHandler(this.TbtnInsert_Click);
             // 
             // Tips_Exp
             // 
@@ -171,10 +166,10 @@ namespace Tiunov
             this.Controls.Add(this.dataGridView1);
             this.Name = "Tips_Exp";
             this.Text = "Типы экспонатов";
-            this.Load += new System.EventHandler(this.Tips_Pom_Load);
+            this.Load += new System.EventHandler(this.Tips_Exp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiunov_BDDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,12 +177,6 @@ namespace Tiunov
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private Tiunov_BDDataSet tiunov_BDDataSet;
-        private System.Windows.Forms.BindingSource exponattipBindingSource;
-        private Tiunov_BDDataSetTableAdapters.Exponat_tipTableAdapter exponat_tipTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn etipDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox Etip;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Tip;
@@ -195,5 +184,11 @@ namespace Tiunov
         private System.Windows.Forms.Button TbtnDelete;
         private System.Windows.Forms.Button TbtnUpdate;
         private System.Windows.Forms.Button TbtnInsert;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private TiunovDataSet tiunovDataSet;
+        private System.Windows.Forms.BindingSource exponattipBindingSource;
+        private TiunovDataSetTableAdapters.Exponat_tipTableAdapter exponat_tipTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etipDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipDataGridViewTextBoxColumn;
     }
 }

@@ -7,28 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Tiunov
 {
     public partial class Charts : Form
     {
-        OleDbConnection con;
-        OleDbDataAdapter da;
-        OleDbCommand cmd;
         DataSet ds;
+        SqlDataAdapter da;
+        SqlCommand cmd;
+        SqlConnection con;
         public Charts()
         {
             InitializeComponent();
         }
-        void GetCharts()
+        public void GetCharts()
         {
-            con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Program Files\projects\Tiunov\Tiunov_BD.mdb");
-            da = new OleDbDataAdapter("SELECT * FROM Grafiki", con);
+            con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
+            da = new SqlDataAdapter("SELECT * FROM Grafiki", con);
             ds = new DataSet();
             con.Open();
             da.Fill(ds, "Grafiki");
-            dataGridView1.DataSource = ds.Tables["Grafiki"];
+            dataGridView4.DataSource = ds.Tables["Grafiki"];
             con.Close();
         }
         public void ClearTextBoxes()
@@ -48,8 +48,6 @@ namespace Tiunov
         }
         private void Charts_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunov_BDDataSet.Grafiki". При необходимости она может быть перемещена или удалена.
-            this.grafikiTableAdapter.Fill(this.tiunov_BDDataSet.Grafiki);
             GetCharts();
         }
 
@@ -60,8 +58,9 @@ namespace Tiunov
                 MessageBox.Show("Заполните все значения");
                 return;
             }
-            string query = "Insert into Grafiki (Grafik) values (@Grafik)";
-            cmd = new OleDbCommand(query, con);
+            string query = "Insert into Grafiki (Sgraf,Grafik) values (@Sgraf,@Grafik)";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Sgraf", Convert.ToInt32(Sgraf.Text));
             cmd.Parameters.AddWithValue("@Grafik", Grafik.Text);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -72,7 +71,7 @@ namespace Tiunov
         private void GbtnUpdate_Click(object sender, EventArgs e)
         {
             string query = "Update Grafiki Set Grafik=@Grafik Where Sgraf=@Sgraf";
-            cmd = new OleDbCommand(query, con);
+            cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Grafik", Grafik.Text);
             cmd.Parameters.AddWithValue("@Sgraf", Convert.ToInt32(Sgraf.Text));
             con.Open();
@@ -87,8 +86,8 @@ namespace Tiunov
             if (dialogResult == DialogResult.Yes)
             {
                 string query = "Delete From Grafiki Where Sgraf=@Sgraf";
-                cmd = new OleDbCommand(query, con);
-                cmd.Parameters.AddWithValue("@Sgraf", dataGridView1.CurrentRow.Cells[0].Value);
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Sgraf", dataGridView4.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -105,10 +104,10 @@ namespace Tiunov
             ClearTextBoxes();
         }
 
-        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView4_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            Sgraf.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            Grafik.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            Sgraf.Text = dataGridView4.CurrentRow.Cells[0].Value.ToString();
+            Grafik.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

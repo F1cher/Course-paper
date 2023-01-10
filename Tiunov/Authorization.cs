@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Tiunov
 {
     public partial class Authorization : Form
     {
-        OleDbConnection con;
-        OleDbCommand cmd;
-        OleDbDataReader dr;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader dr;
         public Authorization()
         {
             InitializeComponent();
@@ -26,8 +25,8 @@ namespace Tiunov
         {
             string usr = textBox1.Text;
             string psw = textBox2.Text;
-            con = new OleDbConnection(@"Provider=Microsoft.ACE.Oledb.12.0;Data Source=E:\Program Files\projects\Tiunov\bin\Debug\Tiunov_BD.mdb");
-            cmd = new OleDbCommand();
+            con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
+            cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
             string str = "SELECT * FROM Sotrudniki where Login='" + textBox1.Text + "' AND Pass='" + textBox2.Text + "'";
