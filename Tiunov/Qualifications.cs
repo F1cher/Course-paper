@@ -70,19 +70,27 @@ namespace Tiunov
 
         private void TbtnUpdate_Click(object sender, EventArgs e)
         {
-            string query = "Update Kvalifikacya Set Kval=@Kval Where Skval=@Skval";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Kval", Kval.Text);
-            cmd.Parameters.AddWithValue("@Skval", Convert.ToInt32(Skval.Text));
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GetKval();
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Update Kvalifikacya Set Kval=@Kval Where Skval=@Skval";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Kval", Kval.Text);
+                cmd.Parameters.AddWithValue("@Skval", Convert.ToInt32(Skval.Text));
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetKval();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void TbtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 string query = "Delete From Kvalifikacya Where Skval=@Skval";

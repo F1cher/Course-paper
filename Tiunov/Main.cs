@@ -101,16 +101,24 @@ namespace Tiunov
         }
         private void PbtnUpdate_Click(object sender, EventArgs e)
         {
-            string query = "Update Pomeshenya Set Padres=@Padres,Pnaz=@Pnaz,Ptreb=@Ptreb Where Pnum=@Pnum";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Padres", Padres.Text);
-            cmd.Parameters.AddWithValue("@Pnaz", Pnaz.Text);
-            cmd.Parameters.AddWithValue("@Ptreb", Ptreb.Text);
-            cmd.Parameters.AddWithValue("@Pnum", Convert.ToInt32(Pnum.Text));
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GetPom();
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Update Pomeshenya Set Padres=@Padres,Pnaz=@Pnaz,Ptreb=@Ptreb Where Pnum=@Pnum";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Padres", Padres.Text);
+                cmd.Parameters.AddWithValue("@Pnaz", Pnaz.Text);
+                cmd.Parameters.AddWithValue("@Ptreb", Ptreb.Text);
+                cmd.Parameters.AddWithValue("@Pnum", Convert.ToInt32(Pnum.Text));
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetPom();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
         private void PbtnDelete_Click(object sender, EventArgs e)
         {
@@ -184,20 +192,28 @@ namespace Tiunov
         }
         private void SbtnUpdate_Click(object sender, EventArgs e)
         {
-            string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Skval=@Skval,Sgraf=@Sgraf, Login=@Login,Pass=@Pass Where Snum=@Snum";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Snum", Convert.ToInt32(Pnum.Text));
-            cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
-            cmd.Parameters.AddWithValue("@Snam", Snam.Text);
-            cmd.Parameters.AddWithValue("@Sotch", Sotch.Text);
-            cmd.Parameters.AddWithValue("@Skval", Skval.SelectedValue);
-            cmd.Parameters.AddWithValue("@Sgraf", Sgraf.SelectedValue);
-            cmd.Parameters.AddWithValue("@Login", Login.Text);
-            cmd.Parameters.AddWithValue("@Pass", Pass.Text);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GetSotr();
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Skval=@Skval,Sgraf=@Sgraf, Login=@Login,Pass=@Pass Where Snum=@Snum";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Snum", Convert.ToInt32(Pnum.Text));
+                cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
+                cmd.Parameters.AddWithValue("@Snam", Snam.Text);
+                cmd.Parameters.AddWithValue("@Sotch", Sotch.Text);
+                cmd.Parameters.AddWithValue("@Skval", Skval.SelectedValue);
+                cmd.Parameters.AddWithValue("@Sgraf", Sgraf.SelectedValue);
+                cmd.Parameters.AddWithValue("@Login", Login.Text);
+                cmd.Parameters.AddWithValue("@Pass", Pass.Text);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetSotr();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
         private void SbtnDelete_Click(object sender, EventArgs e)
         {
@@ -253,15 +269,23 @@ namespace Tiunov
 
         private void EbtnUpdate_Click(object sender, EventArgs e)
         {
-            string query = "Update Exponat Set Enam=@Enam,Etip=@Etip Where Enum=@Enum";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Enam", Enam.Text);
-            cmd.Parameters.AddWithValue("@Etip", Etip.SelectedValue);
-            cmd.Parameters.AddWithValue("@Enum", Convert.ToInt32(Enum.Text));
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            GetExp();
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Update Exponat Set Enam=@Enam,Etip=@Etip Where Enum=@Enum";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Enam", Enam.Text);
+                cmd.Parameters.AddWithValue("@Etip", Etip.SelectedValue);
+                cmd.Parameters.AddWithValue("@Enum", Convert.ToInt32(Enum.Text));
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetExp();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void EbtnDelete_Click(object sender, EventArgs e)
