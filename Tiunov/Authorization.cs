@@ -13,27 +13,28 @@ namespace Tiunov
 {
     public partial class Authorization : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
         SqlDataReader dr;
+        SqlCommand cmd;
+        SqlConnection con;
         public Authorization()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        void GetCon()
         {
-            string usr = textBox1.Text;
-            string psw = textBox2.Text;
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
+        }
+        private void Authbtn_Click(object sender, EventArgs e)
+        {
+            string usr = Login.Text;
+            string psw = Pass.Text;
+            GetCon();
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
-            string str = "SELECT * FROM Sotrudniki where Login='" + textBox1.Text + "' AND Pass='" + textBox2.Text + "'";
+            string str = "SELECT * FROM Sotrudniki where Login='" + Login.Text + "' AND Pass='" + Pass.Text + "'";
             cmd.CommandText = str;
-
             dr = cmd.ExecuteReader();
-
             if (dr.Read())
             {
                 Main frm2 = new Main();
@@ -42,7 +43,7 @@ namespace Tiunov
             }
             else
             {
-                MessageBox.Show("Неправильный логин или пароль");
+                MessageBox.Show("Неверный логин или пароль");
             }
 
             con.Close();

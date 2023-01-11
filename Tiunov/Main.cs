@@ -21,10 +21,13 @@ namespace Tiunov
         {
             InitializeComponent();
         }
-
-        void GetPom()
+        void GetCon()
         {
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
+        }
+        void GetPom()
+        {
+            GetCon();
             da = new SqlDataAdapter("SELECT * FROM Pomeshenya", con);
             ds = new DataSet();
             con.Open();
@@ -34,7 +37,6 @@ namespace Tiunov
         }
         void GetSotr()
         {
-            con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
             da = new SqlDataAdapter("SELECT * FROM Sotrudniki", con);
             ds = new DataSet();
             con.Open();
@@ -44,7 +46,6 @@ namespace Tiunov
         }
         void GetExp()
         {
-            con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
             da = new SqlDataAdapter("SELECT * FROM Exponat", con);
             ds = new DataSet();
             con.Open();
@@ -52,7 +53,16 @@ namespace Tiunov
             dataGridView3.DataSource = ds.Tables["Exponat"];
             con.Close();
         }
-        
+        void GetRest()
+        {
+            da = new SqlDataAdapter("SELECT * FROM Restavracia", con);
+            ds = new DataSet();
+            con.Open();
+            da.Fill(ds, "Restavracia");
+            dataGridView4.DataSource = ds.Tables["Restavracia"];
+            con.Close();
+        }
+
         public void ClearTextBoxes(TabPage tabPageName)
         {
             foreach (Control control in tabPageName.Controls)
@@ -70,27 +80,34 @@ namespace Tiunov
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Kvalifikacya". При необходимости она может быть перемещена или удалена.
-            this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Pomeshenya". При необходимости она может быть перемещена или удалена.
+            this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat_tip". При необходимости она может быть перемещена или удалена.
             this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Kvalifikacya". При необходимости она может быть перемещена или удалена.
+            this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat". При необходимости она может быть перемещена или удалена.
+            this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Grafiki". При необходимости она может быть перемещена или удалена.
             this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat_tip". При необходимости она может быть перемещена или удалена.
+            this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
             GetPom();
             GetSotr();
             GetExp();
+            GetRest();
         }
 
         private void PbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
+            if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
             {
                 MessageBox.Show("Заполните все значения");
                 return;
             }
-            string query = "Insert into Pomeshenya (Pnum, Padres,Pnaz, Ptreb) values (@Pnum,@Padres,@Pnaz,@Ptreb)";
+            string query = "Insert into Pomeshenya (Pnam, Padres, Pnaz, Ptreb) values (@Pnam,@Padres,@Pnaz,@Ptreb)";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Pnum", Convert.ToInt32(Pnum.Text));
+            cmd.Parameters.AddWithValue("@Pnam", Pnam.Text);
             cmd.Parameters.AddWithValue("@Padres", Padres.Text);
             cmd.Parameters.AddWithValue("@Pnaz", Pnaz.Text);
             cmd.Parameters.AddWithValue("@Ptreb", Ptreb.Text);
@@ -104,12 +121,13 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Pomeshenya Set Padres=@Padres,Pnaz=@Pnaz,Ptreb=@Ptreb Where Pnum=@Pnum";
+                string query = "Update Pomeshenya Set Pnam=@Pnam,Padres=@Padres,Pnaz=@Pnaz,Ptreb=@Ptreb Where Pnum=@Pnum";
                 cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Pnam", Pnam.Text);
                 cmd.Parameters.AddWithValue("@Padres", Padres.Text);
                 cmd.Parameters.AddWithValue("@Pnaz", Pnaz.Text);
                 cmd.Parameters.AddWithValue("@Ptreb", Ptreb.Text);
-                cmd.Parameters.AddWithValue("@Pnum", Convert.ToInt32(Pnum.Text));
+                cmd.Parameters.AddWithValue("@Pnum", dataGridView1.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -122,7 +140,7 @@ namespace Tiunov
         }
         private void PbtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 string query = "Delete From Pomeshenya Where Pnum=@Pnum";
@@ -142,6 +160,13 @@ namespace Tiunov
         {
             ClearTextBoxes(tabPage1);
         }
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            Pnam.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            Padres.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            Pnaz.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            Ptreb.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+        }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -159,24 +184,15 @@ namespace Tiunov
         {
             MessageBox.Show("Курсовой проект МДК 4:\nИнформационная система музейного комплекса\nАвтор: Тиунов Максим, студент группы ИП-41");
         }
-
-        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            Pnum.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            Padres.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            Pnaz.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            Ptreb.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-        }
         private void SbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "")
+            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.Text =="" || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "")
             {
                 MessageBox.Show("Заполните все значения");
                 return;
             }
-            string query = "Insert into Sotrudniki (Snum,Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass) values (@Snum,@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass)";
+            string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass) values (@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass)";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Snum", Convert.ToInt32(Snum.Text));
             cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
             cmd.Parameters.AddWithValue("@Snam", Snam.Text);
             cmd.Parameters.AddWithValue("@Sotch", Sotch.Text);
@@ -195,9 +211,9 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Skval=@Skval,Sgraf=@Sgraf, Login=@Login,Pass=@Pass Where Snum=@Snum";
+                string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Skval=@Skval,Sgraf=@Sgraf,Login=@Login,Pass=@Pass Where Snum=@Snum";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Snum", Convert.ToInt32(Pnum.Text));
+                cmd.Parameters.AddWithValue("@Snum", dataGridView2.CurrentRow.Cells[0].Value);
                 cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
                 cmd.Parameters.AddWithValue("@Snam", Snam.Text);
                 cmd.Parameters.AddWithValue("@Sotch", Sotch.Text);
@@ -217,7 +233,7 @@ namespace Tiunov
         }
         private void SbtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 string query = "Delete From Sotrudniki Where Snum=@Snum";
@@ -239,28 +255,28 @@ namespace Tiunov
         }
         private void dataGridView2_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            Snum.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
             Sfam.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
             Snam.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
             Sotch.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
             Stel.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
             Skval.SelectedValue = dataGridView2.CurrentRow.Cells[5].Value.ToString();
-            //Sgraf.SelectedValue = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+            Sgraf.SelectedValue = dataGridView2.CurrentRow.Cells[6].Value.ToString();
             Login.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
             Pass.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
         }
         private void EbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Enam.Text == "" || Etip.Text == "")
+            if (Enam.Text == "" || Cb_etip.SelectedIndex == -1 || Ecena.Text == "" || cb_pnum.SelectedIndex == -1)
             {
                 MessageBox.Show("Заполните все значения");
                 return;
             }
-            string query = "Insert into Exponat (Enum, Enam, Etip) values (@Enum,@Enam,@Etip)";
+            string query = "Insert into Exponat (Enam, Etip, Ecena, Pnum) values (@Enam,@Etip,@Ecena,@Pnum)";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Enum", Convert.ToInt32(Enum.Text));
             cmd.Parameters.AddWithValue("@Enam", Enam.Text);
-            cmd.Parameters.AddWithValue("@Etip", Etip.SelectedValue);
+            cmd.Parameters.AddWithValue("@Etip", Cb_etip.SelectedValue);
+            cmd.Parameters.AddWithValue("@Ecena", Ecena.Text);
+            cmd.Parameters.AddWithValue("@Pnum", cb_pnum.SelectedValue);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -272,11 +288,13 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Exponat Set Enam=@Enam,Etip=@Etip Where Enum=@Enum";
+                string query = "Update Exponat Set Enam=@Enam,Etip=@Etip,Ecena=@Ecena, Pnum=@Pnum Where Enum=@Enum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Enam", Enam.Text);
-                cmd.Parameters.AddWithValue("@Etip", Etip.SelectedValue);
-                cmd.Parameters.AddWithValue("@Enum", Convert.ToInt32(Enum.Text));
+                cmd.Parameters.AddWithValue("@Etip", Cb_etip.SelectedValue);
+                cmd.Parameters.AddWithValue("@Ecena", Ecena.Text);
+                cmd.Parameters.AddWithValue("@Pnum", cb_pnum.SelectedValue);
+                cmd.Parameters.AddWithValue("@Enum", Convert.ToInt32(dataGridView3.CurrentRow.Cells[0].Value));
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -290,7 +308,7 @@ namespace Tiunov
 
         private void EbtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 string query = "Delete From Exponat Where Enum=@Enum";
@@ -312,9 +330,8 @@ namespace Tiunov
         }
         private void dataGridView3_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            Enum.Text = dataGridView3.CurrentRow.Cells[0].Value.ToString();
             Enam.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString();
-            Etip.SelectedValue = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+            Cb_etip.SelectedValue = dataGridView3.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void AddGraf_Click(object sender, EventArgs e)
@@ -327,6 +344,78 @@ namespace Tiunov
         {
             Qualifications Qualifications = new Qualifications();
             Qualifications.Show();
+        }
+
+        private void RbtnInsert_Click(object sender, EventArgs e)
+        {
+            if (cb_enum.SelectedIndex == -1 || cb_rstatus.SelectedIndex == -1)
+            {
+                MessageBox.Show("Заполните все значения");
+                return;
+            }
+            string query = "Insert into Restavracia (Enum, Rstatus) values (@Enum,@Rstatus)";
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
+            cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedItem);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            GetRest();
+        }
+
+        private void RbtnUpdate_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Update Restavracia Set Enum=@Enum,Rstatus=@Rstatus Where Rnum=@Rnum";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
+                cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedItem);
+                cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetRest();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void RbtnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "Delete From Restavracia Where Rnum=@Rnum";
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GetRest();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+        private void RbtnClear_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes(tabPage4);
+        }
+        private void dataGridView4_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            cb_enum.SelectedValue = dataGridView4.CurrentRow.Cells[1].Value.ToString();
+            cb_rstatus.SelectedItem = dataGridView4.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void AddTips_Click(object sender, EventArgs e)
+        {
+            Tips_Exp Tips_Exp = new Tips_Exp();
+            Tips_Exp.Show();
         }
     }
 }

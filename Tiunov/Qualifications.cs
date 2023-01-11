@@ -21,11 +21,15 @@ namespace Tiunov
         {
             InitializeComponent();
         }
-        void GetKval()
+        void GetCon()
         {
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
-            da = new SqlDataAdapter("SELECT * FROM Kvalifikacya", con);
             ds = new DataSet();
+        }
+        void GetKval()
+        {
+            GetCon();
+            da = new SqlDataAdapter("SELECT * FROM Kvalifikacya", con);
             con.Open();
             da.Fill(ds, "Kvalifikacya");
             dataGridView5.DataSource = ds.Tables["Kvalifikacya"];
@@ -58,9 +62,8 @@ namespace Tiunov
                 MessageBox.Show("Заполните все значения");
                 return;
             }
-            string query = "Insert into Kvalifikacya (Skval, Kval) values (@Skval, @Kval)";
+            string query = "Insert into Kvalifikacya (Kval) values (@Kval)";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Skval", Convert.ToInt32(Skval.Text));
             cmd.Parameters.AddWithValue("@Kval", Kval.Text);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -76,7 +79,7 @@ namespace Tiunov
                 string query = "Update Kvalifikacya Set Kval=@Kval Where Skval=@Skval";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Kval", Kval.Text);
-                cmd.Parameters.AddWithValue("@Skval", Convert.ToInt32(Skval.Text));
+                cmd.Parameters.AddWithValue("@Skval", dataGridView5.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -114,7 +117,6 @@ namespace Tiunov
 
         private void dataGridView5_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            Skval.Text = dataGridView5.CurrentRow.Cells[0].Value.ToString();
             Kval.Text = dataGridView5.CurrentRow.Cells[1].Value.ToString();
         }
     }

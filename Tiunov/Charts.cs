@@ -21,11 +21,15 @@ namespace Tiunov
         {
             InitializeComponent();
         }
-        public void GetCharts()
+        void GetCon()
         {
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
-            da = new SqlDataAdapter("SELECT * FROM Grafiki", con);
             ds = new DataSet();
+        }
+        void GetCharts()
+        {
+            GetCon();
+            da = new SqlDataAdapter("SELECT * FROM Grafiki", con);
             con.Open();
             da.Fill(ds, "Grafiki");
             dataGridView4.DataSource = ds.Tables["Grafiki"];
@@ -58,9 +62,8 @@ namespace Tiunov
                 MessageBox.Show("Заполните все значения");
                 return;
             }
-            string query = "Insert into Grafiki (Sgraf,Grafik) values (@Sgraf,@Grafik)";
+            string query = "Insert into Grafiki (Grafik) values (@Grafik)";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Sgraf", Convert.ToInt32(Sgraf.Text));
             cmd.Parameters.AddWithValue("@Grafik", Grafik.Text);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -76,7 +79,7 @@ namespace Tiunov
                 string query = "Update Grafiki Set Grafik=@Grafik Where Sgraf=@Sgraf";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Grafik", Grafik.Text);
-                cmd.Parameters.AddWithValue("@Sgraf", Convert.ToInt32(Sgraf.Text));
+                cmd.Parameters.AddWithValue("@Sgraf", dataGridView4.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -114,7 +117,6 @@ namespace Tiunov
 
         private void dataGridView4_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            Sgraf.Text = dataGridView4.CurrentRow.Cells[0].Value.ToString();
             Grafik.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
         }
     }

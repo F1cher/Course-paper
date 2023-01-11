@@ -29,7 +29,6 @@ namespace Tiunov
         /// </summary>
         private void InitializeComponent()
         {
-            this.Skval = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Kval = new System.Windows.Forms.TextBox();
             this.TbtnClear = new System.Windows.Forms.Button();
@@ -40,34 +39,28 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.SuspendLayout();
             // 
-            // Skval
-            // 
-            this.Skval.Location = new System.Drawing.Point(12, 64);
-            this.Skval.Name = "Skval";
-            this.Skval.Size = new System.Drawing.Size(100, 20);
-            this.Skval.TabIndex = 43;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 48);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label1.Location = new System.Drawing.Point(12, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 42;
             this.label1.Text = "Наименование";
             // 
             // Kval
             // 
-            this.Kval.Location = new System.Drawing.Point(127, 64);
+            this.Kval.Location = new System.Drawing.Point(12, 77);
             this.Kval.Name = "Kval";
             this.Kval.Size = new System.Drawing.Size(100, 20);
             this.Kval.TabIndex = 41;
             // 
             // TbtnClear
             // 
-            this.TbtnClear.Location = new System.Drawing.Point(255, 11);
+            this.TbtnClear.Location = new System.Drawing.Point(315, 11);
             this.TbtnClear.Name = "TbtnClear";
-            this.TbtnClear.Size = new System.Drawing.Size(75, 23);
+            this.TbtnClear.Size = new System.Drawing.Size(95, 29);
             this.TbtnClear.TabIndex = 40;
             this.TbtnClear.Text = "Очистить";
             this.TbtnClear.UseVisualStyleBackColor = true;
@@ -75,9 +68,9 @@ namespace Tiunov
             // 
             // TbtnDelete
             // 
-            this.TbtnDelete.Location = new System.Drawing.Point(174, 11);
+            this.TbtnDelete.Location = new System.Drawing.Point(214, 11);
             this.TbtnDelete.Name = "TbtnDelete";
-            this.TbtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.TbtnDelete.Size = new System.Drawing.Size(95, 29);
             this.TbtnDelete.TabIndex = 39;
             this.TbtnDelete.Text = "Удалить";
             this.TbtnDelete.UseVisualStyleBackColor = true;
@@ -85,9 +78,9 @@ namespace Tiunov
             // 
             // TbtnUpdate
             // 
-            this.TbtnUpdate.Location = new System.Drawing.Point(93, 11);
+            this.TbtnUpdate.Location = new System.Drawing.Point(113, 11);
             this.TbtnUpdate.Name = "TbtnUpdate";
-            this.TbtnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.TbtnUpdate.Size = new System.Drawing.Size(95, 29);
             this.TbtnUpdate.TabIndex = 38;
             this.TbtnUpdate.Text = "Изменить";
             this.TbtnUpdate.UseVisualStyleBackColor = true;
@@ -97,7 +90,7 @@ namespace Tiunov
             // 
             this.TbtnInsert.Location = new System.Drawing.Point(12, 11);
             this.TbtnInsert.Name = "TbtnInsert";
-            this.TbtnInsert.Size = new System.Drawing.Size(75, 23);
+            this.TbtnInsert.Size = new System.Drawing.Size(95, 29);
             this.TbtnInsert.TabIndex = 37;
             this.TbtnInsert.Text = "Добавить";
             this.TbtnInsert.UseVisualStyleBackColor = true;
@@ -121,7 +114,6 @@ namespace Tiunov
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Skval);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Kval);
             this.Controls.Add(this.TbtnClear);
@@ -139,8 +131,6 @@ namespace Tiunov
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Skval;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Kval;
         private System.Windows.Forms.Button TbtnClear;

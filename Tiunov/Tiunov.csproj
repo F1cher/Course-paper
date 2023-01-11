@@ -78,6 +78,9 @@
     <Compile Include="Tips_Exp.Designer.cs">
       <DependentUpon>Tips_Exp.cs</DependentUpon>
     </Compile>
+    <Compile Include="TiunovDataSet.cs">
+      <DependentUpon>TiunovDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TiunovDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
