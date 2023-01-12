@@ -37,14 +37,14 @@ namespace Tiunov
             this.TbtnUpdate = new System.Windows.Forms.Button();
             this.TbtnInsert = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tiunovDataSet = new Tiunov.TiunovDataSet();
-            this.exponattipBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.exponat_tipTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Exponat_tipTableAdapter();
             this.etipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exponattipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiunovDataSet = new Tiunov.TiunovDataSet();
+            this.exponat_tipTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Exponat_tipTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -118,35 +118,38 @@ namespace Tiunov
             this.dataGridView1.DataSource = this.exponattipBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 103);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(776, 337);
             this.dataGridView1.TabIndex = 36;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            // 
-            // tiunovDataSet
-            // 
-            this.tiunovDataSet.DataSetName = "TiunovDataSet";
-            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // exponattipBindingSource
-            // 
-            this.exponattipBindingSource.DataMember = "Exponat_tip";
-            this.exponattipBindingSource.DataSource = this.tiunovDataSet;
-            // 
-            // exponat_tipTableAdapter
-            // 
-            this.exponat_tipTableAdapter.ClearBeforeFill = true;
             // 
             // etipDataGridViewTextBoxColumn
             // 
             this.etipDataGridViewTextBoxColumn.DataPropertyName = "Etip";
             this.etipDataGridViewTextBoxColumn.HeaderText = "№ типа";
             this.etipDataGridViewTextBoxColumn.Name = "etipDataGridViewTextBoxColumn";
+            this.etipDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tipDataGridViewTextBoxColumn
             // 
             this.tipDataGridViewTextBoxColumn.DataPropertyName = "Tip";
             this.tipDataGridViewTextBoxColumn.HeaderText = "Тип";
             this.tipDataGridViewTextBoxColumn.Name = "tipDataGridViewTextBoxColumn";
+            this.tipDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // exponattipBindingSource
+            // 
+            this.exponattipBindingSource.DataMember = "Exponat_tip";
+            this.exponattipBindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // tiunovDataSet
+            // 
+            this.tiunovDataSet.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // exponat_tipTableAdapter
+            // 
+            this.exponat_tipTableAdapter.ClearBeforeFill = true;
             // 
             // Tips_Exp
             // 
@@ -164,8 +167,8 @@ namespace Tiunov
             this.Text = "Типы экспонатов";
             this.Load += new System.EventHandler(this.Tips_Exp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

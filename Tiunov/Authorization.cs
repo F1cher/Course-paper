@@ -26,13 +26,13 @@ namespace Tiunov
         }
         private void Authbtn_Click(object sender, EventArgs e)
         {
-            string usr = Login.Text;
-            string psw = Pass.Text;
+            string user = Convert.ToString(Login.SelectedValue);
+            string pass = Pass.Text;
             GetCon();
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
-            string str = "SELECT * FROM Sotrudniki where Login='" + Login.Text + "' AND Pass='" + Pass.Text + "'";
+            string str = "SELECT * FROM Sotrudniki where Login='" + user + "' AND Pass='" + pass + "'";
             cmd.CommandText = str;
             dr = cmd.ExecuteReader();
             if (dr.Read())
@@ -47,6 +47,13 @@ namespace Tiunov
             }
 
             con.Close();
+        }
+
+        private void Authorization_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
+            this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
+
         }
     }
 }

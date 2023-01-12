@@ -37,14 +37,14 @@ namespace Tiunov
             this.TbtnUpdate = new System.Windows.Forms.Button();
             this.TbtnInsert = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.tiunovDataSet = new Tiunov.TiunovDataSet();
-            this.kvalifikacyaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kvalifikacyaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.KvalifikacyaTableAdapter();
             this.skvalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kvalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kvalifikacyaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiunovDataSet = new Tiunov.TiunovDataSet();
+            this.kvalifikacyaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.KvalifikacyaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kvalifikacyaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -118,35 +118,38 @@ namespace Tiunov
             this.dataGridView5.DataSource = this.kvalifikacyaBindingSource;
             this.dataGridView5.Location = new System.Drawing.Point(12, 103);
             this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
             this.dataGridView5.Size = new System.Drawing.Size(776, 337);
             this.dataGridView5.TabIndex = 36;
             this.dataGridView5.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellEnter);
-            // 
-            // tiunovDataSet
-            // 
-            this.tiunovDataSet.DataSetName = "TiunovDataSet";
-            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kvalifikacyaBindingSource
-            // 
-            this.kvalifikacyaBindingSource.DataMember = "Kvalifikacya";
-            this.kvalifikacyaBindingSource.DataSource = this.tiunovDataSet;
-            // 
-            // kvalifikacyaTableAdapter
-            // 
-            this.kvalifikacyaTableAdapter.ClearBeforeFill = true;
             // 
             // skvalDataGridViewTextBoxColumn
             // 
             this.skvalDataGridViewTextBoxColumn.DataPropertyName = "Skval";
             this.skvalDataGridViewTextBoxColumn.HeaderText = "№ квалификации";
             this.skvalDataGridViewTextBoxColumn.Name = "skvalDataGridViewTextBoxColumn";
+            this.skvalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // kvalDataGridViewTextBoxColumn
             // 
             this.kvalDataGridViewTextBoxColumn.DataPropertyName = "Kval";
             this.kvalDataGridViewTextBoxColumn.HeaderText = "Квалификация";
             this.kvalDataGridViewTextBoxColumn.Name = "kvalDataGridViewTextBoxColumn";
+            this.kvalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kvalifikacyaBindingSource
+            // 
+            this.kvalifikacyaBindingSource.DataMember = "Kvalifikacya";
+            this.kvalifikacyaBindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // tiunovDataSet
+            // 
+            this.tiunovDataSet.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kvalifikacyaTableAdapter
+            // 
+            this.kvalifikacyaTableAdapter.ClearBeforeFill = true;
             // 
             // Qualifications
             // 
@@ -164,8 +167,8 @@ namespace Tiunov
             this.Text = "Квалификации";
             this.Load += new System.EventHandler(this.Qualifications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kvalifikacyaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

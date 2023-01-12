@@ -163,7 +163,15 @@ namespace Tiunov
         }
         private void PbtnClear_Click(object sender, EventArgs e)
         {
-            ClearTextBoxes(tabPage1);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите очистить поля?", "Очистить поля", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ClearTextBoxes(tabPage1);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -221,12 +229,13 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Skval=@Skval,Sgraf=@Sgraf,Login=@Login,Pass=@Pass Where Snum=@Snum";
+                string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Stel=@Stel,Skval=@Skval,Sgraf=@Sgraf,Login=@Login,Pass=@Pass Where Snum=@Snum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Snum", dataGridView2.CurrentRow.Cells[0].Value);
                 cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
                 cmd.Parameters.AddWithValue("@Snam", Snam.Text);
                 cmd.Parameters.AddWithValue("@Sotch", Sotch.Text);
+                cmd.Parameters.AddWithValue("@Stel", Stel.Text);
                 cmd.Parameters.AddWithValue("@Skval", Skval.SelectedValue);
                 cmd.Parameters.AddWithValue("@Sgraf", Sgraf.SelectedValue);
                 cmd.Parameters.AddWithValue("@Login", Login.Text);
@@ -276,7 +285,7 @@ namespace Tiunov
         }
         private void EbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Enam.Text == "" || Cb_etip.SelectedIndex == -1 || Ecena.Text == "" || cb_pnum.SelectedIndex == -1)
+            if (Enam.Text == "" || Cb_etip.SelectedIndex == -1 || Ecena.Text == "" || Cb_pnum.SelectedIndex == -1)
             {
                 MessageBox.Show("Заполните все значения");
                 return;
@@ -286,7 +295,7 @@ namespace Tiunov
             cmd.Parameters.AddWithValue("@Enam", Enam.Text);
             cmd.Parameters.AddWithValue("@Etip", Cb_etip.SelectedValue);
             cmd.Parameters.AddWithValue("@Ecena", Ecena.Text);
-            cmd.Parameters.AddWithValue("@Pnum", cb_pnum.SelectedValue);
+            cmd.Parameters.AddWithValue("@Pnum", Cb_pnum.SelectedValue);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -303,7 +312,7 @@ namespace Tiunov
                 cmd.Parameters.AddWithValue("@Enam", Enam.Text);
                 cmd.Parameters.AddWithValue("@Etip", Cb_etip.SelectedValue);
                 cmd.Parameters.AddWithValue("@Ecena", Ecena.Text);
-                cmd.Parameters.AddWithValue("@Pnum", cb_pnum.SelectedValue);
+                cmd.Parameters.AddWithValue("@Pnum", Cb_pnum.SelectedValue);
                 cmd.Parameters.AddWithValue("@Enum", Convert.ToInt32(dataGridView3.CurrentRow.Cells[0].Value));
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -342,6 +351,8 @@ namespace Tiunov
         {
             Enam.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString();
             Cb_etip.SelectedValue = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+            Ecena.Text = dataGridView3.CurrentRow.Cells[3].Value.ToString();
+            Cb_pnum.SelectedValue = dataGridView3.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void AddGraf_Click(object sender, EventArgs e)
@@ -419,7 +430,7 @@ namespace Tiunov
         private void dataGridView4_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             cb_enum.SelectedValue = dataGridView4.CurrentRow.Cells[1].Value.ToString();
-            cb_rstatus.SelectedItem = dataGridView4.CurrentRow.Cells[2].Value.ToString();
+            cb_rstatus.SelectedValue = dataGridView4.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void AddTips_Click(object sender, EventArgs e)
@@ -432,6 +443,13 @@ namespace Tiunov
         {
             Restoration_status Restoration_status = new Restoration_status();
             Restoration_status.Show();
+        }
+
+        private void Stel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
         }
     }
 }

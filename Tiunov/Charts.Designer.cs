@@ -118,6 +118,7 @@ namespace Tiunov
             this.dataGridView4.DataSource = this.grafikiBindingSource;
             this.dataGridView4.Location = new System.Drawing.Point(12, 103);
             this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
             this.dataGridView4.Size = new System.Drawing.Size(776, 337);
             this.dataGridView4.TabIndex = 36;
             this.dataGridView4.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellEnter);
@@ -127,12 +128,14 @@ namespace Tiunov
             this.sgrafDataGridViewTextBoxColumn.DataPropertyName = "Sgraf";
             this.sgrafDataGridViewTextBoxColumn.HeaderText = "№ графика";
             this.sgrafDataGridViewTextBoxColumn.Name = "sgrafDataGridViewTextBoxColumn";
+            this.sgrafDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // grafikDataGridViewTextBoxColumn
             // 
             this.grafikDataGridViewTextBoxColumn.DataPropertyName = "Grafik";
             this.grafikDataGridViewTextBoxColumn.HeaderText = "График";
             this.grafikDataGridViewTextBoxColumn.Name = "grafikDataGridViewTextBoxColumn";
+            this.grafikDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // grafikiBindingSource
             // 

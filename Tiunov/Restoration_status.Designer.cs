@@ -37,11 +37,11 @@ namespace Tiunov
             this.SbtnUpdate = new System.Windows.Forms.Button();
             this.SbtnInsert = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.rstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.restorationstatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiunovDataSet = new Tiunov.TiunovDataSet();
             this.restoration_statusTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Restoration_statusTableAdapter();
-            this.rstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
@@ -61,7 +61,7 @@ namespace Tiunov
             // 
             this.Status.Location = new System.Drawing.Point(12, 77);
             this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(100, 20);
+            this.Status.Size = new System.Drawing.Size(172, 20);
             this.Status.TabIndex = 48;
             // 
             // SbtnClear
@@ -118,9 +118,24 @@ namespace Tiunov
             this.dataGridView5.DataSource = this.restorationstatusBindingSource;
             this.dataGridView5.Location = new System.Drawing.Point(12, 103);
             this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
             this.dataGridView5.Size = new System.Drawing.Size(776, 337);
             this.dataGridView5.TabIndex = 43;
             this.dataGridView5.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellEnter);
+            // 
+            // rstatusDataGridViewTextBoxColumn
+            // 
+            this.rstatusDataGridViewTextBoxColumn.DataPropertyName = "Rstatus";
+            this.rstatusDataGridViewTextBoxColumn.HeaderText = "№ статуса";
+            this.rstatusDataGridViewTextBoxColumn.Name = "rstatusDataGridViewTextBoxColumn";
+            this.rstatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // restorationstatusBindingSource
             // 
@@ -135,18 +150,6 @@ namespace Tiunov
             // restoration_statusTableAdapter
             // 
             this.restoration_statusTableAdapter.ClearBeforeFill = true;
-            // 
-            // rstatusDataGridViewTextBoxColumn
-            // 
-            this.rstatusDataGridViewTextBoxColumn.DataPropertyName = "Rstatus";
-            this.rstatusDataGridViewTextBoxColumn.HeaderText = "№ статуса";
-            this.rstatusDataGridViewTextBoxColumn.Name = "rstatusDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
             // Restoration_status
             // 

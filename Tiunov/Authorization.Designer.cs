@@ -29,11 +29,17 @@ namespace Tiunov
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Authbtn = new System.Windows.Forms.Button();
             this.Pass = new System.Windows.Forms.TextBox();
-            this.Login = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Login = new System.Windows.Forms.ComboBox();
+            this.tiunovDataSet = new Tiunov.TiunovDataSet();
+            this.sotrudnikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Authbtn
@@ -53,13 +59,6 @@ namespace Tiunov
             this.Pass.PasswordChar = '*';
             this.Pass.Size = new System.Drawing.Size(166, 20);
             this.Pass.TabIndex = 8;
-            // 
-            // Login
-            // 
-            this.Login.Location = new System.Drawing.Point(108, 48);
-            this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(168, 20);
-            this.Login.TabIndex = 7;
             // 
             // label2
             // 
@@ -81,18 +80,47 @@ namespace Tiunov
             this.label1.TabIndex = 5;
             this.label1.Text = "Логин";
             // 
+            // Login
+            // 
+            this.Login.DataSource = this.sotrudnikiBindingSource;
+            this.Login.DisplayMember = "Login";
+            this.Login.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Login.FormattingEnabled = true;
+            this.Login.Location = new System.Drawing.Point(108, 45);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(166, 21);
+            this.Login.TabIndex = 10;
+            this.Login.ValueMember = "Login";
+            // 
+            // tiunovDataSet
+            // 
+            this.tiunovDataSet.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sotrudnikiBindingSource
+            // 
+            this.sotrudnikiBindingSource.DataMember = "Sotrudniki";
+            this.sotrudnikiBindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // sotrudnikiTableAdapter
+            // 
+            this.sotrudnikiTableAdapter.ClearBeforeFill = true;
+            // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 198);
+            this.Controls.Add(this.Login);
             this.Controls.Add(this.Authbtn);
             this.Controls.Add(this.Pass);
-            this.Controls.Add(this.Login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Authorization";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.Authorization_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,8 +130,11 @@ namespace Tiunov
 
         private System.Windows.Forms.Button Authbtn;
         private System.Windows.Forms.TextBox Pass;
-        private System.Windows.Forms.TextBox Login;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox Login;
+        private TiunovDataSet tiunovDataSet;
+        private System.Windows.Forms.BindingSource sotrudnikiBindingSource;
+        private TiunovDataSetTableAdapters.SotrudnikiTableAdapter sotrudnikiTableAdapter;
     }
 }

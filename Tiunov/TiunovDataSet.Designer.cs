@@ -48,6 +48,14 @@ namespace Tiunov {
         
         private global::System.Data.DataRelation relationExponat_Restavracia;
         
+        private global::System.Data.DataRelation relationKvalifikacya_Sotrudniki;
+        
+        private global::System.Data.DataRelation relationGrafiki_Sotrudniki;
+        
+        private global::System.Data.DataRelation relationExponat_tip_Exponat;
+        
+        private global::System.Data.DataRelation relationPomeshenya_Exponat;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -416,6 +424,10 @@ namespace Tiunov {
             }
             this.relationRestoration_status_Restavracia = this.Relations["Restoration_status_Restavracia"];
             this.relationExponat_Restavracia = this.Relations["Exponat_Restavracia"];
+            this.relationKvalifikacya_Sotrudniki = this.Relations["Kvalifikacya_Sotrudniki"];
+            this.relationGrafiki_Sotrudniki = this.Relations["Grafiki_Sotrudniki"];
+            this.relationExponat_tip_Exponat = this.Relations["Exponat_tip_Exponat"];
+            this.relationPomeshenya_Exponat = this.Relations["Pomeshenya_Exponat"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -454,6 +466,22 @@ namespace Tiunov {
                         this.tableExponat.EnumColumn}, new global::System.Data.DataColumn[] {
                         this.tableRestavracia.EnumColumn}, false);
             this.Relations.Add(this.relationExponat_Restavracia);
+            this.relationKvalifikacya_Sotrudniki = new global::System.Data.DataRelation("Kvalifikacya_Sotrudniki", new global::System.Data.DataColumn[] {
+                        this.tableKvalifikacya.SkvalColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSotrudniki.SkvalColumn}, false);
+            this.Relations.Add(this.relationKvalifikacya_Sotrudniki);
+            this.relationGrafiki_Sotrudniki = new global::System.Data.DataRelation("Grafiki_Sotrudniki", new global::System.Data.DataColumn[] {
+                        this.tableGrafiki.SgrafColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSotrudniki.SgrafColumn}, false);
+            this.Relations.Add(this.relationGrafiki_Sotrudniki);
+            this.relationExponat_tip_Exponat = new global::System.Data.DataRelation("Exponat_tip_Exponat", new global::System.Data.DataColumn[] {
+                        this.tableExponat_tip.EtipColumn}, new global::System.Data.DataColumn[] {
+                        this.tableExponat.EtipColumn}, false);
+            this.Relations.Add(this.relationExponat_tip_Exponat);
+            this.relationPomeshenya_Exponat = new global::System.Data.DataRelation("Pomeshenya_Exponat", new global::System.Data.DataColumn[] {
+                        this.tablePomeshenya.PnumColumn}, new global::System.Data.DataColumn[] {
+                        this.tableExponat.PnumColumn}, false);
+            this.Relations.Add(this.relationPomeshenya_Exponat);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -728,14 +756,20 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExponatRow AddExponatRow(int Enum, string Enam, int Etip, decimal Ecena, int Pnum) {
+            public ExponatRow AddExponatRow(int Enum, string Enam, Exponat_tipRow parentExponat_tipRowByExponat_tip_Exponat, int Ecena, PomeshenyaRow parentPomeshenyaRowByPomeshenya_Exponat) {
                 ExponatRow rowExponatRow = ((ExponatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Enum,
                         Enam,
-                        Etip,
+                        null,
                         Ecena,
-                        Pnum};
+                        null};
+                if ((parentExponat_tipRowByExponat_tip_Exponat != null)) {
+                    columnValuesArray[2] = parentExponat_tipRowByExponat_tip_Exponat[0];
+                }
+                if ((parentPomeshenyaRowByPomeshenya_Exponat != null)) {
+                    columnValuesArray[4] = parentPomeshenyaRowByPomeshenya_Exponat[0];
+                }
                 rowExponatRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowExponatRow);
                 return rowExponatRow;
@@ -781,7 +815,7 @@ namespace Tiunov {
                 base.Columns.Add(this.columnEnam);
                 this.columnEtip = new global::System.Data.DataColumn("Etip", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEtip);
-                this.columnEcena = new global::System.Data.DataColumn("Ecena", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnEcena = new global::System.Data.DataColumn("Ecena", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEcena);
                 this.columnPnum = new global::System.Data.DataColumn("Pnum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPnum);
@@ -1902,7 +1936,7 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SotrudnikiRow AddSotrudnikiRow(int Snum, string Sfam, string Snam, string Sotch, int Stel, int Skval, int Sgraf, string Login, string Pass) {
+            public SotrudnikiRow AddSotrudnikiRow(int Snum, string Sfam, string Snam, string Sotch, string Stel, KvalifikacyaRow parentKvalifikacyaRowByKvalifikacya_Sotrudniki, GrafikiRow parentGrafikiRowByGrafiki_Sotrudniki, string Login, string Pass) {
                 SotrudnikiRow rowSotrudnikiRow = ((SotrudnikiRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Snum,
@@ -1910,10 +1944,16 @@ namespace Tiunov {
                         Snam,
                         Sotch,
                         Stel,
-                        Skval,
-                        Sgraf,
+                        null,
+                        null,
                         Login,
                         Pass};
+                if ((parentKvalifikacyaRowByKvalifikacya_Sotrudniki != null)) {
+                    columnValuesArray[5] = parentKvalifikacyaRowByKvalifikacya_Sotrudniki[0];
+                }
+                if ((parentGrafikiRowByGrafiki_Sotrudniki != null)) {
+                    columnValuesArray[6] = parentGrafikiRowByGrafiki_Sotrudniki[0];
+                }
                 rowSotrudnikiRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSotrudnikiRow);
                 return rowSotrudnikiRow;
@@ -1965,7 +2005,7 @@ namespace Tiunov {
                 base.Columns.Add(this.columnSnam);
                 this.columnSotch = new global::System.Data.DataColumn("Sotch", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSotch);
-                this.columnStel = new global::System.Data.DataColumn("Stel", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnStel = new global::System.Data.DataColumn("Stel", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStel);
                 this.columnSkval = new global::System.Data.DataColumn("Skval", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSkval);
@@ -1982,6 +2022,7 @@ namespace Tiunov {
                 this.columnSfam.MaxLength = 25;
                 this.columnSnam.MaxLength = 25;
                 this.columnSotch.MaxLength = 25;
+                this.columnStel.MaxLength = 25;
                 this.columnLogin.MaxLength = 25;
                 this.columnPass.MaxLength = 25;
             }
@@ -3582,10 +3623,10 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Ecena {
+            public int Ecena {
                 get {
                     try {
-                        return ((decimal)(this[this.tableExponat.EcenaColumn]));
+                        return ((int)(this[this.tableExponat.EcenaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Ecena\' в таблице \'Exponat\' равно DBNull.", e);
@@ -3609,6 +3650,28 @@ namespace Tiunov {
                 }
                 set {
                     this[this.tableExponat.PnumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Exponat_tipRow Exponat_tipRow {
+                get {
+                    return ((Exponat_tipRow)(this.GetParentRow(this.Table.ParentRelations["Exponat_tip_Exponat"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Exponat_tip_Exponat"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PomeshenyaRow PomeshenyaRow {
+                get {
+                    return ((PomeshenyaRow)(this.GetParentRow(this.Table.ParentRelations["Pomeshenya_Exponat"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Pomeshenya_Exponat"]);
                 }
             }
             
@@ -3724,6 +3787,17 @@ namespace Tiunov {
             public void SetTipNull() {
                 this[this.tableExponat_tip.TipColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExponatRow[] GetExponatRows() {
+                if ((this.Table.ChildRelations["Exponat_tip_Exponat"] == null)) {
+                    return new ExponatRow[0];
+                }
+                else {
+                    return ((ExponatRow[])(base.GetChildRows(this.Table.ChildRelations["Exponat_tip_Exponat"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3778,6 +3852,17 @@ namespace Tiunov {
             public void SetGrafikNull() {
                 this[this.tableGrafiki.GrafikColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SotrudnikiRow[] GetSotrudnikiRows() {
+                if ((this.Table.ChildRelations["Grafiki_Sotrudniki"] == null)) {
+                    return new SotrudnikiRow[0];
+                }
+                else {
+                    return ((SotrudnikiRow[])(base.GetChildRows(this.Table.ChildRelations["Grafiki_Sotrudniki"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3831,6 +3916,17 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetKvalNull() {
                 this[this.tableKvalifikacya.KvalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SotrudnikiRow[] GetSotrudnikiRows() {
+                if ((this.Table.ChildRelations["Kvalifikacya_Sotrudniki"] == null)) {
+                    return new SotrudnikiRow[0];
+                }
+                else {
+                    return ((SotrudnikiRow[])(base.GetChildRows(this.Table.ChildRelations["Kvalifikacya_Sotrudniki"])));
+                }
             }
         }
         
@@ -3909,10 +4005,10 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Stel {
+            public string Stel {
                 get {
                     try {
-                        return ((int)(this[this.tableSotrudniki.StelColumn]));
+                        return ((string)(this[this.tableSotrudniki.StelColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Stel\' в таблице \'Sotrudniki\' равно DBNull.", e);
@@ -3984,6 +4080,28 @@ namespace Tiunov {
                 }
                 set {
                     this[this.tableSotrudniki.PassColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public KvalifikacyaRow KvalifikacyaRow {
+                get {
+                    return ((KvalifikacyaRow)(this.GetParentRow(this.Table.ParentRelations["Kvalifikacya_Sotrudniki"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Kvalifikacya_Sotrudniki"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public GrafikiRow GrafikiRow {
+                get {
+                    return ((GrafikiRow)(this.GetParentRow(this.Table.ParentRelations["Grafiki_Sotrudniki"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Grafiki_Sotrudniki"]);
                 }
             }
             
@@ -4219,6 +4337,17 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPtrebNull() {
                 this[this.tablePomeshenya.PtrebColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExponatRow[] GetExponatRows() {
+                if ((this.Table.ChildRelations["Pomeshenya_Exponat"] == null)) {
+                    return new ExponatRow[0];
+                }
+                else {
+                    return ((ExponatRow[])(base.GetChildRows(this.Table.ChildRelations["Pomeshenya_Exponat"])));
+                }
             }
         }
         
@@ -8600,30 +8729,30 @@ GROUP BY Restoration_status.Status";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(TiunovDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._exponatTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._exponatTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._restoration_statusTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._restoration_statusTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._exponat_tipTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Exponat_tip.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._exponat_tipTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._pomeshenyaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pomeshenyaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._exponatTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._exponatTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8645,21 +8774,21 @@ GROUP BY Restoration_status.Status";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._restoration_statusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._restoration_statusTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._sotrudnikiTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Sotrudniki.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._sotrudnikiTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._pomeshenyaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pomeshenyaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8682,27 +8811,27 @@ GROUP BY Restoration_status.Status";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(TiunovDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._exponatTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._exponatTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._restoration_statusTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._restoration_statusTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._exponat_tipTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Exponat_tip.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._exponat_tipTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._pomeshenyaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pomeshenyaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._exponatTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._exponatTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8722,19 +8851,19 @@ GROUP BY Restoration_status.Status";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._restoration_statusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._restoration_statusTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._sotrudnikiTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Sotrudniki.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._sotrudnikiTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._pomeshenyaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pomeshenyaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8764,19 +8893,19 @@ GROUP BY Restoration_status.Status";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pomeshenyaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pomeshenyaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._sotrudnikiTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Sotrudniki.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._sotrudnikiTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._restoration_statusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._restoration_statusTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -8796,27 +8925,27 @@ GROUP BY Restoration_status.Status";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._exponat_tipTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Exponat_tip.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._exponat_tipTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._restoration_statusTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._restoration_statusTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._exponatTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._exponatTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pomeshenyaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pomeshenyaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._exponat_tipTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Exponat_tip.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._exponat_tipTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

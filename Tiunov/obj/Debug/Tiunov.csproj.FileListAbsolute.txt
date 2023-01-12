@@ -14,3 +14,4 @@ E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Qualifications.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Tips_Exp.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Statistics.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Restoration_status.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.csproj.ResolveComReference.cache
