@@ -4,5 +4,8 @@
 
     partial class TiunovDataSet
     {
+        partial class ExponatDataTable
+        {
+        }
     }
 }

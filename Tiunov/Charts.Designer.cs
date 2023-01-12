@@ -29,6 +29,7 @@ namespace Tiunov
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.Grafik = new System.Windows.Forms.TextBox();
             this.GbtnClear = new System.Windows.Forms.Button();
@@ -36,7 +37,14 @@ namespace Tiunov
             this.GbtnUpdate = new System.Windows.Forms.Button();
             this.GbtnInsert = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.sgrafDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grafikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grafikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiunovDataSet = new Tiunov.TiunovDataSet();
+            this.grafikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.GrafikiTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grafikiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -45,9 +53,9 @@ namespace Tiunov
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.label1.Location = new System.Drawing.Point(12, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Наименование";
+            this.label1.Text = "График";
             // 
             // Grafik
             // 
@@ -101,13 +109,44 @@ namespace Tiunov
             this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView4.AutoGenerateColumns = false;
             this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sgrafDataGridViewTextBoxColumn,
+            this.grafikDataGridViewTextBoxColumn});
+            this.dataGridView4.DataSource = this.grafikiBindingSource;
             this.dataGridView4.Location = new System.Drawing.Point(12, 103);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(776, 337);
             this.dataGridView4.TabIndex = 36;
             this.dataGridView4.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellEnter);
+            // 
+            // sgrafDataGridViewTextBoxColumn
+            // 
+            this.sgrafDataGridViewTextBoxColumn.DataPropertyName = "Sgraf";
+            this.sgrafDataGridViewTextBoxColumn.HeaderText = "№ графика";
+            this.sgrafDataGridViewTextBoxColumn.Name = "sgrafDataGridViewTextBoxColumn";
+            // 
+            // grafikDataGridViewTextBoxColumn
+            // 
+            this.grafikDataGridViewTextBoxColumn.DataPropertyName = "Grafik";
+            this.grafikDataGridViewTextBoxColumn.HeaderText = "График";
+            this.grafikDataGridViewTextBoxColumn.Name = "grafikDataGridViewTextBoxColumn";
+            // 
+            // grafikiBindingSource
+            // 
+            this.grafikiBindingSource.DataMember = "Grafiki";
+            this.grafikiBindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // tiunovDataSet
+            // 
+            this.tiunovDataSet.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // grafikiTableAdapter
+            // 
+            this.grafikiTableAdapter.ClearBeforeFill = true;
             // 
             // Charts
             // 
@@ -125,6 +164,8 @@ namespace Tiunov
             this.Text = "Графики работы";
             this.Load += new System.EventHandler(this.Charts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grafikiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +179,10 @@ namespace Tiunov
         private System.Windows.Forms.Button GbtnUpdate;
         private System.Windows.Forms.Button GbtnInsert;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private TiunovDataSet tiunovDataSet;
+        private System.Windows.Forms.BindingSource grafikiBindingSource;
+        private TiunovDataSetTableAdapters.GrafikiTableAdapter grafikiTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sgrafDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grafikDataGridViewTextBoxColumn;
     }
 }

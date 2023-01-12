@@ -62,7 +62,6 @@ namespace Tiunov
             dataGridView4.DataSource = ds.Tables["Restavracia"];
             con.Close();
         }
-
         public void ClearTextBoxes(TabPage tabPageName)
         {
             foreach (Control control in tabPageName.Controls)
@@ -80,6 +79,12 @@ namespace Tiunov
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restavracia". При необходимости она может быть перемещена или удалена.
+            this.restavraciaTableAdapter.Fill(this.tiunovDataSet.Restavracia);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
+            this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restoration_status". При необходимости она может быть перемещена или удалена.
+            this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Pomeshenya". При необходимости она может быть перемещена или удалена.
             this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat_tip". При необходимости она может быть перемещена или удалена.
@@ -168,15 +173,20 @@ namespace Tiunov
             Ptreb.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Statistics Statistics = new Statistics();
+            Statistics.Show();
+        }
+        private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Close();
         }
 
         private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Authorization frm1 = new Authorization();
-            frm1.Show();
+            Authorization Authorization = new Authorization();
+            Authorization.Show();
             this.Hide();
         }
 
@@ -356,7 +366,7 @@ namespace Tiunov
             string query = "Insert into Restavracia (Enum, Rstatus) values (@Enum,@Rstatus)";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
-            cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedItem);
+            cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedValue);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -371,7 +381,7 @@ namespace Tiunov
                 string query = "Update Restavracia Set Enum=@Enum,Rstatus=@Rstatus Where Rnum=@Rnum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
-                cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedItem);
+                cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedValue);
                 cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -416,6 +426,12 @@ namespace Tiunov
         {
             Tips_Exp Tips_Exp = new Tips_Exp();
             Tips_Exp.Show();
+        }
+
+        private void AddStatus_Click(object sender, EventArgs e)
+        {
+            Restoration_status Restoration_status = new Restoration_status();
+            Restoration_status.Show();
         }
     }
 }

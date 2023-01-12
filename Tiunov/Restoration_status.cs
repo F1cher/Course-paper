@@ -11,13 +11,13 @@ using System.Data.SqlClient;
 
 namespace Tiunov
 {
-    public partial class Qualifications : Form
+    public partial class Restoration_status : Form
     {
         DataSet ds;
         SqlDataAdapter da;
         SqlCommand cmd;
         SqlConnection con;
-        public Qualifications()
+        public Restoration_status()
         {
             InitializeComponent();
         }
@@ -26,13 +26,13 @@ namespace Tiunov
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
             ds = new DataSet();
         }
-        void GetKval()
+        void GetStatus()
         {
             GetCon();
-            da = new SqlDataAdapter("SELECT * FROM Kvalifikacya", con);
+            da = new SqlDataAdapter("SELECT * FROM Restoration_status", con);
             con.Open();
-            da.Fill(ds, "Kvalifikacya");
-            dataGridView5.DataSource = ds.Tables["Kvalifikacya"];
+            da.Fill(ds, "Restoration_status");
+            dataGridView5.DataSource = ds.Tables["Restoration_status"];
             con.Close();
         }
         public void ClearTextBoxes()
@@ -50,42 +50,42 @@ namespace Tiunov
                 }
             }
         }
-        private void Qualifications_Load(object sender, EventArgs e)
+        private void Restoration_status_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Kvalifikacya". При необходимости она может быть перемещена или удалена.
-            this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
-            GetKval();
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restoration_status". При необходимости она может быть перемещена или удалена.
+            this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
+            GetStatus();
         }
 
-        private void TbtnInsert_Click(object sender, EventArgs e)
+        private void SbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Kval.Text == "")
+            if (Status.Text == "")
             {
                 MessageBox.Show("Заполните все значения");
                 return;
             }
-            string query = "Insert into Kvalifikacya (Kval) values (@Kval)";
+            string query = "Insert into Restoration_status (Status) values (@Status)";
             cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Kval", Kval.Text);
+            cmd.Parameters.AddWithValue("@Status", Status.Text);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
-            GetKval();
+            GetStatus();
         }
 
-        private void TbtnUpdate_Click(object sender, EventArgs e)
+        private void SbtnUpdate_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Kvalifikacya Set Kval=@Kval Where Skval=@Skval";
+                string query = "Update Restoration_status Set Status=@Status Where Rstatus=@Rstatus";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Kval", Kval.Text);
-                cmd.Parameters.AddWithValue("@Skval", dataGridView5.CurrentRow.Cells[0].Value);
+                cmd.Parameters.AddWithValue("@Status", Status.Text);
+                cmd.Parameters.AddWithValue("@Rstatus", dataGridView5.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                GetKval();
+                GetStatus();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -93,18 +93,18 @@ namespace Tiunov
             }
         }
 
-        private void TbtnDelete_Click(object sender, EventArgs e)
+        private void SbtnDelete_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Delete From Kvalifikacya Where Skval=@Skval";
+                string query = "Delete From Restoration_status Where Rstatus=@Rstatus";
                 cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Skval", dataGridView5.CurrentRow.Cells[0].Value);
+                cmd.Parameters.AddWithValue("@Rstatus", dataGridView5.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                GetKval();
+                GetStatus();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -112,14 +112,14 @@ namespace Tiunov
             }
         }
 
-        private void TbtnClear_Click(object sender, EventArgs e)
+        private void SbtnClear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
         }
 
         private void dataGridView5_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            Kval.Text = dataGridView5.CurrentRow.Cells[1].Value.ToString();
+            Status.Text = dataGridView5.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

@@ -52,6 +52,8 @@ namespace Tiunov
         }
         private void Tips_Exp_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat_tip". При необходимости она может быть перемещена или удалена.
+            this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
             GetTips();
         }
 

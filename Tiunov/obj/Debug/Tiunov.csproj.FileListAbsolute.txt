@@ -12,3 +12,5 @@ E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Authorization.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Charts.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Qualifications.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Tips_Exp.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Statistics.resources
+E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Restoration_status.resources

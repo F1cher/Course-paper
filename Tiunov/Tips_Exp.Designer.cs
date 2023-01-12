@@ -29,6 +29,7 @@ namespace Tiunov
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.Tip = new System.Windows.Forms.TextBox();
             this.TbtnClear = new System.Windows.Forms.Button();
@@ -36,7 +37,14 @@ namespace Tiunov
             this.TbtnUpdate = new System.Windows.Forms.Button();
             this.TbtnInsert = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tiunovDataSet = new Tiunov.TiunovDataSet();
+            this.exponattipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.exponat_tipTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Exponat_tipTableAdapter();
+            this.etipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -45,9 +53,9 @@ namespace Tiunov
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.label1.Location = new System.Drawing.Point(12, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Наименование";
+            this.label1.Text = "Тип";
             // 
             // Tip
             // 
@@ -101,13 +109,44 @@ namespace Tiunov
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.etipDataGridViewTextBoxColumn,
+            this.tipDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.exponattipBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 103);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 337);
             this.dataGridView1.TabIndex = 36;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
+            // 
+            // tiunovDataSet
+            // 
+            this.tiunovDataSet.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // exponattipBindingSource
+            // 
+            this.exponattipBindingSource.DataMember = "Exponat_tip";
+            this.exponattipBindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // exponat_tipTableAdapter
+            // 
+            this.exponat_tipTableAdapter.ClearBeforeFill = true;
+            // 
+            // etipDataGridViewTextBoxColumn
+            // 
+            this.etipDataGridViewTextBoxColumn.DataPropertyName = "Etip";
+            this.etipDataGridViewTextBoxColumn.HeaderText = "№ типа";
+            this.etipDataGridViewTextBoxColumn.Name = "etipDataGridViewTextBoxColumn";
+            // 
+            // tipDataGridViewTextBoxColumn
+            // 
+            this.tipDataGridViewTextBoxColumn.DataPropertyName = "Tip";
+            this.tipDataGridViewTextBoxColumn.HeaderText = "Тип";
+            this.tipDataGridViewTextBoxColumn.Name = "tipDataGridViewTextBoxColumn";
             // 
             // Tips_Exp
             // 
@@ -125,6 +164,8 @@ namespace Tiunov
             this.Text = "Типы экспонатов";
             this.Load += new System.EventHandler(this.Tips_Exp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +179,10 @@ namespace Tiunov
         private System.Windows.Forms.Button TbtnUpdate;
         private System.Windows.Forms.Button TbtnInsert;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private TiunovDataSet tiunovDataSet;
+        private System.Windows.Forms.BindingSource exponattipBindingSource;
+        private TiunovDataSetTableAdapters.Exponat_tipTableAdapter exponat_tipTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etipDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipDataGridViewTextBoxColumn;
     }
 }
