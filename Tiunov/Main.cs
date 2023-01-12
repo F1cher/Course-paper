@@ -75,6 +75,11 @@ namespace Tiunov
                 {
                     (control as ComboBox).SelectedValue = -1;
                 }
+
+                if (control is MaskedTextBox)
+                {
+                    control.Text = string.Empty;
+                }
             }
         }
         private void Main_Load(object sender, EventArgs e)
@@ -107,7 +112,7 @@ namespace Tiunov
         {
             if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Pomeshenya (Pnam, Padres, Pnaz, Ptreb) values (@Pnam,@Padres,@Pnaz,@Ptreb)";
@@ -204,9 +209,9 @@ namespace Tiunov
         }
         private void SbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.Text =="" || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "")
+            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.MaskCompleted == false || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "")
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass) values (@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass)";
@@ -287,7 +292,7 @@ namespace Tiunov
         {
             if (Enam.Text == "" || Cb_etip.SelectedIndex == -1 || Ecena.Text == "" || Cb_pnum.SelectedIndex == -1)
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Exponat (Enam, Etip, Ecena, Pnum) values (@Enam,@Etip,@Ecena,@Pnum)";
@@ -371,7 +376,7 @@ namespace Tiunov
         {
             if (cb_enum.SelectedIndex == -1 || cb_rstatus.SelectedIndex == -1)
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Restavracia (Enum, Rstatus) values (@Enum,@Rstatus)";

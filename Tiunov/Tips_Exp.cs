@@ -61,7 +61,7 @@ namespace Tiunov
         {
             if (Tip.Text == "")
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Exponat_tip (Tip) values (@Tip)";

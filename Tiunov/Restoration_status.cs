@@ -61,7 +61,7 @@ namespace Tiunov
         {
             if (Status.Text == "")
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Restoration_status (Status) values (@Status)";

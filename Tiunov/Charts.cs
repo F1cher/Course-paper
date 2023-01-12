@@ -61,7 +61,7 @@ namespace Tiunov
         {
             if (Grafik.Text == "")
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Grafiki (Grafik) values (@Grafik)";

@@ -61,7 +61,7 @@ namespace Tiunov
         {
             if (Kval.Text == "")
             {
-                MessageBox.Show("Заполните все значения");
+                MessageBox.Show("Заполните все поля");
                 return;
             }
             string query = "Insert into Kvalifikacya (Kval) values (@Kval)";
