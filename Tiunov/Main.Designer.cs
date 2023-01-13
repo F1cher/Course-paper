@@ -38,6 +38,7 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.Pnam = new System.Windows.Forms.TextBox();
             this.PbtnUpdate = new System.Windows.Forms.Button();
@@ -61,12 +62,13 @@ namespace Tiunov
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
             this.cb_saccess = new System.Windows.Forms.ComboBox();
-            this.grafikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accessesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Sbtncbupd = new System.Windows.Forms.Button();
             this.Stel = new System.Windows.Forms.MaskedTextBox();
             this.AddGraf = new System.Windows.Forms.Button();
             this.AddKval = new System.Windows.Forms.Button();
             this.Sgraf = new System.Windows.Forms.ComboBox();
+            this.grafikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Skval = new System.Windows.Forms.ComboBox();
             this.kvalifikacyaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
@@ -77,6 +79,17 @@ namespace Tiunov
             this.Pass = new System.Windows.Forms.TextBox();
             this.Login = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.snumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.snamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skvalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sgrafDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotrudnikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -88,7 +101,7 @@ namespace Tiunov
             this.SbtnUpdate = new System.Windows.Forms.Button();
             this.SbtnInsert = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Ebtncbupd = new System.Windows.Forms.Button();
             this.AddTips = new System.Windows.Forms.Button();
             this.Cb_pnum = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -111,7 +124,7 @@ namespace Tiunov
             this.EbtnUpdate = new System.Windows.Forms.Button();
             this.EbtnInsert = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Rbtncbupd = new System.Windows.Forms.Button();
             this.AddStatus = new System.Windows.Forms.Button();
             this.cb_enum = new System.Windows.Forms.ComboBox();
             this.cb_rstatus = new System.Windows.Forms.ComboBox();
@@ -134,19 +147,7 @@ namespace Tiunov
             this.pomeshenyaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.PomeshenyaTableAdapter();
             this.restoration_statusTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Restoration_statusTableAdapter();
             this.restavraciaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.RestavraciaTableAdapter();
-            this.sotrudnikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
-            this.snumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sfamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.snamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skvalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sgrafDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accessesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accessesTableAdapter = new Tiunov.TiunovDataSetTableAdapters.AccessesTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.TabControl1.SuspendLayout();
@@ -155,9 +156,11 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.pomeshenyaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accessesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grafikiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kvalifikacyaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -166,8 +169,6 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restavraciaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accessesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -236,6 +237,7 @@ namespace Tiunov
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.Pnam);
             this.tabPage1.Controls.Add(this.PbtnUpdate);
@@ -256,6 +258,14 @@ namespace Tiunov
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Помещения";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1008, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1, 20);
+            this.textBox1.TabIndex = 16;
+            this.textBox1.Visible = false;
             // 
             // label19
             // 
@@ -296,6 +306,7 @@ namespace Tiunov
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -365,7 +376,7 @@ namespace Tiunov
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label3.Location = new System.Drawing.Point(387, 57);
+            this.label3.Location = new System.Drawing.Point(557, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 10;
@@ -375,7 +386,7 @@ namespace Tiunov
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label2.Location = new System.Drawing.Point(281, 57);
+            this.label2.Location = new System.Drawing.Point(371, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 9;
@@ -393,23 +404,23 @@ namespace Tiunov
             // 
             // Ptreb
             // 
-            this.Ptreb.Location = new System.Drawing.Point(390, 76);
+            this.Ptreb.Location = new System.Drawing.Point(560, 76);
             this.Ptreb.Name = "Ptreb";
-            this.Ptreb.Size = new System.Drawing.Size(100, 20);
+            this.Ptreb.Size = new System.Drawing.Size(199, 20);
             this.Ptreb.TabIndex = 7;
             // 
             // Pnaz
             // 
-            this.Pnaz.Location = new System.Drawing.Point(284, 76);
+            this.Pnaz.Location = new System.Drawing.Point(374, 76);
             this.Pnaz.Name = "Pnaz";
-            this.Pnaz.Size = new System.Drawing.Size(100, 20);
+            this.Pnaz.Size = new System.Drawing.Size(180, 20);
             this.Pnaz.TabIndex = 6;
             // 
             // Padres
             // 
             this.Padres.Location = new System.Drawing.Point(178, 76);
             this.Padres.Name = "Padres";
-            this.Padres.Size = new System.Drawing.Size(100, 20);
+            this.Padres.Size = new System.Drawing.Size(190, 20);
             this.Padres.TabIndex = 5;
             // 
             // PbtnClear
@@ -491,10 +502,10 @@ namespace Tiunov
             this.cb_saccess.TabIndex = 40;
             this.cb_saccess.ValueMember = "Saccess";
             // 
-            // grafikiBindingSource
+            // accessesBindingSource
             // 
-            this.grafikiBindingSource.DataMember = "Grafiki";
-            this.grafikiBindingSource.DataSource = this.tiunovDataSet;
+            this.accessesBindingSource.DataMember = "Accesses";
+            this.accessesBindingSource.DataSource = this.tiunovDataSet;
             // 
             // Sbtncbupd
             // 
@@ -547,6 +558,11 @@ namespace Tiunov
             this.Sgraf.Size = new System.Drawing.Size(100, 21);
             this.Sgraf.TabIndex = 35;
             this.Sgraf.ValueMember = "Sgraf";
+            // 
+            // grafikiBindingSource
+            // 
+            this.grafikiBindingSource.DataMember = "Grafiki";
+            this.grafikiBindingSource.DataSource = this.tiunovDataSet;
             // 
             // Skval
             // 
@@ -631,6 +647,7 @@ namespace Tiunov
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -645,8 +662,8 @@ namespace Tiunov
             this.stelDataGridViewTextBoxColumn,
             this.skvalDataGridViewTextBoxColumn,
             this.sgrafDataGridViewTextBoxColumn,
-            this.loginDataGridViewTextBoxColumn,
-            this.passDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
             this.saccessDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.sotrudnikiBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(8, 104);
@@ -655,6 +672,83 @@ namespace Tiunov
             this.dataGridView2.Size = new System.Drawing.Size(1100, 287);
             this.dataGridView2.TabIndex = 23;
             this.dataGridView2.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEnter);
+            // 
+            // snumDataGridViewTextBoxColumn
+            // 
+            this.snumDataGridViewTextBoxColumn.DataPropertyName = "Snum";
+            this.snumDataGridViewTextBoxColumn.HeaderText = "№ сотрудника";
+            this.snumDataGridViewTextBoxColumn.Name = "snumDataGridViewTextBoxColumn";
+            this.snumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sfamDataGridViewTextBoxColumn
+            // 
+            this.sfamDataGridViewTextBoxColumn.DataPropertyName = "Sfam";
+            this.sfamDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+            this.sfamDataGridViewTextBoxColumn.Name = "sfamDataGridViewTextBoxColumn";
+            this.sfamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // snamDataGridViewTextBoxColumn
+            // 
+            this.snamDataGridViewTextBoxColumn.DataPropertyName = "Snam";
+            this.snamDataGridViewTextBoxColumn.HeaderText = "Имя";
+            this.snamDataGridViewTextBoxColumn.Name = "snamDataGridViewTextBoxColumn";
+            this.snamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sotchDataGridViewTextBoxColumn
+            // 
+            this.sotchDataGridViewTextBoxColumn.DataPropertyName = "Sotch";
+            this.sotchDataGridViewTextBoxColumn.HeaderText = "Отчество";
+            this.sotchDataGridViewTextBoxColumn.Name = "sotchDataGridViewTextBoxColumn";
+            this.sotchDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stelDataGridViewTextBoxColumn
+            // 
+            this.stelDataGridViewTextBoxColumn.DataPropertyName = "Stel";
+            this.stelDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.stelDataGridViewTextBoxColumn.Name = "stelDataGridViewTextBoxColumn";
+            this.stelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // skvalDataGridViewTextBoxColumn
+            // 
+            this.skvalDataGridViewTextBoxColumn.DataPropertyName = "Skval";
+            this.skvalDataGridViewTextBoxColumn.HeaderText = "Квалификация";
+            this.skvalDataGridViewTextBoxColumn.Name = "skvalDataGridViewTextBoxColumn";
+            this.skvalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sgrafDataGridViewTextBoxColumn
+            // 
+            this.sgrafDataGridViewTextBoxColumn.DataPropertyName = "Sgraf";
+            this.sgrafDataGridViewTextBoxColumn.HeaderText = "График";
+            this.sgrafDataGridViewTextBoxColumn.Name = "sgrafDataGridViewTextBoxColumn";
+            this.sgrafDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Login";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Логин";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Pass";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Пароль";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // saccessDataGridViewTextBoxColumn
+            // 
+            this.saccessDataGridViewTextBoxColumn.DataPropertyName = "Saccess";
+            this.saccessDataGridViewTextBoxColumn.HeaderText = "Доступ";
+            this.saccessDataGridViewTextBoxColumn.Name = "saccessDataGridViewTextBoxColumn";
+            this.saccessDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sotrudnikiBindingSource
+            // 
+            this.sotrudnikiBindingSource.DataMember = "Sotrudniki";
+            this.sotrudnikiBindingSource.DataSource = this.tiunovDataSet;
             // 
             // label4
             // 
@@ -749,7 +843,7 @@ namespace Tiunov
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.Ebtncbupd);
             this.tabPage3.Controls.Add(this.AddTips);
             this.tabPage3.Controls.Add(this.Cb_pnum);
             this.tabPage3.Controls.Add(this.label18);
@@ -771,15 +865,15 @@ namespace Tiunov
             this.tabPage3.Text = "Экспонаты";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // Ebtncbupd
             // 
-            this.button1.Location = new System.Drawing.Point(407, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 29);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "Обновить Combobox";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Ebtncbupd.Location = new System.Drawing.Point(407, 3);
+            this.Ebtncbupd.Name = "Ebtncbupd";
+            this.Ebtncbupd.Size = new System.Drawing.Size(117, 29);
+            this.Ebtncbupd.TabIndex = 40;
+            this.Ebtncbupd.Text = "Обновить Combobox";
+            this.Ebtncbupd.UseVisualStyleBackColor = true;
+            this.Ebtncbupd.Click += new System.EventHandler(this.Ebtncbupd_Click);
             // 
             // AddTips
             // 
@@ -829,6 +923,7 @@ namespace Tiunov
             this.Ecena.Name = "Ecena";
             this.Ecena.Size = new System.Drawing.Size(100, 20);
             this.Ecena.TabIndex = 25;
+            this.Ecena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Ecena_KeyPress);
             // 
             // Cb_etip
             // 
@@ -850,6 +945,7 @@ namespace Tiunov
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -979,7 +1075,7 @@ namespace Tiunov
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.Rbtncbupd);
             this.tabPage4.Controls.Add(this.AddStatus);
             this.tabPage4.Controls.Add(this.cb_enum);
             this.tabPage4.Controls.Add(this.cb_rstatus);
@@ -997,15 +1093,15 @@ namespace Tiunov
             this.tabPage4.Text = "Реставрация";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Rbtncbupd
             // 
-            this.button2.Location = new System.Drawing.Point(412, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 29);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "Обновить Combobox";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Rbtncbupd.Location = new System.Drawing.Point(412, 6);
+            this.Rbtncbupd.Name = "Rbtncbupd";
+            this.Rbtncbupd.Size = new System.Drawing.Size(117, 29);
+            this.Rbtncbupd.TabIndex = 41;
+            this.Rbtncbupd.Text = "Обновить Combobox";
+            this.Rbtncbupd.UseVisualStyleBackColor = true;
+            this.Rbtncbupd.Click += new System.EventHandler(this.Rbtncbupd_Click);
             // 
             // AddStatus
             // 
@@ -1048,6 +1144,7 @@ namespace Tiunov
             // 
             // dataGridView4
             // 
+            this.dataGridView4.AllowUserToAddRows = false;
             this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1180,89 +1277,9 @@ namespace Tiunov
             // 
             this.restavraciaTableAdapter.ClearBeforeFill = true;
             // 
-            // sotrudnikiBindingSource
-            // 
-            this.sotrudnikiBindingSource.DataMember = "Sotrudniki";
-            this.sotrudnikiBindingSource.DataSource = this.tiunovDataSet;
-            // 
             // sotrudnikiTableAdapter
             // 
             this.sotrudnikiTableAdapter.ClearBeforeFill = true;
-            // 
-            // snumDataGridViewTextBoxColumn
-            // 
-            this.snumDataGridViewTextBoxColumn.DataPropertyName = "Snum";
-            this.snumDataGridViewTextBoxColumn.HeaderText = "№ сотрудника";
-            this.snumDataGridViewTextBoxColumn.Name = "snumDataGridViewTextBoxColumn";
-            this.snumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sfamDataGridViewTextBoxColumn
-            // 
-            this.sfamDataGridViewTextBoxColumn.DataPropertyName = "Sfam";
-            this.sfamDataGridViewTextBoxColumn.HeaderText = "Фамилия";
-            this.sfamDataGridViewTextBoxColumn.Name = "sfamDataGridViewTextBoxColumn";
-            this.sfamDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // snamDataGridViewTextBoxColumn
-            // 
-            this.snamDataGridViewTextBoxColumn.DataPropertyName = "Snam";
-            this.snamDataGridViewTextBoxColumn.HeaderText = "Имя";
-            this.snamDataGridViewTextBoxColumn.Name = "snamDataGridViewTextBoxColumn";
-            this.snamDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sotchDataGridViewTextBoxColumn
-            // 
-            this.sotchDataGridViewTextBoxColumn.DataPropertyName = "Sotch";
-            this.sotchDataGridViewTextBoxColumn.HeaderText = "Отчество";
-            this.sotchDataGridViewTextBoxColumn.Name = "sotchDataGridViewTextBoxColumn";
-            this.sotchDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stelDataGridViewTextBoxColumn
-            // 
-            this.stelDataGridViewTextBoxColumn.DataPropertyName = "Stel";
-            this.stelDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.stelDataGridViewTextBoxColumn.Name = "stelDataGridViewTextBoxColumn";
-            this.stelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // skvalDataGridViewTextBoxColumn
-            // 
-            this.skvalDataGridViewTextBoxColumn.DataPropertyName = "Skval";
-            this.skvalDataGridViewTextBoxColumn.HeaderText = "Квалификация";
-            this.skvalDataGridViewTextBoxColumn.Name = "skvalDataGridViewTextBoxColumn";
-            this.skvalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sgrafDataGridViewTextBoxColumn
-            // 
-            this.sgrafDataGridViewTextBoxColumn.DataPropertyName = "Sgraf";
-            this.sgrafDataGridViewTextBoxColumn.HeaderText = "График";
-            this.sgrafDataGridViewTextBoxColumn.Name = "sgrafDataGridViewTextBoxColumn";
-            this.sgrafDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "Login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "Логин";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passDataGridViewTextBoxColumn
-            // 
-            this.passDataGridViewTextBoxColumn.DataPropertyName = "Pass";
-            this.passDataGridViewTextBoxColumn.HeaderText = "Пароль";
-            this.passDataGridViewTextBoxColumn.Name = "passDataGridViewTextBoxColumn";
-            this.passDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // saccessDataGridViewTextBoxColumn
-            // 
-            this.saccessDataGridViewTextBoxColumn.DataPropertyName = "Saccess";
-            this.saccessDataGridViewTextBoxColumn.HeaderText = "Доступ";
-            this.saccessDataGridViewTextBoxColumn.Name = "saccessDataGridViewTextBoxColumn";
-            this.saccessDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accessesBindingSource
-            // 
-            this.accessesBindingSource.DataMember = "Accesses";
-            this.accessesBindingSource.DataSource = this.tiunovDataSet;
             // 
             // accessesTableAdapter
             // 
@@ -1278,6 +1295,7 @@ namespace Tiunov
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = " Музейный комплекс";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1289,9 +1307,11 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accessesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grafikiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kvalifikacyaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).EndInit();
@@ -1302,8 +1322,6 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restavraciaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accessesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1411,12 +1429,15 @@ namespace Tiunov
         private System.Windows.Forms.DataGridViewTextBoxColumn ecenaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pnumDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button Sbtncbupd;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Ebtncbupd;
+        private System.Windows.Forms.Button Rbtncbupd;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cb_saccess;
         private System.Windows.Forms.BindingSource sotrudnikiBindingSource;
         private TiunovDataSetTableAdapters.SotrudnikiTableAdapter sotrudnikiTableAdapter;
+        private System.Windows.Forms.BindingSource accessesBindingSource;
+        private TiunovDataSetTableAdapters.AccessesTableAdapter accessesTableAdapter;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn snumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn;
@@ -1424,11 +1445,9 @@ namespace Tiunov
         private System.Windows.Forms.DataGridViewTextBoxColumn stelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn skvalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sgrafDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn saccessDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource accessesBindingSource;
-        private TiunovDataSetTableAdapters.AccessesTableAdapter accessesTableAdapter;
     }
 }
 

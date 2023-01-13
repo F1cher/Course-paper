@@ -17,9 +17,11 @@ namespace Tiunov
         SqlDataAdapter da;
         SqlCommand cmd;
         SqlConnection con;
-        public Main()
+        public Main(string text)
         {
             InitializeComponent();
+            string access = text;
+            textBox1.Text = access;
         }
         void GetCon()
         {
@@ -106,6 +108,55 @@ namespace Tiunov
             GetSotr();
             GetExp();
             GetRest();
+            if (textBox1.Text =="2")
+            {
+                //Помещения
+                PbtnInsert.Visible = false;
+                PbtnUpdate.Visible = false;
+                PbtnDelete.Visible = false;
+                PbtnClear.Visible = false;
+                Pnam.Enabled = false;
+                Padres.Enabled = false;
+                Pnaz.Enabled = false;
+                Ptreb.Enabled = false;
+                //Сотрудники
+                label13.Visible = false;
+                label14.Visible = false;
+                SbtnInsert.Visible = false;
+                SbtnUpdate.Visible = false;
+                SbtnDelete.Visible = false;
+                SbtnClear.Visible = false;
+                Sbtncbupd.Visible = false;
+                Sfam.Enabled = false;
+                Snam.Enabled = false;
+                Sotch.Enabled = false;
+                Stel.Enabled = false;
+                Skval.Enabled = false;
+                Sgraf.Enabled = false;
+                Login.Visible = false;
+                Pass.Visible = false;
+                cb_saccess.Enabled = false;
+                AddKval.Visible = false;
+                AddGraf.Visible = false;
+                //Экспонаты
+                EbtnInsert.Visible = false;
+                EbtnUpdate.Visible = false;
+                EbtnDelete.Visible = false;
+                EbtnClear.Visible = false;
+                Ebtncbupd.Visible = false;
+                Enam.Enabled = false;
+                Cb_etip.Enabled = false;
+                Ecena.Enabled = false;
+                Cb_pnum.Enabled = false;
+                AddTips.Visible = false;
+                //Реставрация
+                RbtnInsert.Visible = false;
+                RbtnDelete.Visible = false;
+                RbtnClear.Visible = false;
+                Rbtncbupd.Visible = false;
+                cb_enum.Enabled = false;
+                AddStatus.Visible = false;
+            }
         }
 
         private void PbtnInsert_Click(object sender, EventArgs e)
@@ -168,15 +219,7 @@ namespace Tiunov
         }
         private void PbtnClear_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите очистить поля?", "Очистить поля", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                ClearTextBoxes(tabPage1);
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
+            ClearTextBoxes(tabPage1);  
         }
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -193,14 +236,30 @@ namespace Tiunov
         }
         private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите выйти из программы?", "Выйти из программы", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Authorization Authorization = new Authorization();
-            Authorization.Show();
-            this.Hide();
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите сменить пользователя?", "Сменить пользователя", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Authorization Authorization = new Authorization();
+                Authorization.Show();
+                this.Hide();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -212,6 +271,12 @@ namespace Tiunov
             if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.MaskCompleted == false || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "" || cb_saccess.SelectedIndex == -1)
             {
                 MessageBox.Show("Заполните все поля");
+                return;
+            }
+            for (int i = 0; i < dataGridView2.RowCount - 1; i++)
+                if (dataGridView2.Rows[i].Cells[4].Value.ToString() == Stel.Text)//------------- проверка найдено ли такое же значение в колонки с primary key 
+            {
+                MessageBox.Show("Сотрудник с таким номером телефона уже существует");
                 return;
             }
             string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass, Saccess) values (@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass, @Saccess)";
@@ -465,15 +530,27 @@ namespace Tiunov
             this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
             this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Ebtncbupd_Click(object sender, EventArgs e)
         {
             this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
             this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Rbtncbupd_Click(object sender, EventArgs e)
         {
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
             this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
+        }
+
+        private void Ecena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

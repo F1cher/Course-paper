@@ -75,7 +75,7 @@ namespace Tiunov
             document = application.Documents.Add();
             //Добавление нового параграфа документа Word
             wordparagraph = document.Paragraphs.Add();
-            wordparagraph.Range.Text = "Статистика реставраций";
+            wordparagraph.Range.Text = "Статистика приобретения экспонатов";
             //Красный цвет шрифта
             wordparagraph.Range.Font.Color = Word.WdColor.wdColorDarkRed;
             //Размер 18, Тип шрифта Arial, курсив и полужирный

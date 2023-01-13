@@ -38,15 +38,29 @@ namespace Tiunov
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                Main Main = new Main();
-                Main.Show();
-                this.Hide();
+
             }
             else
             {
                 MessageBox.Show("Неверный логин или пароль");
+                return;
             }
             con.Close();
+            cmd = new SqlCommand();
+            con.Open();
+            cmd.Connection = con;
+            string str2 = "SELECT Saccess FROM Sotrudniki where Login='" + user + "' AND Pass='" + pass + "'";
+            cmd.CommandText = str2;
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                textBox1.Text = dr["Saccess"].ToString();
+            }
+            con.Close();
+            string text = textBox1.Text;
+            Main Main = new Main(text);
+            Main.Show();
+            this.Hide();
         }
 
         private void Authorization_Load(object sender, EventArgs e)
