@@ -102,8 +102,16 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Etip", dataGridView1.CurrentRow.Cells[0].Value);
                 con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Невозможно удалить данную запись");
+                    con.Close();
+                    return;
+                }
                 GetTips();
             }
             else if (dialogResult == DialogResult.No)

@@ -204,6 +204,7 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удалить запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+
                 string query = "Delete From Pomeshenya Where Pnum=@Pnum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Pnum", dataGridView1.CurrentRow.Cells[0].Value);
@@ -331,8 +332,16 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Snum", dataGridView2.CurrentRow.Cells[0].Value);
                 con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Невозможно удалить данную запись");
+                    con.Close();
+                    return;
+                }
                 GetSotr();
             }
             else if (dialogResult == DialogResult.No)
@@ -407,8 +416,16 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Enum", dataGridView3.CurrentRow.Cells[0].Value);
                 con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Невозможно удалить данную запись");
+                    con.Close();
+                    return;
+                }
                 GetExp();
             }
             else if (dialogResult == DialogResult.No)
@@ -487,8 +504,16 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
                 con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Невозможно удалить данную запись");
+                    con.Close();
+                    return;
+                }
                 GetRest();
             }
             else if (dialogResult == DialogResult.No)

@@ -102,8 +102,16 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Rstatus", dataGridView5.CurrentRow.Cells[0].Value);
                 con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Невозможно удалить данную запись");
+                    con.Close();
+                    return;
+                }
                 GetStatus();
             }
             else if (dialogResult == DialogResult.No)
