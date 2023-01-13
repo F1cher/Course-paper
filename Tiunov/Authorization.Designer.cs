@@ -35,11 +35,11 @@ namespace Tiunov
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Login = new System.Windows.Forms.ComboBox();
-            this.tiunovDataSet = new Tiunov.TiunovDataSet();
             this.sotrudnikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiunovDataSet = new Tiunov.TiunovDataSet();
             this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Authbtn
@@ -92,15 +92,15 @@ namespace Tiunov
             this.Login.TabIndex = 10;
             this.Login.ValueMember = "Login";
             // 
-            // tiunovDataSet
-            // 
-            this.tiunovDataSet.DataSetName = "TiunovDataSet";
-            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // sotrudnikiBindingSource
             // 
             this.sotrudnikiBindingSource.DataMember = "Sotrudniki";
             this.sotrudnikiBindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // tiunovDataSet
+            // 
+            this.tiunovDataSet.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sotrudnikiTableAdapter
             // 
@@ -119,8 +119,8 @@ namespace Tiunov
             this.Name = "Authorization";
             this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.Authorization_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

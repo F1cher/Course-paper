@@ -24,12 +24,12 @@ namespace Tiunov
         void GetCon()
         {
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
-            ds = new DataSet();
         }
         void GetKval()
         {
             GetCon();
             da = new SqlDataAdapter("SELECT * FROM Kvalifikacya", con);
+            ds = new DataSet();
             con.Open();
             da.Fill(ds, "Kvalifikacya");
             dataGridView5.DataSource = ds.Tables["Kvalifikacya"];

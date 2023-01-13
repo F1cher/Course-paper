@@ -84,10 +84,12 @@ namespace Tiunov
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restavracia". При необходимости она может быть перемещена или удалена.
-            this.restavraciaTableAdapter.Fill(this.tiunovDataSet.Restavracia);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Accesses". При необходимости она может быть перемещена или удалена.
+            this.accessesTableAdapter.Fill(this.tiunovDataSet.Accesses);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
             this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restavracia". При необходимости она может быть перемещена или удалена.
+            this.restavraciaTableAdapter.Fill(this.tiunovDataSet.Restavracia);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restoration_status". При необходимости она может быть перемещена или удалена.
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Pomeshenya". При необходимости она может быть перемещена или удалена.
@@ -100,8 +102,6 @@ namespace Tiunov
             this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Grafiki". При необходимости она может быть перемещена или удалена.
             this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat_tip". При необходимости она может быть перемещена или удалена.
-            this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
             GetPom();
             GetSotr();
             GetExp();
@@ -182,8 +182,8 @@ namespace Tiunov
         {
             Pnam.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             Padres.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            Pnaz.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            Ptreb.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            Pnaz.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            Ptreb.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,12 +209,12 @@ namespace Tiunov
         }
         private void SbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.MaskCompleted == false || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "")
+            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.MaskCompleted == false || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "" || cb_saccess.SelectedIndex == -1)
             {
                 MessageBox.Show("Заполните все поля");
                 return;
             }
-            string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass) values (@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass)";
+            string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass, Saccess) values (@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass, @Saccess)";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
             cmd.Parameters.AddWithValue("@Snam", Snam.Text);
@@ -224,6 +224,7 @@ namespace Tiunov
             cmd.Parameters.AddWithValue("@Sgraf", Sgraf.SelectedValue);
             cmd.Parameters.AddWithValue("@Login", Login.Text);
             cmd.Parameters.AddWithValue("@Pass", Pass.Text);
+            cmd.Parameters.AddWithValue("@Saccess", cb_saccess.SelectedValue);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -234,7 +235,7 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Stel=@Stel,Skval=@Skval,Sgraf=@Sgraf,Login=@Login,Pass=@Pass Where Snum=@Snum";
+                string query = "Update Sotrudniki Set Sfam=@Sfam,Snam=@Snam,Sotch=@Sotch,Stel=@Stel,Skval=@Skval,Sgraf=@Sgraf,Login=@Login,Pass=@Pass,Saccess=@Saccess Where Snum=@Snum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Snum", dataGridView2.CurrentRow.Cells[0].Value);
                 cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
@@ -245,6 +246,7 @@ namespace Tiunov
                 cmd.Parameters.AddWithValue("@Sgraf", Sgraf.SelectedValue);
                 cmd.Parameters.AddWithValue("@Login", Login.Text);
                 cmd.Parameters.AddWithValue("@Pass", Pass.Text);
+                cmd.Parameters.AddWithValue("@Saccess", cb_saccess.SelectedValue);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -287,6 +289,7 @@ namespace Tiunov
             Sgraf.SelectedValue = dataGridView2.CurrentRow.Cells[6].Value.ToString();
             Login.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
             Pass.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
+            cb_saccess.SelectedValue = dataGridView2.CurrentRow.Cells[9].Value.ToString();
         }
         private void EbtnInsert_Click(object sender, EventArgs e)
         {
@@ -455,6 +458,22 @@ namespace Tiunov
             if (Char.IsDigit(e.KeyChar)) return;
             else
                 e.Handled = true;
+        }
+
+        private void Sbtncbupd_Click(object sender, EventArgs e)
+        {
+            this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
+            this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
+            this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
+            this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
         }
     }
 }

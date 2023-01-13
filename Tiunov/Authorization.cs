@@ -24,6 +24,7 @@ namespace Tiunov
         {
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
         }
+      
         private void Authbtn_Click(object sender, EventArgs e)
         {
             string user = Convert.ToString(Login.SelectedValue);
@@ -37,15 +38,14 @@ namespace Tiunov
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                Main frm2 = new Main();
-                frm2.Show();
+                Main Main = new Main();
+                Main.Show();
                 this.Hide();
             }
             else
             {
                 MessageBox.Show("Неверный логин или пароль");
             }
-
             con.Close();
         }
 
