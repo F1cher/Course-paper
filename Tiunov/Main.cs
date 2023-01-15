@@ -13,16 +13,17 @@ namespace Tiunov
 {
     public partial class Main : Form
     {
+        string Access;
         DataSet ds;
         SqlDataAdapter da;
         SqlCommand cmd;
         SqlConnection con;
-        public Main(string text)
+        public Main(string Saccess)
         {
             InitializeComponent();
-            string access = text;
-            textBox1.Text = access;
+            Access = Saccess;
         }
+        #region Methods
         void GetCon()
         {
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
@@ -84,6 +85,49 @@ namespace Tiunov
                 }
             }
         }
+        private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Statistics Statistics = new Statistics();
+            Statistics.Show();
+        }
+        private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите выйти из программы?", "Выйти из программы", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите сменить пользователя?", "Сменить пользователя", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Authorization Authorization = new Authorization();
+                Authorization.Show();
+                this.Hide();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Курсовой проект МДК 4:\nИнформационная система музейного комплекса\nАвтор: Тиунов Максим, студент группы ИП-41");
+        }
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+        #endregion
+        #region Main Form and Load
         private void Main_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Accesses". При необходимости она может быть перемещена или удалена.
@@ -108,7 +152,8 @@ namespace Tiunov
             GetSotr();
             GetExp();
             GetRest();
-            if (textBox1.Text =="2")
+            #region UserCheck
+            if (Access == "2")
             {
                 //Помещения
                 PbtnInsert.Visible = false;
@@ -158,7 +203,9 @@ namespace Tiunov
                 AddStatus.Visible = false;
             }
         }
-
+        #endregion
+        #endregion
+        #region Pomeshenya
         private void PbtnInsert_Click(object sender, EventArgs e)
         {
             if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
@@ -220,7 +267,7 @@ namespace Tiunov
         }
         private void PbtnClear_Click(object sender, EventArgs e)
         {
-            ClearTextBoxes(tabPage1);  
+            ClearTextBoxes(tabPage1);
         }
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -229,44 +276,8 @@ namespace Tiunov
             Pnaz.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             Ptreb.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
         }
-
-        private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Statistics Statistics = new Statistics();
-            Statistics.Show();
-        }
-        private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите выйти из программы?", "Выйти из программы", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Close();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-        }
-
-        private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите сменить пользователя?", "Сменить пользователя", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Authorization Authorization = new Authorization();
-                Authorization.Show();
-                this.Hide();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-        }
-
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Курсовой проект МДК 4:\nИнформационная система музейного комплекса\nАвтор: Тиунов Максим, студент группы ИП-41");
-        }
+        #endregion
+        #region Sotrudniki
         private void SbtnInsert_Click(object sender, EventArgs e)
         {
             if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.MaskCompleted == false || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "" || cb_saccess.SelectedIndex == -1)
@@ -276,10 +287,10 @@ namespace Tiunov
             }
             for (int i = 0; i < dataGridView2.RowCount - 1; i++)
                 if (dataGridView2.Rows[i].Cells[4].Value.ToString() == Stel.Text)//------------- проверка найдено ли такое же значение в колонки с primary key 
-            {
-                MessageBox.Show("Сотрудник с таким номером телефона уже существует");
-                return;
-            }
+                {
+                    MessageBox.Show("Сотрудник с таким номером телефона уже существует");
+                    return;
+                }
             string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass, Saccess) values (@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass, @Saccess)";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
@@ -365,6 +376,20 @@ namespace Tiunov
             Pass.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
             cb_saccess.SelectedValue = dataGridView2.CurrentRow.Cells[9].Value.ToString();
         }
+        private void Stel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void Sbtncbupd_Click(object sender, EventArgs e)
+        {
+            this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
+            this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
+        }
+        #endregion
+        #region Exponat
         private void EbtnInsert_Click(object sender, EventArgs e)
         {
             if (Enam.Text == "" || Cb_etip.SelectedIndex == -1 || Ecena.Text == "" || Cb_pnum.SelectedIndex == -1)
@@ -444,7 +469,6 @@ namespace Tiunov
             Ecena.Text = dataGridView3.CurrentRow.Cells[3].Value.ToString();
             Cb_pnum.SelectedValue = dataGridView3.CurrentRow.Cells[4].Value.ToString();
         }
-
         private void AddGraf_Click(object sender, EventArgs e)
         {
             Charts Charts = new Charts();
@@ -456,7 +480,19 @@ namespace Tiunov
             Qualifications Qualifications = new Qualifications();
             Qualifications.Show();
         }
-
+        private void Ebtncbupd_Click(object sender, EventArgs e)
+        {
+            this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
+            this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
+        }
+        private void Ecena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+        #endregion
+        #region Restavracia
         private void RbtnInsert_Click(object sender, EventArgs e)
         {
             if (cb_enum.SelectedIndex == -1 || cb_rstatus.SelectedIndex == -1)
@@ -542,40 +578,11 @@ namespace Tiunov
             Restoration_status Restoration_status = new Restoration_status();
             Restoration_status.Show();
         }
-
-        private void Stel_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar)) return;
-            else
-                e.Handled = true;
-        }
-
-        private void Sbtncbupd_Click(object sender, EventArgs e)
-        {
-            this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
-            this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
-        }
-        private void Ebtncbupd_Click(object sender, EventArgs e)
-        {
-            this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
-            this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
-        }
         private void Rbtncbupd_Click(object sender, EventArgs e)
         {
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
             this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
         }
-
-        private void Ecena_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar)) return;
-            else
-                e.Handled = true;
-        }
-
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
+        #endregion
     }
 }

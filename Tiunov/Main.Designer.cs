@@ -38,7 +38,6 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.Pnam = new System.Windows.Forms.TextBox();
             this.PbtnUpdate = new System.Windows.Forms.Button();
@@ -237,7 +236,6 @@ namespace Tiunov
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.Pnam);
             this.tabPage1.Controls.Add(this.PbtnUpdate);
@@ -258,14 +256,6 @@ namespace Tiunov
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Помещения";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1008, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1, 20);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.Visible = false;
             // 
             // label19
             // 
@@ -1437,7 +1427,6 @@ namespace Tiunov
         private TiunovDataSetTableAdapters.SotrudnikiTableAdapter sotrudnikiTableAdapter;
         private System.Windows.Forms.BindingSource accessesBindingSource;
         private TiunovDataSetTableAdapters.AccessesTableAdapter accessesTableAdapter;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn snumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn;

@@ -38,7 +38,6 @@ namespace Tiunov
             this.sotrudnikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiunovDataSet = new Tiunov.TiunovDataSet();
             this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.SuspendLayout();
@@ -107,20 +106,11 @@ namespace Tiunov
             // 
             this.sotrudnikiTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1, 20);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Visible = false;
-            // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 198);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.Authbtn);
             this.Controls.Add(this.Pass);
@@ -146,6 +136,5 @@ namespace Tiunov
         private TiunovDataSet tiunovDataSet;
         private System.Windows.Forms.BindingSource sotrudnikiBindingSource;
         private TiunovDataSetTableAdapters.SotrudnikiTableAdapter sotrudnikiTableAdapter;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

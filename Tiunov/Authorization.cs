@@ -24,7 +24,7 @@ namespace Tiunov
         {
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
         }
-      
+
         private void Authbtn_Click(object sender, EventArgs e)
         {
             string user = Convert.ToString(Login.SelectedValue);
@@ -38,31 +38,19 @@ namespace Tiunov
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-
+                string name = dr["Snam"].ToString();
+                MessageBox.Show("Добро пожаловать, " + name + "!");
+                string Saccess = dr["Saccess"].ToString();
+                Main Main = new Main(Saccess);
+                Main.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Неверный логин или пароль");
-                return;
             }
             con.Close();
-            cmd = new SqlCommand();
-            con.Open();
-            cmd.Connection = con;
-            string str2 = "SELECT Saccess FROM Sotrudniki where Login='" + user + "' AND Pass='" + pass + "'";
-            cmd.CommandText = str2;
-            dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                textBox1.Text = dr["Saccess"].ToString();
-            }
-            con.Close();
-            string text = textBox1.Text;
-            Main Main = new Main(text);
-            Main.Show();
-            this.Hide();
         }
-
         private void Authorization_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
