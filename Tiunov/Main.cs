@@ -269,6 +269,27 @@ namespace Tiunov
         {
             ClearTextBoxes(tabPage1);
         }
+        private void Psearch_Click(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Equals(textBox1.Text))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             Pnam.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
@@ -363,6 +384,27 @@ namespace Tiunov
         private void SbtnClear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes(tabPage2);
+        }
+        private void Ssearch_Click(object sender, EventArgs e)
+        {
+            dataGridView2.ClearSelection();
+
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView2.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Equals(textBox2.Text))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void dataGridView2_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -461,6 +503,27 @@ namespace Tiunov
         private void EbtnClear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes(tabPage3);
+        }
+        private void Esearch_Click(object sender, EventArgs e)
+        {
+            dataGridView3.ClearSelection();
+
+            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView3.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Equals(textBox3.Text))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void dataGridView3_CellEnter(object sender, DataGridViewCellEventArgs e)
         {

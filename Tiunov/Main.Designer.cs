@@ -38,6 +38,9 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.Psearch = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.Pnam = new System.Windows.Forms.TextBox();
             this.PbtnUpdate = new System.Windows.Forms.Button();
@@ -59,6 +62,9 @@ namespace Tiunov
             this.PbtnClear = new System.Windows.Forms.Button();
             this.PbtnDelete = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.Ssearch = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.cb_saccess = new System.Windows.Forms.ComboBox();
             this.accessesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -100,6 +106,9 @@ namespace Tiunov
             this.SbtnUpdate = new System.Windows.Forms.Button();
             this.SbtnInsert = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.Esearch = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.Ebtncbupd = new System.Windows.Forms.Button();
             this.AddTips = new System.Windows.Forms.Button();
             this.Cb_pnum = new System.Windows.Forms.ComboBox();
@@ -148,6 +157,7 @@ namespace Tiunov
             this.restavraciaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.RestavraciaTableAdapter();
             this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
             this.accessesTableAdapter = new Tiunov.TiunovDataSetTableAdapters.AccessesTableAdapter();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -236,6 +246,9 @@ namespace Tiunov
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.Psearch);
+            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.Pnam);
             this.tabPage1.Controls.Add(this.PbtnUpdate);
@@ -256,6 +269,33 @@ namespace Tiunov
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Помещения";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label20.Location = new System.Drawing.Point(889, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(218, 13);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Введите наименование помещения";
+            // 
+            // Psearch
+            // 
+            this.Psearch.Location = new System.Drawing.Point(1032, 24);
+            this.Psearch.Name = "Psearch";
+            this.Psearch.Size = new System.Drawing.Size(75, 23);
+            this.Psearch.TabIndex = 17;
+            this.Psearch.Text = "Поиск";
+            this.Psearch.UseVisualStyleBackColor = true;
+            this.Psearch.Click += new System.EventHandler(this.Psearch_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(892, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 20);
+            this.textBox1.TabIndex = 16;
             // 
             // label19
             // 
@@ -435,6 +475,9 @@ namespace Tiunov
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.Ssearch);
+            this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.cb_saccess);
             this.tabPage2.Controls.Add(this.Sbtncbupd);
@@ -468,6 +511,33 @@ namespace Tiunov
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Сотрудники";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label21.Location = new System.Drawing.Point(892, 7);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(187, 13);
+            this.label21.TabIndex = 45;
+            this.label21.Text = "Введите фамилию сотрудника";
+            // 
+            // Ssearch
+            // 
+            this.Ssearch.Location = new System.Drawing.Point(1035, 23);
+            this.Ssearch.Name = "Ssearch";
+            this.Ssearch.Size = new System.Drawing.Size(75, 23);
+            this.Ssearch.TabIndex = 44;
+            this.Ssearch.Text = "Поиск";
+            this.Ssearch.UseVisualStyleBackColor = true;
+            this.Ssearch.Click += new System.EventHandler(this.Ssearch_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(895, 26);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(134, 20);
+            this.textBox2.TabIndex = 43;
             // 
             // label15
             // 
@@ -503,7 +573,7 @@ namespace Tiunov
             this.Sbtncbupd.Name = "Sbtncbupd";
             this.Sbtncbupd.Size = new System.Drawing.Size(118, 29);
             this.Sbtncbupd.TabIndex = 39;
-            this.Sbtncbupd.Text = "Обновить Combobox";
+            this.Sbtncbupd.Text = "Обновить";
             this.Sbtncbupd.UseVisualStyleBackColor = true;
             this.Sbtncbupd.Click += new System.EventHandler(this.Sbtncbupd_Click);
             // 
@@ -833,6 +903,9 @@ namespace Tiunov
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.Esearch);
+            this.tabPage3.Controls.Add(this.textBox3);
             this.tabPage3.Controls.Add(this.Ebtncbupd);
             this.tabPage3.Controls.Add(this.AddTips);
             this.tabPage3.Controls.Add(this.Cb_pnum);
@@ -855,13 +928,40 @@ namespace Tiunov
             this.tabPage3.Text = "Экспонаты";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label22.Location = new System.Drawing.Point(892, 7);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(182, 13);
+            this.label22.TabIndex = 43;
+            this.label22.Text = "Введите название экспоната";
+            // 
+            // Esearch
+            // 
+            this.Esearch.Location = new System.Drawing.Point(1035, 23);
+            this.Esearch.Name = "Esearch";
+            this.Esearch.Size = new System.Drawing.Size(75, 23);
+            this.Esearch.TabIndex = 42;
+            this.Esearch.Text = "Поиск";
+            this.Esearch.UseVisualStyleBackColor = true;
+            this.Esearch.Click += new System.EventHandler(this.Esearch_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(895, 26);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(134, 20);
+            this.textBox3.TabIndex = 41;
+            // 
             // Ebtncbupd
             // 
             this.Ebtncbupd.Location = new System.Drawing.Point(407, 3);
             this.Ebtncbupd.Name = "Ebtncbupd";
             this.Ebtncbupd.Size = new System.Drawing.Size(117, 29);
             this.Ebtncbupd.TabIndex = 40;
-            this.Ebtncbupd.Text = "Обновить Combobox";
+            this.Ebtncbupd.Text = "Обновить";
             this.Ebtncbupd.UseVisualStyleBackColor = true;
             this.Ebtncbupd.Click += new System.EventHandler(this.Ebtncbupd_Click);
             // 
@@ -1089,7 +1189,7 @@ namespace Tiunov
             this.Rbtncbupd.Name = "Rbtncbupd";
             this.Rbtncbupd.Size = new System.Drawing.Size(117, 29);
             this.Rbtncbupd.TabIndex = 41;
-            this.Rbtncbupd.Text = "Обновить Combobox";
+            this.Rbtncbupd.Text = "Обновить";
             this.Rbtncbupd.UseVisualStyleBackColor = true;
             this.Rbtncbupd.Click += new System.EventHandler(this.Rbtncbupd_Click);
             // 
@@ -1275,6 +1375,11 @@ namespace Tiunov
             // 
             this.accessesTableAdapter.ClearBeforeFill = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1437,6 +1542,16 @@ namespace Tiunov
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn saccessDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Psearch;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button Ssearch;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button Esearch;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
