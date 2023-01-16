@@ -350,9 +350,9 @@ namespace Tiunov
                 catch (Exception)
                 {
                     MessageBox.Show("Невозможно удалить данную запись");
-                    con.Close();
                     return;
                 }
+                con.Close();
                 GetSotr();
             }
             else if (dialogResult == DialogResult.No)
@@ -447,10 +447,10 @@ namespace Tiunov
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Невозможно удалить данную запись");
-                    con.Close();
+                    MessageBox.Show("Невозможно удалить данную запись");        
                     return;
                 }
+                con.Close();
                 GetExp();
             }
             else if (dialogResult == DialogResult.No)
@@ -547,9 +547,9 @@ namespace Tiunov
                 catch (Exception)
                 {
                     MessageBox.Show("Невозможно удалить данную запись");
-                    con.Close();
                     return;
                 }
+                con.Close();
                 GetRest();
             }
             else if (dialogResult == DialogResult.No)
