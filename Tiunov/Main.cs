@@ -40,7 +40,7 @@ namespace Tiunov
         }
         void GetSotr()
         {
-            da = new SqlDataAdapter("SELECT * FROM Sotrudniki", con);
+            da = new SqlDataAdapter("SELECT Sotrudniki.Snum, Sotrudniki.Sfam, Sotrudniki.Snam, Sotrudniki.Sotch, Sotrudniki.Stel, Kvalifikacya.Kval, Grafiki.Grafik, Sotrudniki.Login, Sotrudniki.Pass, Accesses.Access FROM Sotrudniki INNER JOIN Accesses ON Sotrudniki.Saccess = Accesses.Saccess INNER JOIN Grafiki ON Sotrudniki.Sgraf = Grafiki.Sgraf INNER JOIN Kvalifikacya ON Sotrudniki.Skval = Kvalifikacya.Skval", con);
             ds = new DataSet();
             con.Open();
             da.Fill(ds, "Sotrudniki");
@@ -49,7 +49,7 @@ namespace Tiunov
         }
         void GetExp()
         {
-            da = new SqlDataAdapter("SELECT * FROM Exponat", con);
+            da = new SqlDataAdapter("SELECT Exponat.Enum, Exponat.Enam, Exponat_tip.Tip, Exponat.Ecena, Pomeshenya.Pnam FROM Exponat INNER JOIN Exponat_tip ON Exponat.Etip = Exponat_tip.Etip INNER JOIN Pomeshenya ON Exponat.Pnum = Pomeshenya.Pnum", con);
             ds = new DataSet();
             con.Open();
             da.Fill(ds, "Exponat");
@@ -58,7 +58,7 @@ namespace Tiunov
         }
         void GetRest()
         {
-            da = new SqlDataAdapter("SELECT * FROM Restavracia", con);
+            da = new SqlDataAdapter("SELECT Restavracia.Rnum, Exponat.Enam, Restoration_status.Status FROM Restavracia INNER JOIN Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus INNER JOIN Exponat ON Restavracia.Enum = Exponat.Enum", con);
             ds = new DataSet();
             con.Open();
             da.Fill(ds, "Restavracia");
@@ -130,12 +130,14 @@ namespace Tiunov
         #region Main Form and Load
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
+            this.restTableAdapter.Fill(this.tiunovDataSet.rest);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exp". При необходимости она может быть перемещена или удалена.
+            this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotr". При необходимости она может быть перемещена или удалена.
+            this.sotrTableAdapter.Fill(this.tiunovDataSet.Sotr);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Accesses". При необходимости она может быть перемещена или удалена.
             this.accessesTableAdapter.Fill(this.tiunovDataSet.Accesses);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
-            this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restavracia". При необходимости она может быть перемещена или удалена.
-            this.restavraciaTableAdapter.Fill(this.tiunovDataSet.Restavracia);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Restoration_status". При необходимости она может быть перемещена или удалена.
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Pomeshenya". При необходимости она может быть перемещена или удалена.
@@ -144,8 +146,6 @@ namespace Tiunov
             this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Kvalifikacya". При необходимости она может быть перемещена или удалена.
             this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat". При необходимости она может быть перемещена или удалена.
-            this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Grafiki". При необходимости она может быть перемещена или удалена.
             this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
             GetPom();
@@ -268,28 +268,7 @@ namespace Tiunov
         private void PbtnClear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes(tabPage1);
-        }
-        private void Psearch_Click(object sender, EventArgs e)
-        {
-            dataGridView1.ClearSelection();
-
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            try
-            {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(textBox1.Text))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
+        }    
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             Pnam.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
@@ -385,38 +364,17 @@ namespace Tiunov
         {
             ClearTextBoxes(tabPage2);
         }
-        private void Ssearch_Click(object sender, EventArgs e)
-        {
-            dataGridView2.ClearSelection();
-
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            try
-            {
-                foreach (DataGridViewRow row in dataGridView2.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(textBox2.Text))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
         private void dataGridView2_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             Sfam.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
             Snam.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
             Sotch.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
             Stel.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
-            Skval.SelectedValue = dataGridView2.CurrentRow.Cells[5].Value.ToString();
-            Sgraf.SelectedValue = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+            Skval.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            Sgraf.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
             Login.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
             Pass.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
-            cb_saccess.SelectedValue = dataGridView2.CurrentRow.Cells[9].Value.ToString();
+            cb_saccess.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
         }
         private void Stel_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -504,33 +462,12 @@ namespace Tiunov
         {
             ClearTextBoxes(tabPage3);
         }
-        private void Esearch_Click(object sender, EventArgs e)
-        {
-            dataGridView3.ClearSelection();
-
-            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            try
-            {
-                foreach (DataGridViewRow row in dataGridView3.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals(textBox3.Text))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
         private void dataGridView3_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             Enam.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString();
-            Cb_etip.SelectedValue = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+            Cb_etip.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
             Ecena.Text = dataGridView3.CurrentRow.Cells[3].Value.ToString();
-            Cb_pnum.SelectedValue = dataGridView3.CurrentRow.Cells[4].Value.ToString();
+            Cb_pnum.Text = dataGridView3.CurrentRow.Cells[4].Value.ToString();
         }
         private void AddGraf_Click(object sender, EventArgs e)
         {
@@ -626,8 +563,8 @@ namespace Tiunov
         }
         private void dataGridView4_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            cb_enum.SelectedValue = dataGridView4.CurrentRow.Cells[1].Value.ToString();
-            cb_rstatus.SelectedValue = dataGridView4.CurrentRow.Cells[2].Value.ToString();
+            cb_enum.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
+            cb_rstatus.Text = dataGridView4.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void AddTips_Click(object sender, EventArgs e)
@@ -644,8 +581,23 @@ namespace Tiunov
         private void Rbtncbupd_Click(object sender, EventArgs e)
         {
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
-            this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
+            this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
         }
         #endregion
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"[Sfam] LIKE '%{textBox2.Text}%'";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = $"[Pnam] LIKE '%{textBox1.Text}%'";
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView3.DataSource as DataTable).DefaultView.RowFilter = $"[Enam] LIKE '%{textBox3.Text}%'";
+        }
     }
 }
