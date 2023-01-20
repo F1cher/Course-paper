@@ -129,6 +129,8 @@ namespace Tiunov
             this.EbtnUpdate = new System.Windows.Forms.Button();
             this.EbtnInsert = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.Rbtncbupd = new System.Windows.Forms.Button();
             this.AddStatus = new System.Windows.Forms.Button();
             this.cb_enum = new System.Windows.Forms.ComboBox();
@@ -1130,6 +1132,8 @@ namespace Tiunov
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.textBox4);
             this.tabPage4.Controls.Add(this.Rbtncbupd);
             this.tabPage4.Controls.Add(this.AddStatus);
             this.tabPage4.Controls.Add(this.cb_enum);
@@ -1147,6 +1151,24 @@ namespace Tiunov
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Реставрация";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label23.Location = new System.Drawing.Point(923, 8);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(182, 13);
+            this.label23.TabIndex = 45;
+            this.label23.Text = "Введите название экспоната";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(951, 24);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(134, 20);
+            this.textBox4.TabIndex = 44;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // Rbtncbupd
             // 
@@ -1514,6 +1536,8 @@ namespace Tiunov
         private System.Windows.Forms.DataGridViewTextBoxColumn rnumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn enamDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

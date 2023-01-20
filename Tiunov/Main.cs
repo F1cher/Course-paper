@@ -156,50 +156,69 @@ namespace Tiunov
             if (Access == "2")
             {
                 //Помещения
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label19.Visible = false;
                 PbtnInsert.Visible = false;
                 PbtnUpdate.Visible = false;
                 PbtnDelete.Visible = false;
                 PbtnClear.Visible = false;
-                Pnam.Enabled = false;
-                Padres.Enabled = false;
-                Pnaz.Enabled = false;
-                Ptreb.Enabled = false;
+                Pnam.Visible = false;
+                Padres.Visible = false;
+                Pnaz.Visible = false;
+                Ptreb.Visible = false;
                 //Сотрудники
+                label4.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
+                label10.Visible = false;
+                label11.Visible = false;
+                label12.Visible = false;
                 label13.Visible = false;
                 label14.Visible = false;
+                label15.Visible = false;
                 SbtnInsert.Visible = false;
                 SbtnUpdate.Visible = false;
                 SbtnDelete.Visible = false;
                 SbtnClear.Visible = false;
                 Sbtncbupd.Visible = false;
-                Sfam.Enabled = false;
-                Snam.Enabled = false;
-                Sotch.Enabled = false;
-                Stel.Enabled = false;
-                Skval.Enabled = false;
-                Sgraf.Enabled = false;
+                Sfam.Visible = false;
+                Snam.Visible = false;
+                Sotch.Visible = false;
+                Stel.Visible = false;
+                Skval.Visible = false;
+                Sgraf.Visible = false;
                 Login.Visible = false;
                 Pass.Visible = false;
-                cb_saccess.Enabled = false;
+                cb_saccess.Visible = false;
                 AddKval.Visible = false;
                 AddGraf.Visible = false;
                 //Экспонаты
+                label7.Visible = false;
+                label8.Visible = false;
+                label9.Visible = false;
+                label18.Visible = false;
                 EbtnInsert.Visible = false;
                 EbtnUpdate.Visible = false;
                 EbtnDelete.Visible = false;
                 EbtnClear.Visible = false;
                 Ebtncbupd.Visible = false;
-                Enam.Enabled = false;
-                Cb_etip.Enabled = false;
-                Ecena.Enabled = false;
-                Cb_pnum.Enabled = false;
+                Enam.Visible = false;
+                Cb_etip.Visible = false;
+                Ecena.Visible = false;
+                Cb_pnum.Visible = false;
                 AddTips.Visible = false;
                 //Реставрация
+                label16.Visible = false;
+                label17.Visible = false;
                 RbtnInsert.Visible = false;
+                RbtnUpdate.Visible = false;
                 RbtnDelete.Visible = false;
                 RbtnClear.Visible = false;
                 Rbtncbupd.Visible = false;
-                cb_enum.Enabled = false;
+                cb_enum.Visible = false;
+                cb_rstatus.Visible = false;
                 AddStatus.Visible = false;
             }
         }
@@ -276,6 +295,10 @@ namespace Tiunov
             Pnaz.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             Ptreb.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
         }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = $"[Pnam] LIKE '%{textBox1.Text}%'";
+        }
         #endregion
         #region Sotrudniki
         private void SbtnInsert_Click(object sender, EventArgs e)
@@ -285,12 +308,20 @@ namespace Tiunov
                 MessageBox.Show("Заполните все поля");
                 return;
             }
-            for (int i = 0; i < dataGridView2.RowCount - 1; i++)
-                if (dataGridView2.Rows[i].Cells[4].Value.ToString() == Stel.Text)//------------- проверка найдено ли такое же значение в колонки с primary key 
+            for (int i = 0; i < dataGridView2.RowCount; i++)
+            {
+                if (dataGridView2.Rows[i].Cells[4].Value.ToString() == Stel.Text)
                 {
-                    MessageBox.Show("Сотрудник с таким номером телефона уже существует");
+                    MessageBox.Show("Сотрудник с таким номером уже существует");
                     return;
                 }
+
+                if (dataGridView2.Rows[i].Cells[7].Value.ToString() == Login.Text)
+                {
+                    MessageBox.Show("Сотрудник с таким логином уже существует");
+                    return;
+                }
+            }
             string query = "Insert into Sotrudniki (Sfam,Snam, Sotch, Stel, Skval, Sgraf, Login, Pass, Saccess) values (@Sfam,@Snam,@Sotch,@Stel,@Skval,@Sgraf,@Login,@Pass, @Saccess)";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Sfam", Sfam.Text);
@@ -350,7 +381,6 @@ namespace Tiunov
                 catch (Exception)
                 {
                     MessageBox.Show("Невозможно удалить данную запись");
-                    return;
                 }
                 con.Close();
                 GetSotr();
@@ -387,6 +417,11 @@ namespace Tiunov
         {
             this.grafikiTableAdapter.Fill(this.tiunovDataSet.Grafiki);
             this.kvalifikacyaTableAdapter.Fill(this.tiunovDataSet.Kvalifikacya);
+            GetSotr();
+        }
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"[Sfam] LIKE '%{textBox2.Text}%'";
         }
         #endregion
         #region Exponat
@@ -448,7 +483,6 @@ namespace Tiunov
                 catch (Exception)
                 {
                     MessageBox.Show("Невозможно удалить данную запись");        
-                    return;
                 }
                 con.Close();
                 GetExp();
@@ -484,12 +518,17 @@ namespace Tiunov
         {
             this.exponat_tipTableAdapter.Fill(this.tiunovDataSet.Exponat_tip);
             this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
+            GetExp();
         }
         private void Ecena_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar)) return;
             else
                 e.Handled = true;
+        }
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridView3.DataSource as DataTable).DefaultView.RowFilter = $"[Enam] LIKE '%{textBox3.Text}%'";
         }
         #endregion
         #region Restavracia
@@ -499,6 +538,14 @@ namespace Tiunov
             {
                 MessageBox.Show("Заполните все поля");
                 return;
+            }
+            for (int i = 0; i < dataGridView4.RowCount; i++)
+            {
+                if (dataGridView4.Rows[i].Cells[1].Value.ToString() == cb_enum.Text)
+                {
+                    MessageBox.Show("Запись о данном экспонате уже существует");
+                    return;
+                }
             }
             string query = "Insert into Restavracia (Enum, Rstatus) values (@Enum,@Rstatus)";
             cmd = new SqlCommand(query, con);
@@ -547,7 +594,6 @@ namespace Tiunov
                 catch (Exception)
                 {
                     MessageBox.Show("Невозможно удалить данную запись");
-                    return;
                 }
                 con.Close();
                 GetRest();
@@ -582,22 +628,12 @@ namespace Tiunov
         {
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
             this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
+            GetRest();
         }
-        #endregion
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"[Sfam] LIKE '%{textBox2.Text}%'";
+            (dataGridView4.DataSource as DataTable).DefaultView.RowFilter = $"[Enam] LIKE '%{textBox4.Text}%'";
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = $"[Pnam] LIKE '%{textBox1.Text}%'";
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            (dataGridView3.DataSource as DataTable).DefaultView.RowFilter = $"[Enam] LIKE '%{textBox3.Text}%'";
-        }
+        #endregion   
     }
 }

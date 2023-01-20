@@ -26,6 +26,15 @@ namespace Tiunov
             con = new SqlConnection(@"Data Source=FICHER;Initial Catalog=Tiunov;Integrated Security=True");
             ds = new DataSet();
         }
+
+        void GetSotr()
+        {
+            da = new SqlDataAdapter("SELECT Sotrudniki.Snum, Sotrudniki.Sfam, Sotrudniki.Snam, Sotrudniki.Sotch, Sotrudniki.Stel, Kvalifikacya.Kval, Grafiki.Grafik, Sotrudniki.Login, Sotrudniki.Pass, Accesses.Access FROM Sotrudniki INNER JOIN Accesses ON Sotrudniki.Saccess = Accesses.Saccess INNER JOIN Grafiki ON Sotrudniki.Sgraf = Grafiki.Sgraf INNER JOIN Kvalifikacya ON Sotrudniki.Skval = Kvalifikacya.Skval", con);
+            ds = new DataSet();
+            con.Open();
+            da.Fill(ds, "Sotrudniki");
+            con.Close();
+        }
         void GetCharts()
         {
             GetCon();

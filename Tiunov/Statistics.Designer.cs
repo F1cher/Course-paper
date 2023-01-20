@@ -30,6 +30,8 @@ namespace Tiunov
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.exportToWord_2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -38,11 +40,12 @@ namespace Tiunov
             this.statExpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiunovDataSet = new Tiunov.TiunovDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.statRestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.exportToWord = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.статусРеставрацииDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.колвоЭкспонатовDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statRestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.statRestTableAdapter = new Tiunov.TiunovDataSetTableAdapters.StatRestTableAdapter();
             this.statExpTableAdapter = new Tiunov.TiunovDataSetTableAdapters.StatExpTableAdapter();
@@ -51,8 +54,9 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.statExpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statRestBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,6 +127,7 @@ namespace Tiunov
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chart1);
             this.tabPage1.Controls.Add(this.exportToWord);
             this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -132,6 +137,32 @@ namespace Tiunov
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Статистика реставраций";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.DataSource = this.statRestBindingSource;
+            this.chart1.Location = new System.Drawing.Point(376, 41);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.MarkerSize = 3;
+            series1.Name = "Series1";
+            series1.XValueMember = "Статус реставрации";
+            series1.YValueMembers = "Кол-во экспонатов";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(407, 365);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            // 
+            // statRestBindingSource
+            // 
+            this.statRestBindingSource.DataMember = "StatRest";
+            this.statRestBindingSource.DataSource = this.tiunovDataSet;
             // 
             // exportToWord
             // 
@@ -146,9 +177,6 @@ namespace Tiunov
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -159,7 +187,7 @@ namespace Tiunov
             this.dataGridView2.Location = new System.Drawing.Point(7, 41);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(776, 363);
+            this.dataGridView2.Size = new System.Drawing.Size(363, 363);
             this.dataGridView2.TabIndex = 0;
             // 
             // статусРеставрацииDataGridViewTextBoxColumn
@@ -175,11 +203,6 @@ namespace Tiunov
             this.колвоЭкспонатовDataGridViewTextBoxColumn.HeaderText = "Кол-во экспонатов";
             this.колвоЭкспонатовDataGridViewTextBoxColumn.Name = "колвоЭкспонатовDataGridViewTextBoxColumn";
             this.колвоЭкспонатовDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // statRestBindingSource
-            // 
-            this.statRestBindingSource.DataMember = "StatRest";
-            this.statRestBindingSource.DataSource = this.tiunovDataSet;
             // 
             // tabControl1
             // 
@@ -216,8 +239,9 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.statExpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statRestBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -241,5 +265,6 @@ namespace Tiunov
         private TiunovDataSetTableAdapters.StatExpTableAdapter statExpTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn колвоЭкспонатовDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn итогоDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

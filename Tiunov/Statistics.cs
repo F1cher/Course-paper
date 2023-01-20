@@ -22,10 +22,6 @@ namespace Tiunov
         }
         private void exportToWord_Click(object sender, EventArgs e)
         {
-            application = new Word.Application
-            {
-                Visible = true
-            };
             //Создание нового документа Word
             document = application.Documents.Add();
             //Добавление нового параграфа документа Word
