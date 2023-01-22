@@ -88,7 +88,7 @@ namespace Tiunov
         private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Statistics Statistics = new Statistics();
-            Statistics.Show();
+            Statistics.ShowDialog();
         }
         private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -506,13 +506,13 @@ namespace Tiunov
         private void AddGraf_Click(object sender, EventArgs e)
         {
             Charts Charts = new Charts();
-            Charts.Show();
+            Charts.ShowDialog();
         }
 
         private void AddKval_Click(object sender, EventArgs e)
         {
             Qualifications Qualifications = new Qualifications();
-            Qualifications.Show();
+            Qualifications.ShowDialog();
         }
         private void Ebtncbupd_Click(object sender, EventArgs e)
         {
@@ -616,13 +616,13 @@ namespace Tiunov
         private void AddTips_Click(object sender, EventArgs e)
         {
             Tips_Exp Tips_Exp = new Tips_Exp();
-            Tips_Exp.Show();
+            Tips_Exp.ShowDialog();
         }
 
         private void AddStatus_Click(object sender, EventArgs e)
         {
             Restoration_status Restoration_status = new Restoration_status();
-            Restoration_status.Show();
+            Restoration_status.ShowDialog();
         }
         private void Rbtncbupd_Click(object sender, EventArgs e)
         {
