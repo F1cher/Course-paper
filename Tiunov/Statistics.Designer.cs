@@ -31,6 +31,7 @@ namespace Tiunov
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.exportToWord_2 = new System.Windows.Forms.Button();
@@ -133,7 +134,7 @@ namespace Tiunov
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(789, 412);
+            this.tabPage1.Size = new System.Drawing.Size(1071, 515);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Статистика реставраций";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -146,16 +147,23 @@ namespace Tiunov
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.DataSource = this.statRestBindingSource;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(376, 41);
             this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.IsValueShownAsLabel = true;
+            series1.Label = "#PERCENT";
+            series1.Legend = "Legend1";
+            series1.LegendText = "#VALX";
             series1.MarkerSize = 3;
             series1.Name = "Series1";
             series1.XValueMember = "Статус реставрации";
             series1.YValueMembers = "Кол-во экспонатов";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(407, 365);
+            this.chart1.Size = new System.Drawing.Size(689, 468);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
@@ -187,7 +195,7 @@ namespace Tiunov
             this.dataGridView2.Location = new System.Drawing.Point(7, 41);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(363, 363);
+            this.dataGridView2.Size = new System.Drawing.Size(363, 466);
             this.dataGridView2.TabIndex = 0;
             // 
             // статусРеставрацииDataGridViewTextBoxColumn
@@ -214,7 +222,7 @@ namespace Tiunov
             this.tabControl1.Location = new System.Drawing.Point(1, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(797, 438);
+            this.tabControl1.Size = new System.Drawing.Size(1079, 541);
             this.tabControl1.TabIndex = 0;
             // 
             // statRestTableAdapter
@@ -229,7 +237,7 @@ namespace Tiunov
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.tabControl1);
             this.Name = "Statistics";
             this.Text = "Статистики";

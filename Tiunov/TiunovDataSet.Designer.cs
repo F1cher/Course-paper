@@ -52,6 +52,8 @@ namespace Tiunov {
         
         private restDataTable tablerest;
         
+        private Sotrudniki1DataTable tableSotrudniki1;
+        
         private global::System.Data.DataRelation relationRestoration_status_Restavracia;
         
         private global::System.Data.DataRelation relationExponat_Restavracia;
@@ -67,6 +69,10 @@ namespace Tiunov {
         private global::System.Data.DataRelation relationAccesses_Sotrudniki;
         
         private global::System.Data.DataRelation relationFK_Restavracia_Exponat;
+        
+        private global::System.Data.DataRelation relationFK_Restavracia_Sotrudniki;
+        
+        private global::System.Data.DataRelation relationFK_Restavracia_Sotrudniki1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -137,6 +143,9 @@ namespace Tiunov {
                 }
                 if ((ds.Tables["rest"] != null)) {
                     base.Tables.Add(new restDataTable(ds.Tables["rest"]));
+                }
+                if ((ds.Tables["Sotrudniki1"] != null)) {
+                    base.Tables.Add(new Sotrudniki1DataTable(ds.Tables["Sotrudniki1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -298,6 +307,16 @@ namespace Tiunov {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Sotrudniki1DataTable Sotrudniki1 {
+            get {
+                return this.tableSotrudniki1;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -404,6 +423,9 @@ namespace Tiunov {
                 }
                 if ((ds.Tables["rest"] != null)) {
                     base.Tables.Add(new restDataTable(ds.Tables["rest"]));
+                }
+                if ((ds.Tables["Sotrudniki1"] != null)) {
+                    base.Tables.Add(new Sotrudniki1DataTable(ds.Tables["Sotrudniki1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -522,6 +544,12 @@ namespace Tiunov {
                     this.tablerest.InitVars();
                 }
             }
+            this.tableSotrudniki1 = ((Sotrudniki1DataTable)(base.Tables["Sotrudniki1"]));
+            if ((initTable == true)) {
+                if ((this.tableSotrudniki1 != null)) {
+                    this.tableSotrudniki1.InitVars();
+                }
+            }
             this.relationRestoration_status_Restavracia = this.Relations["Restoration_status_Restavracia"];
             this.relationExponat_Restavracia = this.Relations["Exponat_Restavracia"];
             this.relationKvalifikacya_Sotrudniki = this.Relations["Kvalifikacya_Sotrudniki"];
@@ -530,6 +558,8 @@ namespace Tiunov {
             this.relationPomeshenya_Exponat = this.Relations["Pomeshenya_Exponat"];
             this.relationAccesses_Sotrudniki = this.Relations["Accesses_Sotrudniki"];
             this.relationFK_Restavracia_Exponat = this.Relations["FK_Restavracia_Exponat"];
+            this.relationFK_Restavracia_Sotrudniki = this.Relations["FK_Restavracia_Sotrudniki"];
+            this.relationFK_Restavracia_Sotrudniki1 = this.Relations["FK_Restavracia_Sotrudniki1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -568,6 +598,8 @@ namespace Tiunov {
             base.Tables.Add(this.tableExp);
             this.tablerest = new restDataTable();
             base.Tables.Add(this.tablerest);
+            this.tableSotrudniki1 = new Sotrudniki1DataTable();
+            base.Tables.Add(this.tableSotrudniki1);
             this.relationRestoration_status_Restavracia = new global::System.Data.DataRelation("Restoration_status_Restavracia", new global::System.Data.DataColumn[] {
                         this.tableRestoration_status.RstatusColumn}, new global::System.Data.DataColumn[] {
                         this.tableRestavracia.RstatusColumn}, false);
@@ -600,6 +632,14 @@ namespace Tiunov {
                         this.tableExp.EnumColumn}, new global::System.Data.DataColumn[] {
                         this.tableRestavracia.EnumColumn}, false);
             this.Relations.Add(this.relationFK_Restavracia_Exponat);
+            this.relationFK_Restavracia_Sotrudniki = new global::System.Data.DataRelation("FK_Restavracia_Sotrudniki", new global::System.Data.DataColumn[] {
+                        this.tableSotrudniki.SnumColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRestavracia.SnumColumn}, false);
+            this.Relations.Add(this.relationFK_Restavracia_Sotrudniki);
+            this.relationFK_Restavracia_Sotrudniki1 = new global::System.Data.DataRelation("FK_Restavracia_Sotrudniki1", new global::System.Data.DataColumn[] {
+                        this.tableSotrudniki1.SnumColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRestavracia.SnumColumn}, false);
+            this.Relations.Add(this.relationFK_Restavracia_Sotrudniki1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -683,6 +723,12 @@ namespace Tiunov {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializerest() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeSotrudniki1() {
             return false;
         }
         
@@ -782,6 +828,9 @@ namespace Tiunov {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void restRowChangeEventHandler(object sender, restRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void Sotrudniki1RowChangeEventHandler(object sender, Sotrudniki1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -910,7 +959,7 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExponatRow AddExponatRow(int Enum, string Enam, Exponat_tipRow parentExponat_tipRowByExponat_tip_Exponat, int Ecena, PomeshenyaRow parentPomeshenyaRowByPomeshenya_Exponat) {
+            public ExponatRow AddExponatRow(int Enum, string Enam, Exponat_tipRow parentExponat_tipRowByExponat_tip_Exponat, long Ecena, PomeshenyaRow parentPomeshenyaRowByPomeshenya_Exponat) {
                 ExponatRow rowExponatRow = ((ExponatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Enum,
@@ -969,7 +1018,7 @@ namespace Tiunov {
                 base.Columns.Add(this.columnEnam);
                 this.columnEtip = new global::System.Data.DataColumn("Etip", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEtip);
-                this.columnEcena = new global::System.Data.DataColumn("Ecena", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnEcena = new global::System.Data.DataColumn("Ecena", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEcena);
                 this.columnPnum = new global::System.Data.DataColumn("Pnum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPnum);
@@ -2926,6 +2975,8 @@ namespace Tiunov {
             
             private global::System.Data.DataColumn columnRstatus;
             
+            private global::System.Data.DataColumn columnSnum;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public RestavraciaDataTable() {
@@ -2985,6 +3036,14 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SnumColumn {
+                get {
+                    return this.columnSnum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3020,10 +3079,11 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RestavraciaRow AddRestavraciaRow(int Rnum, ExponatRow parentExponatRowByExponat_Restavracia, Restoration_statusRow parentRestoration_statusRowByRestoration_status_Restavracia) {
+            public RestavraciaRow AddRestavraciaRow(int Rnum, ExponatRow parentExponatRowByExponat_Restavracia, Restoration_statusRow parentRestoration_statusRowByRestoration_status_Restavracia, SotrudnikiRow parentSotrudnikiRowByFK_Restavracia_Sotrudniki) {
                 RestavraciaRow rowRestavraciaRow = ((RestavraciaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rnum,
+                        null,
                         null,
                         null};
                 if ((parentExponatRowByExponat_Restavracia != null)) {
@@ -3031,6 +3091,9 @@ namespace Tiunov {
                 }
                 if ((parentRestoration_statusRowByRestoration_status_Restavracia != null)) {
                     columnValuesArray[2] = parentRestoration_statusRowByRestoration_status_Restavracia[0];
+                }
+                if ((parentSotrudnikiRowByFK_Restavracia_Sotrudniki != null)) {
+                    columnValuesArray[3] = parentSotrudnikiRowByFK_Restavracia_Sotrudniki[0];
                 }
                 rowRestavraciaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRestavraciaRow);
@@ -3064,6 +3127,7 @@ namespace Tiunov {
                 this.columnRnum = base.Columns["Rnum"];
                 this.columnEnum = base.Columns["Enum"];
                 this.columnRstatus = base.Columns["Rstatus"];
+                this.columnSnum = base.Columns["Snum"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3075,10 +3139,14 @@ namespace Tiunov {
                 base.Columns.Add(this.columnEnum);
                 this.columnRstatus = new global::System.Data.DataColumn("Rstatus", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRstatus);
+                this.columnSnum = new global::System.Data.DataColumn("Snum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSnum);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRnum}, true));
                 this.columnRnum.AllowDBNull = false;
                 this.columnRnum.Unique = true;
+                this.columnEnum.AllowDBNull = false;
+                this.columnRstatus.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4731,6 +4799,8 @@ namespace Tiunov {
             
             private global::System.Data.DataColumn columnStatus;
             
+            private global::System.Data.DataColumn columnСотрудник;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public restDataTable() {
@@ -4790,6 +4860,14 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn СотрудникColumn {
+                get {
+                    return this.columnСотрудник;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4825,12 +4903,13 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public restRow AddrestRow(int Rnum, string Enam, string Status) {
+            public restRow AddrestRow(int Rnum, string Enam, string Status, string Сотрудник) {
                 restRow rowrestRow = ((restRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rnum,
                         Enam,
-                        Status};
+                        Status,
+                        Сотрудник};
                 rowrestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrestRow);
                 return rowrestRow;
@@ -4863,6 +4942,7 @@ namespace Tiunov {
                 this.columnRnum = base.Columns["Rnum"];
                 this.columnEnam = base.Columns["Enam"];
                 this.columnStatus = base.Columns["Status"];
+                this.columnСотрудник = base.Columns["Сотрудник"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4874,12 +4954,18 @@ namespace Tiunov {
                 base.Columns.Add(this.columnEnam);
                 this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatus);
+                this.columnСотрудник = new global::System.Data.DataColumn("Сотрудник", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСотрудник);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRnum}, true));
                 this.columnRnum.AllowDBNull = false;
                 this.columnRnum.Unique = true;
+                this.columnEnam.AllowDBNull = false;
                 this.columnEnam.MaxLength = 25;
+                this.columnStatus.AllowDBNull = false;
                 this.columnStatus.MaxLength = 25;
+                this.columnСотрудник.ReadOnly = true;
+                this.columnСотрудник.MaxLength = 77;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5007,6 +5093,280 @@ namespace Tiunov {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Sotrudniki1DataTable : global::System.Data.TypedTableBase<Sotrudniki1Row> {
+            
+            private global::System.Data.DataColumn columnСотрудник;
+            
+            private global::System.Data.DataColumn columnSnum;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Sotrudniki1DataTable() {
+                this.TableName = "Sotrudniki1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Sotrudniki1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected Sotrudniki1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn СотрудникColumn {
+                get {
+                    return this.columnСотрудник;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SnumColumn {
+                get {
+                    return this.columnSnum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Sotrudniki1Row this[int index] {
+                get {
+                    return ((Sotrudniki1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Sotrudniki1RowChangeEventHandler Sotrudniki1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Sotrudniki1RowChangeEventHandler Sotrudniki1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Sotrudniki1RowChangeEventHandler Sotrudniki1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Sotrudniki1RowChangeEventHandler Sotrudniki1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddSotrudniki1Row(Sotrudniki1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Sotrudniki1Row AddSotrudniki1Row(string Сотрудник, int Snum) {
+                Sotrudniki1Row rowSotrudniki1Row = ((Sotrudniki1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Сотрудник,
+                        Snum};
+                rowSotrudniki1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSotrudniki1Row);
+                return rowSotrudniki1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Sotrudniki1Row FindBySnum(int Snum) {
+                return ((Sotrudniki1Row)(this.Rows.Find(new object[] {
+                            Snum})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Sotrudniki1DataTable cln = ((Sotrudniki1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Sotrudniki1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnСотрудник = base.Columns["Сотрудник"];
+                this.columnSnum = base.Columns["Snum"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnСотрудник = new global::System.Data.DataColumn("Сотрудник", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСотрудник);
+                this.columnSnum = new global::System.Data.DataColumn("Snum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSnum);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnSnum}, true));
+                this.columnСотрудник.ReadOnly = true;
+                this.columnСотрудник.MaxLength = 77;
+                this.columnSnum.AllowDBNull = false;
+                this.columnSnum.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Sotrudniki1Row NewSotrudniki1Row() {
+                return ((Sotrudniki1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Sotrudniki1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Sotrudniki1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Sotrudniki1RowChanged != null)) {
+                    this.Sotrudniki1RowChanged(this, new Sotrudniki1RowChangeEvent(((Sotrudniki1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Sotrudniki1RowChanging != null)) {
+                    this.Sotrudniki1RowChanging(this, new Sotrudniki1RowChangeEvent(((Sotrudniki1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Sotrudniki1RowDeleted != null)) {
+                    this.Sotrudniki1RowDeleted(this, new Sotrudniki1RowChangeEvent(((Sotrudniki1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Sotrudniki1RowDeleting != null)) {
+                    this.Sotrudniki1RowDeleting(this, new Sotrudniki1RowChangeEvent(((Sotrudniki1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveSotrudniki1Row(Sotrudniki1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                TiunovDataSet ds = new TiunovDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Sotrudniki1DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ExponatRow : global::System.Data.DataRow {
@@ -5065,10 +5425,10 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Ecena {
+            public long Ecena {
                 get {
                     try {
-                        return ((int)(this[this.tableExponat.EcenaColumn]));
+                        return ((long)(this[this.tableExponat.EcenaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Ecena\' в таблице \'Exponat\' равно DBNull.", e);
@@ -5681,6 +6041,17 @@ namespace Tiunov {
             public void SetSaccessNull() {
                 this[this.tableSotrudniki.SaccessColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public RestavraciaRow[] GetRestavraciaRows() {
+                if ((this.Table.ChildRelations["FK_Restavracia_Sotrudniki"] == null)) {
+                    return new RestavraciaRow[0];
+                }
+                else {
+                    return ((RestavraciaRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Restavracia_Sotrudniki"])));
+                }
+            }
         }
         
         /// <summary>
@@ -5926,12 +6297,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Enum {
                 get {
-                    try {
-                        return ((int)(this[this.tableRestavracia.EnumColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Enum\' в таблице \'Restavracia\' равно DBNull.", e);
-                    }
+                    return ((int)(this[this.tableRestavracia.EnumColumn]));
                 }
                 set {
                     this[this.tableRestavracia.EnumColumn] = value;
@@ -5942,15 +6308,26 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Rstatus {
                 get {
-                    try {
-                        return ((int)(this[this.tableRestavracia.RstatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Rstatus\' в таблице \'Restavracia\' равно DBNull.", e);
-                    }
+                    return ((int)(this[this.tableRestavracia.RstatusColumn]));
                 }
                 set {
                     this[this.tableRestavracia.RstatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Snum {
+                get {
+                    try {
+                        return ((int)(this[this.tableRestavracia.SnumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Snum\' в таблице \'Restavracia\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRestavracia.SnumColumn] = value;
                 }
             }
             
@@ -5989,26 +6366,36 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEnumNull() {
-                return this.IsNull(this.tableRestavracia.EnumColumn);
+            public SotrudnikiRow SotrudnikiRow {
+                get {
+                    return ((SotrudnikiRow)(this.GetParentRow(this.Table.ParentRelations["FK_Restavracia_Sotrudniki"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Restavracia_Sotrudniki"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEnumNull() {
-                this[this.tableRestavracia.EnumColumn] = global::System.Convert.DBNull;
+            public Sotrudniki1Row Sotrudniki1Row {
+                get {
+                    return ((Sotrudniki1Row)(this.GetParentRow(this.Table.ParentRelations["FK_Restavracia_Sotrudniki1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Restavracia_Sotrudniki1"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRstatusNull() {
-                return this.IsNull(this.tableRestavracia.RstatusColumn);
+            public bool IsSnumNull() {
+                return this.IsNull(this.tableRestavracia.SnumColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRstatusNull() {
-                this[this.tableRestavracia.RstatusColumn] = global::System.Convert.DBNull;
+            public void SetSnumNull() {
+                this[this.tableRestavracia.SnumColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6675,12 +7062,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Enam {
                 get {
-                    try {
-                        return ((string)(this[this.tablerest.EnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Enam\' в таблице \'rest\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tablerest.EnamColumn]));
                 }
                 set {
                     this[this.tablerest.EnamColumn] = value;
@@ -6691,12 +7073,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Status {
                 get {
-                    try {
-                        return ((string)(this[this.tablerest.StatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Status\' в таблице \'rest\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tablerest.StatusColumn]));
                 }
                 set {
                     this[this.tablerest.StatusColumn] = value;
@@ -6705,26 +7082,95 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEnamNull() {
-                return this.IsNull(this.tablerest.EnamColumn);
+            public string Сотрудник {
+                get {
+                    try {
+                        return ((string)(this[this.tablerest.СотрудникColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Сотрудник\' в таблице \'rest\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerest.СотрудникColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEnamNull() {
-                this[this.tablerest.EnamColumn] = global::System.Convert.DBNull;
+            public bool IsСотрудникNull() {
+                return this.IsNull(this.tablerest.СотрудникColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsStatusNull() {
-                return this.IsNull(this.tablerest.StatusColumn);
+            public void SetСотрудникNull() {
+                this[this.tablerest.СотрудникColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Sotrudniki1Row : global::System.Data.DataRow {
+            
+            private Sotrudniki1DataTable tableSotrudniki1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Sotrudniki1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSotrudniki1 = ((Sotrudniki1DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetStatusNull() {
-                this[this.tablerest.StatusColumn] = global::System.Convert.DBNull;
+            public string Сотрудник {
+                get {
+                    try {
+                        return ((string)(this[this.tableSotrudniki1.СотрудникColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Сотрудник\' в таблице \'Sotrudniki1\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSotrudniki1.СотрудникColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Snum {
+                get {
+                    return ((int)(this[this.tableSotrudniki1.SnumColumn]));
+                }
+                set {
+                    this[this.tableSotrudniki1.SnumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsСотрудникNull() {
+                return this.IsNull(this.tableSotrudniki1.СотрудникColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetСотрудникNull() {
+                this[this.tableSotrudniki1.СотрудникColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public RestavraciaRow[] GetRestavraciaRows() {
+                if ((this.Table.ChildRelations["FK_Restavracia_Sotrudniki1"] == null)) {
+                    return new RestavraciaRow[0];
+                }
+                else {
+                    return ((RestavraciaRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Restavracia_Sotrudniki1"])));
+                }
             }
         }
         
@@ -7190,6 +7636,40 @@ namespace Tiunov {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public restRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class Sotrudniki1RowChangeEvent : global::System.EventArgs {
+            
+            private Sotrudniki1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Sotrudniki1RowChangeEvent(Sotrudniki1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Sotrudniki1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -10139,39 +10619,43 @@ SELECT Rstatus, Status FROM Restoration_status WHERE (Rstatus = @Rstatus)";
             tableMapping.ColumnMappings.Add("Rnum", "Rnum");
             tableMapping.ColumnMappings.Add("Enum", "Enum");
             tableMapping.ColumnMappings.Add("Rstatus", "Rstatus");
+            tableMapping.ColumnMappings.Add("Snum", "Snum");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Restavracia] WHERE (([Rnum] = @Original_Rnum) AND ((@IsNull_Enum = 1" +
-                " AND [Enum] IS NULL) OR ([Enum] = @Original_Enum)) AND ((@IsNull_Rstatus = 1 AND" +
-                " [Rstatus] IS NULL) OR ([Rstatus] = @Original_Rstatus)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Restavracia] WHERE (([Rnum] = @Original_Rnum) AND ([Enum] = @Origina" +
+                "l_Enum) AND ([Rstatus] = @Original_Rstatus) AND ((@IsNull_Snum = 1 AND [Snum] IS" +
+                " NULL) OR ([Snum] = @Original_Snum)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Restavracia] ([Rnum], [Enum], [Rstatus]) VALUES (@Rnum, @Enum, @Rsta" +
-                "tus);\r\nSELECT Rnum, Enum, Rstatus FROM Restavracia WHERE (Rnum = @Rnum)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Restavracia] ([Rnum], [Enum], [Rstatus], [Snum]) VALUES (@Rnum, @Enu" +
+                "m, @Rstatus, @Snum);\r\nSELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (R" +
+                "num = @Rnum)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Restavracia] SET [Rnum] = @Rnum, [Enum] = @Enum, [Rstatus] = @Rstatus WHERE (([Rnum] = @Original_Rnum) AND ((@IsNull_Enum = 1 AND [Enum] IS NULL) OR ([Enum] = @Original_Enum)) AND ((@IsNull_Rstatus = 1 AND [Rstatus] IS NULL) OR ([Rstatus] = @Original_Rstatus)));
-SELECT Rnum, Enum, Rstatus FROM Restavracia WHERE (Rnum = @Rnum)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Restavracia] SET [Rnum] = @Rnum, [Enum] = @Enum, [Rstatus] = @Rstatus, [Snum] = @Snum WHERE (([Rnum] = @Original_Rnum) AND ([Enum] = @Original_Enum) AND ([Rstatus] = @Original_Rstatus) AND ((@IsNull_Snum = 1 AND [Snum] IS NULL) OR ([Snum] = @Original_Snum)));
+SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10187,7 +10671,7 @@ SELECT Rnum, Enum, Rstatus FROM Restavracia WHERE (Rnum = @Rnum)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT       Rnum, Enum, Rstatus\r\nFROM            Restavracia";
+            this._commandCollection[0].CommandText = "SELECT       Rnum, Enum, Rstatus, Snum\r\nFROM            Restavracia";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10248,19 +10732,13 @@ SELECT Rnum, Enum, Rstatus FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Rnum, global::System.Nullable<int> Original_Enum, global::System.Nullable<int> Original_Rstatus) {
+        public virtual int Delete(int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Rnum));
-            if ((Original_Enum.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Enum.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Rstatus.HasValue == true)) {
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Enum));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Rstatus));
+            if ((Original_Snum.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Rstatus.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Snum.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -10286,19 +10764,15 @@ SELECT Rnum, Enum, Rstatus FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Rnum, global::System.Nullable<int> Enum, global::System.Nullable<int> Rstatus) {
+        public virtual int Insert(int Rnum, int Enum, int Rstatus, global::System.Nullable<int> Snum) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Rnum));
-            if ((Enum.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Enum.Value));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Enum));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Rstatus));
+            if ((Snum.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Snum.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Rstatus.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Rstatus.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10320,36 +10794,26 @@ SELECT Rnum, Enum, Rstatus FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Rnum, global::System.Nullable<int> Enum, global::System.Nullable<int> Rstatus, int Original_Rnum, global::System.Nullable<int> Original_Enum, global::System.Nullable<int> Original_Rstatus) {
+        public virtual int Update(int Rnum, int Enum, int Rstatus, global::System.Nullable<int> Snum, int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Rnum));
-            if ((Enum.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Enum.Value));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Enum));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Rstatus));
+            if ((Snum.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Snum.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Rstatus.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Rstatus.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Rnum));
-            if ((Original_Enum.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Enum.Value));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Rnum));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Enum));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Rstatus));
+            if ((Original_Snum.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Snum.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Rstatus.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Rstatus.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10371,8 +10835,8 @@ SELECT Rnum, Enum, Rstatus FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Enum, global::System.Nullable<int> Rstatus, int Original_Rnum, global::System.Nullable<int> Original_Enum, global::System.Nullable<int> Original_Rstatus) {
-            return this.Update(Original_Rnum, Enum, Rstatus, Original_Rnum, Original_Enum, Original_Rstatus);
+        public virtual int Update(int Enum, int Rstatus, global::System.Nullable<int> Snum, int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum) {
+            return this.Update(Original_Rnum, Enum, Rstatus, Snum, Original_Rnum, Original_Enum, Original_Rstatus, Original_Snum);
         }
     }
     
@@ -11521,6 +11985,7 @@ FROM            Exponat INNER JOIN
             tableMapping.ColumnMappings.Add("Rnum", "Rnum");
             tableMapping.ColumnMappings.Add("Enam", "Enam");
             tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("Сотрудник", "Сотрудник");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -11537,10 +12002,11 @@ FROM            Exponat INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT       Restavracia.Rnum, Exponat.Enam, Restoration_status.Status
+            this._commandCollection[0].CommandText = @"SELECT       Restavracia.Rnum, Exponat.Enam, Restoration_status.Status, Sotrudniki.Sfam + ' ' + Sotrudniki.Snam + ' ' + Sotrudniki.Sotch AS Сотрудник
 FROM            Restavracia INNER JOIN
                          Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus INNER JOIN
-                         Exponat ON Restavracia.Enum = Exponat.Enum";
+                         Exponat ON Restavracia.Enum = Exponat.Enum INNER JOIN
+                         Sotrudniki ON Restavracia.Snum = Sotrudniki.Snum";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -11564,6 +12030,175 @@ FROM            Restavracia INNER JOIN
         public virtual TiunovDataSet.restDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             TiunovDataSet.restDataTable dataTable = new TiunovDataSet.restDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Sotrudniki1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public Sotrudniki1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Sotrudniki1";
+            tableMapping.ColumnMappings.Add("Сотрудник", "Сотрудник");
+            tableMapping.ColumnMappings.Add("Snum", "Snum");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Tiunov.Properties.Settings.Default.TiunovConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT       Snum, Sfam + \' \' + Snam + \' \' + Sotch AS Сотрудник\r\nFROM            " +
+                "Sotrudniki";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(TiunovDataSet.Sotrudniki1DataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual TiunovDataSet.Sotrudniki1DataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            TiunovDataSet.Sotrudniki1DataTable dataTable = new TiunovDataSet.Sotrudniki1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -11855,24 +12490,6 @@ FROM            Restavracia INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pomeshenyaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pomeshenyaTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._exponatTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._exponatTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._grafikiTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Grafiki.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -11891,12 +12508,12 @@ FROM            Restavracia INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._restoration_statusTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._pomeshenyaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._restoration_statusTableAdapter.Update(updatedRows));
+                    result = (result + this._pomeshenyaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11909,12 +12526,30 @@ FROM            Restavracia INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._exponatTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._exponatTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._sotrudnikiTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Sotrudniki.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._sotrudnikiTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._restoration_statusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._restoration_statusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11945,22 +12580,6 @@ FROM            Restavracia INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pomeshenyaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pomeshenyaTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._exponatTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._exponatTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._grafikiTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Grafiki.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -11977,11 +12596,11 @@ FROM            Restavracia INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._restoration_statusTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._pomeshenyaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._restoration_statusTableAdapter.Update(addedRows));
+                    result = (result + this._pomeshenyaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11993,11 +12612,27 @@ FROM            Restavracia INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._exponatTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._exponatTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._sotrudnikiTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Sotrudniki.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._sotrudnikiTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._restoration_statusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._restoration_statusTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -12027,11 +12662,27 @@ FROM            Restavracia INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._restoration_statusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._restoration_statusTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._sotrudnikiTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Sotrudniki.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._sotrudnikiTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._exponatTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._exponatTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -12043,11 +12694,11 @@ FROM            Restavracia INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._restoration_statusTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Restoration_status.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pomeshenyaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._restoration_statusTableAdapter.Update(deletedRows));
+                    result = (result + this._pomeshenyaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -12064,22 +12715,6 @@ FROM            Restavracia INNER JOIN
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._grafikiTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._exponatTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Exponat.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._exponatTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._pomeshenyaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pomeshenya.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pomeshenyaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

@@ -129,6 +129,8 @@ namespace Tiunov
             this.EbtnUpdate = new System.Windows.Forms.Button();
             this.EbtnInsert = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cb_snum = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.Rbtncbupd = new System.Windows.Forms.Button();
@@ -137,9 +139,6 @@ namespace Tiunov
             this.cb_rstatus = new System.Windows.Forms.ComboBox();
             this.restorationstatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.rnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.restBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -147,6 +146,7 @@ namespace Tiunov
             this.RbtnDelete = new System.Windows.Forms.Button();
             this.RbtnUpdate = new System.Windows.Forms.Button();
             this.RbtnInsert = new System.Windows.Forms.Button();
+            this.sotrudnikiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grafikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.GrafikiTableAdapter();
             this.kvalifikacyaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.KvalifikacyaTableAdapter();
             this.exponat_tipTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Exponat_tipTableAdapter();
@@ -156,7 +156,14 @@ namespace Tiunov
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sotrTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrTableAdapter();
             this.expTableAdapter = new Tiunov.TiunovDataSetTableAdapters.ExpTableAdapter();
+            this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
             this.restTableAdapter = new Tiunov.TiunovDataSetTableAdapters.restTableAdapter();
+            this.sotrudniki1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sotrudniki1TableAdapter = new Tiunov.TiunovDataSetTableAdapters.Sotrudniki1TableAdapter();
+            this.rnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.сотрудникDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -177,6 +184,8 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudniki1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1132,6 +1141,8 @@ namespace Tiunov
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label24);
+            this.tabPage4.Controls.Add(this.cb_snum);
             this.tabPage4.Controls.Add(this.label23);
             this.tabPage4.Controls.Add(this.textBox4);
             this.tabPage4.Controls.Add(this.Rbtncbupd);
@@ -1151,6 +1162,28 @@ namespace Tiunov
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Реставрация";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label24.Location = new System.Drawing.Point(343, 57);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(69, 13);
+            this.label24.TabIndex = 47;
+            this.label24.Text = "Сотрудник";
+            // 
+            // cb_snum
+            // 
+            this.cb_snum.DataSource = this.sotrudniki1BindingSource;
+            this.cb_snum.DisplayMember = "Сотрудник";
+            this.cb_snum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_snum.FormattingEnabled = true;
+            this.cb_snum.Location = new System.Drawing.Point(346, 75);
+            this.cb_snum.Name = "cb_snum";
+            this.cb_snum.Size = new System.Drawing.Size(183, 21);
+            this.cb_snum.TabIndex = 46;
+            this.cb_snum.ValueMember = "Snum";
             // 
             // label23
             // 
@@ -1182,7 +1215,7 @@ namespace Tiunov
             // 
             // AddStatus
             // 
-            this.AddStatus.Location = new System.Drawing.Point(317, 73);
+            this.AddStatus.Location = new System.Drawing.Point(317, 75);
             this.AddStatus.Name = "AddStatus";
             this.AddStatus.Size = new System.Drawing.Size(23, 23);
             this.AddStatus.TabIndex = 38;
@@ -1231,7 +1264,8 @@ namespace Tiunov
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rnumDataGridViewTextBoxColumn,
             this.enamDataGridViewTextBoxColumn1,
-            this.statusDataGridViewTextBoxColumn});
+            this.statusDataGridViewTextBoxColumn,
+            this.сотрудникDataGridViewTextBoxColumn});
             this.dataGridView4.DataSource = this.restBindingSource;
             this.dataGridView4.Location = new System.Drawing.Point(8, 102);
             this.dataGridView4.Name = "dataGridView4";
@@ -1239,27 +1273,6 @@ namespace Tiunov
             this.dataGridView4.Size = new System.Drawing.Size(1100, 287);
             this.dataGridView4.TabIndex = 35;
             this.dataGridView4.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellEnter);
-            // 
-            // rnumDataGridViewTextBoxColumn
-            // 
-            this.rnumDataGridViewTextBoxColumn.DataPropertyName = "Rnum";
-            this.rnumDataGridViewTextBoxColumn.HeaderText = "№ реставрации";
-            this.rnumDataGridViewTextBoxColumn.Name = "rnumDataGridViewTextBoxColumn";
-            this.rnumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // enamDataGridViewTextBoxColumn1
-            // 
-            this.enamDataGridViewTextBoxColumn1.DataPropertyName = "Enam";
-            this.enamDataGridViewTextBoxColumn1.HeaderText = "Название экспоната";
-            this.enamDataGridViewTextBoxColumn1.Name = "enamDataGridViewTextBoxColumn1";
-            this.enamDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус реставрации";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // restBindingSource
             // 
@@ -1326,6 +1339,11 @@ namespace Tiunov
             this.RbtnInsert.UseVisualStyleBackColor = true;
             this.RbtnInsert.Click += new System.EventHandler(this.RbtnInsert_Click);
             // 
+            // sotrudnikiBindingSource
+            // 
+            this.sotrudnikiBindingSource.DataMember = "Sotrudniki";
+            this.sotrudnikiBindingSource.DataSource = this.tiunovDataSet;
+            // 
             // grafikiTableAdapter
             // 
             this.grafikiTableAdapter.ClearBeforeFill = true;
@@ -1363,9 +1381,50 @@ namespace Tiunov
             // 
             this.expTableAdapter.ClearBeforeFill = true;
             // 
+            // sotrudnikiTableAdapter
+            // 
+            this.sotrudnikiTableAdapter.ClearBeforeFill = true;
+            // 
             // restTableAdapter
             // 
             this.restTableAdapter.ClearBeforeFill = true;
+            // 
+            // sotrudniki1BindingSource
+            // 
+            this.sotrudniki1BindingSource.DataMember = "Sotrudniki1";
+            this.sotrudniki1BindingSource.DataSource = this.tiunovDataSet;
+            // 
+            // sotrudniki1TableAdapter
+            // 
+            this.sotrudniki1TableAdapter.ClearBeforeFill = true;
+            // 
+            // rnumDataGridViewTextBoxColumn
+            // 
+            this.rnumDataGridViewTextBoxColumn.DataPropertyName = "Rnum";
+            this.rnumDataGridViewTextBoxColumn.HeaderText = "№ реставрации";
+            this.rnumDataGridViewTextBoxColumn.Name = "rnumDataGridViewTextBoxColumn";
+            this.rnumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // enamDataGridViewTextBoxColumn1
+            // 
+            this.enamDataGridViewTextBoxColumn1.DataPropertyName = "Enam";
+            this.enamDataGridViewTextBoxColumn1.HeaderText = "Название экспоната";
+            this.enamDataGridViewTextBoxColumn1.Name = "enamDataGridViewTextBoxColumn1";
+            this.enamDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус реставрации";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // сотрудникDataGridViewTextBoxColumn
+            // 
+            this.сотрудникDataGridViewTextBoxColumn.DataPropertyName = "Сотрудник";
+            this.сотрудникDataGridViewTextBoxColumn.HeaderText = "Сотрудник";
+            this.сотрудникDataGridViewTextBoxColumn.Name = "сотрудникDataGridViewTextBoxColumn";
+            this.сотрудникDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Main
             // 
@@ -1404,6 +1463,8 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sotrudniki1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1516,8 +1577,6 @@ namespace Tiunov
         private TiunovDataSetTableAdapters.SotrTableAdapter sotrTableAdapter;
         private System.Windows.Forms.BindingSource expBindingSource;
         private TiunovDataSetTableAdapters.ExpTableAdapter expTableAdapter;
-        private System.Windows.Forms.BindingSource restBindingSource;
-        private TiunovDataSetTableAdapters.restTableAdapter restTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn snumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn;
@@ -1533,11 +1592,21 @@ namespace Tiunov
         private System.Windows.Forms.DataGridViewTextBoxColumn tipDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ecenaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pnamDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox cb_snum;
+        private System.Windows.Forms.BindingSource sotrudnikiBindingSource;
+        private TiunovDataSetTableAdapters.SotrudnikiTableAdapter sotrudnikiTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource restBindingSource;
+        private TiunovDataSetTableAdapters.restTableAdapter restTableAdapter;
+        private System.Windows.Forms.BindingSource sotrudniki1BindingSource;
+        private TiunovDataSetTableAdapters.Sotrudniki1TableAdapter sotrudniki1TableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn enamDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn сотрудникDataGridViewTextBoxColumn;
     }
 }
 

@@ -58,7 +58,7 @@ namespace Tiunov
         }
         void GetRest()
         {
-            da = new SqlDataAdapter("SELECT Restavracia.Rnum, Exponat.Enam, Restoration_status.Status FROM Restavracia INNER JOIN Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus INNER JOIN Exponat ON Restavracia.Enum = Exponat.Enum", con);
+            da = new SqlDataAdapter("SELECT Restavracia.Rnum, Exponat.Enam, Restoration_status.Status, Sotrudniki.Sfam + ' ' + Sotrudniki.Snam + ' ' + Sotrudniki.Sotch AS Сотрудник FROM Restavracia INNER JOIN Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus INNER JOIN Exponat ON Restavracia.Enum = Exponat.Enum INNER JOIN Sotrudniki ON Restavracia.Snum = Sotrudniki.Snum", con);
             ds = new DataSet();
             con.Open();
             da.Fill(ds, "Restavracia");
@@ -130,8 +130,12 @@ namespace Tiunov
         #region Main Form and Load
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki1". При необходимости она может быть перемещена или удалена.
+            this.sotrudniki1TableAdapter.Fill(this.tiunovDataSet.Sotrudniki1);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
             this.restTableAdapter.Fill(this.tiunovDataSet.rest);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
+            this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exp". При необходимости она может быть перемещена или удалена.
             this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotr". При необходимости она может быть перемещена или удалена.
@@ -212,6 +216,7 @@ namespace Tiunov
                 //Реставрация
                 label16.Visible = false;
                 label17.Visible = false;
+                label24.Visible = false;
                 RbtnInsert.Visible = false;
                 RbtnUpdate.Visible = false;
                 RbtnDelete.Visible = false;
@@ -219,6 +224,7 @@ namespace Tiunov
                 Rbtncbupd.Visible = false;
                 cb_enum.Visible = false;
                 cb_rstatus.Visible = false;
+                cb_snum.Visible = false;
                 AddStatus.Visible = false;
             }
         }
@@ -534,7 +540,7 @@ namespace Tiunov
         #region Restavracia
         private void RbtnInsert_Click(object sender, EventArgs e)
         {
-            if (cb_enum.SelectedIndex == -1 || cb_rstatus.SelectedIndex == -1)
+            if (cb_enum.SelectedIndex == -1 || cb_rstatus.SelectedIndex == -1 || cb_snum.SelectedIndex == -1)
             {
                 MessageBox.Show("Заполните все поля");
                 return;
@@ -547,10 +553,11 @@ namespace Tiunov
                     return;
                 }
             }
-            string query = "Insert into Restavracia (Enum, Rstatus) values (@Enum,@Rstatus)";
+            string query = "Insert into Restavracia (Enum, Rstatus, Snum) values (@Enum,@Rstatus,@Snum)";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
             cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedValue);
+            cmd.Parameters.AddWithValue("@Snum", cb_snum.SelectedValue);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -562,11 +569,12 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Restavracia Set Enum=@Enum,Rstatus=@Rstatus Where Rnum=@Rnum";
+                string query = "Update Restavracia Set Enum=@Enum,Rstatus=@Rstatus,Snum=@Snum Where Rnum=@Rnum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
                 cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedValue);
                 cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
+                cmd.Parameters.AddWithValue("@Snum", cb_snum.SelectedValue);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -611,6 +619,7 @@ namespace Tiunov
         {
             cb_enum.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
             cb_rstatus.Text = dataGridView4.CurrentRow.Cells[2].Value.ToString();
+            cb_snum.Text = dataGridView4.CurrentRow.Cells[3].Value.ToString();
         }
 
         private void AddTips_Click(object sender, EventArgs e)
@@ -628,6 +637,7 @@ namespace Tiunov
         {
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
             this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
+            this.sotrudniki1TableAdapter.Fill(this.tiunovDataSet.Sotrudniki1);
             GetRest();
         }
         private void textBox4_TextChanged(object sender, EventArgs e)
