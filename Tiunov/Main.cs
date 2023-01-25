@@ -235,7 +235,7 @@ namespace Tiunov
         {
             if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
             }
             string query = "Insert into Pomeshenya (Pnam, Padres, Pnaz, Ptreb) values (@Pnam,@Padres,@Pnaz,@Ptreb)";
@@ -248,9 +248,15 @@ namespace Tiunov
             cmd.ExecuteNonQuery();
             con.Close();
             GetPom();
+            toolStripStatusLabel1.Text = "Запись была добавлена!";
         }
         private void PbtnUpdate_Click(object sender, EventArgs e)
         {
+            if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля!");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -265,6 +271,7 @@ namespace Tiunov
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GetPom();
+                toolStripStatusLabel1.Text = "Запись была изменена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -284,6 +291,7 @@ namespace Tiunov
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GetPom();
+                toolStripStatusLabel1.Text = "Запись была удалена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -311,7 +319,7 @@ namespace Tiunov
         {
             if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.MaskCompleted == false || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "" || cb_saccess.SelectedIndex == -1)
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
             }
             for (int i = 0; i < dataGridView2.RowCount; i++)
@@ -343,9 +351,15 @@ namespace Tiunov
             cmd.ExecuteNonQuery();
             con.Close();
             GetSotr();
+            toolStripStatusLabel2.Text = "Запись была добавлена!";
         }
         private void SbtnUpdate_Click(object sender, EventArgs e)
         {
+            if (Sfam.Text == "" || Snam.Text == "" || Sotch.Text == "" || Stel.MaskCompleted == false || Skval.SelectedIndex == -1 || Sgraf.SelectedIndex == -1 || Login.Text == "" || Pass.Text == "" || cb_saccess.SelectedIndex == -1)
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля!");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -365,6 +379,7 @@ namespace Tiunov
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GetSotr();
+                toolStripStatusLabel2.Text = "Запись была изменена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -380,16 +395,10 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Snum", dataGridView2.CurrentRow.Cells[0].Value);
                 con.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Невозможно удалить данную запись");
-                }
+                cmd.ExecuteNonQuery();
                 con.Close();
                 GetSotr();
+                toolStripStatusLabel2.Text = "Запись была удалена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -435,7 +444,7 @@ namespace Tiunov
         {
             if (Enam.Text == "" || Cb_etip.SelectedIndex == -1 || Ecena.Text == "" || Cb_pnum.SelectedIndex == -1)
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
             }
             string query = "Insert into Exponat (Enam, Etip, Ecena, Pnum) values (@Enam,@Etip,@Ecena,@Pnum)";
@@ -448,10 +457,16 @@ namespace Tiunov
             cmd.ExecuteNonQuery();
             con.Close();
             GetExp();
+            toolStripStatusLabel3.Text = "Запись была добавлена!";
         }
 
         private void EbtnUpdate_Click(object sender, EventArgs e)
         {
+            if (Enam.Text == "" || Cb_etip.SelectedIndex == -1 || Ecena.Text == "" || Cb_pnum.SelectedIndex == -1)
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля!");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -466,6 +481,7 @@ namespace Tiunov
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GetExp();
+                toolStripStatusLabel3.Text = "Запись была изменена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -482,16 +498,10 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Enum", dataGridView3.CurrentRow.Cells[0].Value);
                 con.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Невозможно удалить данную запись");        
-                }
+                cmd.ExecuteNonQuery();
                 con.Close();
                 GetExp();
+                toolStripStatusLabel3.Text = "Запись была удалена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -542,7 +552,7 @@ namespace Tiunov
         {
             if (cb_enum.SelectedIndex == -1 || cb_rstatus.SelectedIndex == -1 || cb_snum.SelectedIndex == -1)
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
             }
             for (int i = 0; i < dataGridView4.RowCount; i++)
@@ -562,10 +572,16 @@ namespace Tiunov
             cmd.ExecuteNonQuery();
             con.Close();
             GetRest();
+            toolStripStatusLabel4.Text = "Запись была добавлена!";
         }
 
         private void RbtnUpdate_Click(object sender, EventArgs e)
         {
+            if (cb_enum.SelectedIndex == -1 || cb_rstatus.SelectedIndex == -1 || cb_snum.SelectedIndex == -1)
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля!");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -579,6 +595,7 @@ namespace Tiunov
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GetRest();
+                toolStripStatusLabel4.Text = "Запись была изменена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -595,16 +612,10 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
                 con.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Невозможно удалить данную запись");
-                }
+                cmd.ExecuteNonQuery();
                 con.Close();
                 GetRest();
+                toolStripStatusLabel4.Text = "Запись была удалена!";
             }
             else if (dialogResult == DialogResult.No)
             {

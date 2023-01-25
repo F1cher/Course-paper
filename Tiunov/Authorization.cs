@@ -47,7 +47,7 @@ namespace Tiunov
             }
             else
             {
-                MessageBox.Show("Неверный логин или пароль");
+                MessageBox.Show("Неверный логин или пароль!");
             }
             con.Close();
         }
@@ -56,6 +56,11 @@ namespace Tiunov
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
             this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

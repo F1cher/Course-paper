@@ -61,7 +61,7 @@ namespace Tiunov
         {
             if (Tip.Text == "")
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
             }
             string query = "Insert into Exponat_tip (Tip) values (@Tip)";
@@ -71,6 +71,7 @@ namespace Tiunov
             cmd.ExecuteNonQuery();
             con.Close();
             GetTips();
+            toolStripStatusLabel1.Text = "Запись была добавлена!";
         }
 
         private void TbtnUpdate_Click(object sender, EventArgs e)
@@ -86,6 +87,7 @@ namespace Tiunov
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GetTips();
+                toolStripStatusLabel1.Text = "Запись была изменена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -102,17 +104,10 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Etip", dataGridView1.CurrentRow.Cells[0].Value);
                 con.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Невозможно удалить данную запись");
-                    con.Close();
-                    return;
-                }
+                cmd.ExecuteNonQuery();
+                con.Close();
                 GetTips();
+                toolStripStatusLabel1.Text = "Запись была удалена!";
             }
             else if (dialogResult == DialogResult.No)
             {

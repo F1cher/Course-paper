@@ -70,7 +70,7 @@ namespace Tiunov
         {
             if (Grafik.Text == "")
             {
-                MessageBox.Show("Заполните все поля");
+                MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
             }
             string query = "Insert into Grafiki (Grafik) values (@Grafik)";
@@ -80,10 +80,16 @@ namespace Tiunov
             cmd.ExecuteNonQuery();
             con.Close();
             GetCharts();
+            toolStripStatusLabel1.Text = "Запись была добавлена!";
         }
 
         private void GbtnUpdate_Click(object sender, EventArgs e)
         {
+            if (Grafik.Text == "")
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля!");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -95,6 +101,7 @@ namespace Tiunov
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GetCharts();
+                toolStripStatusLabel1.Text = "Запись была изменена!";
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -111,17 +118,10 @@ namespace Tiunov
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Sgraf", dataGridView4.CurrentRow.Cells[0].Value);
                 con.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Невозможно удалить данную запись");
-                    con.Close();
-                    return;
-                }
+                cmd.ExecuteNonQuery();
+                con.Close();
                 GetCharts();
+                toolStripStatusLabel1.Text = "Запись была удалена!";
             }
             else if (dialogResult == DialogResult.No)
             {
