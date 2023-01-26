@@ -326,13 +326,13 @@ namespace Tiunov
             {
                 if (dataGridView2.Rows[i].Cells[4].Value.ToString() == Stel.Text)
                 {
-                    MessageBox.Show("Сотрудник с таким номером уже существует");
+                    MessageBox.Show("Сотрудник с таким номером телефона уже существует!");
                     return;
                 }
 
                 if (dataGridView2.Rows[i].Cells[7].Value.ToString() == Login.Text)
                 {
-                    MessageBox.Show("Сотрудник с таким логином уже существует");
+                    MessageBox.Show("Сотрудник с таким логином уже существует!");
                     return;
                 }
             }
@@ -423,9 +423,11 @@ namespace Tiunov
         }
         private void Stel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar)) return;
-            else
-                e.Handled = true;
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8) //Если символ, введенный с клавы - не цифра (IsDigit),
+            {
+                e.Handled = true;// то событие не обрабатывается. ch!=8 (8 - это Backspace)
+            }
         }
 
         private void Sbtncbupd_Click(object sender, EventArgs e)
@@ -538,9 +540,11 @@ namespace Tiunov
         }
         private void Ecena_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar)) return;
-            else
-                e.Handled = true;
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8) //Если символ, введенный с клавы - не цифра (IsDigit),
+            {
+                e.Handled = true;// то событие не обрабатывается. ch!=8 (8 - это Backspace)
+            }
         }
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -655,6 +659,28 @@ namespace Tiunov
         {
             (dataGridView4.DataSource as DataTable).DefaultView.RowFilter = $"[Enam] LIKE '%{textBox4.Text}%'";
         }
-        #endregion   
+        #endregion
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == '_' || e.KeyChar == (char)Keys.Back)
+            {
+            }
+            else
+            {
+                MessageBox.Show("Логин должен состоять из символов латинского алфавита");
+                e.Handled = true;
+            }
+        }
+        private void Pass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == '_' || e.KeyChar == (char)Keys.Back)
+            {
+            }
+            else
+            {
+                MessageBox.Show("Пароль должен состоять из символов латинского алфавита");
+                e.Handled = true;
+            }
+        }
     }
 }

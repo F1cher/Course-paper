@@ -64,14 +64,14 @@ namespace Tiunov
             // 
             this.Status.Location = new System.Drawing.Point(12, 77);
             this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(172, 20);
+            this.Status.Size = new System.Drawing.Size(166, 20);
             this.Status.TabIndex = 48;
             // 
             // SbtnClear
             // 
-            this.SbtnClear.Location = new System.Drawing.Point(315, 11);
+            this.SbtnClear.Location = new System.Drawing.Point(456, 11);
             this.SbtnClear.Name = "SbtnClear";
-            this.SbtnClear.Size = new System.Drawing.Size(95, 29);
+            this.SbtnClear.Size = new System.Drawing.Size(142, 30);
             this.SbtnClear.TabIndex = 47;
             this.SbtnClear.Text = "Очистить";
             this.SbtnClear.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@ namespace Tiunov
             // 
             // SbtnDelete
             // 
-            this.SbtnDelete.Location = new System.Drawing.Point(214, 11);
+            this.SbtnDelete.Location = new System.Drawing.Point(308, 11);
             this.SbtnDelete.Name = "SbtnDelete";
-            this.SbtnDelete.Size = new System.Drawing.Size(95, 29);
+            this.SbtnDelete.Size = new System.Drawing.Size(142, 30);
             this.SbtnDelete.TabIndex = 46;
             this.SbtnDelete.Text = "Удалить";
             this.SbtnDelete.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@ namespace Tiunov
             // 
             // SbtnUpdate
             // 
-            this.SbtnUpdate.Location = new System.Drawing.Point(113, 11);
+            this.SbtnUpdate.Location = new System.Drawing.Point(160, 11);
             this.SbtnUpdate.Name = "SbtnUpdate";
-            this.SbtnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.SbtnUpdate.Size = new System.Drawing.Size(142, 30);
             this.SbtnUpdate.TabIndex = 45;
             this.SbtnUpdate.Text = "Изменить";
             this.SbtnUpdate.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@ namespace Tiunov
             // 
             this.SbtnInsert.Location = new System.Drawing.Point(12, 11);
             this.SbtnInsert.Name = "SbtnInsert";
-            this.SbtnInsert.Size = new System.Drawing.Size(95, 29);
+            this.SbtnInsert.Size = new System.Drawing.Size(142, 30);
             this.SbtnInsert.TabIndex = 44;
             this.SbtnInsert.Text = "Добавить";
             this.SbtnInsert.UseVisualStyleBackColor = true;

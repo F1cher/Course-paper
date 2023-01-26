@@ -22,6 +22,10 @@ namespace Tiunov
         }
         private void exportToWord_Click(object sender, EventArgs e)
         {
+            application = new Word.Application
+            {
+                Visible = true
+            };
             //Создание нового документа Word
             document = application.Documents.Add();
             //Добавление нового параграфа документа Word
@@ -56,7 +60,7 @@ namespace Tiunov
                     wordcellrange = document.Tables[1].Cell(1, i + 1).Range;
                     wordcellrange.Text = tiunovDataSet.StatRest.Columns[i].ToString();
                     //Занести данные в ячейки
-                    wordcellrange = document.Tables[1].Cell(j+2, i+1).Range;
+                    wordcellrange = document.Tables[1].Cell(j + 2, i + 1).Range;
                     wordcellrange.Text = tiunovDataSet.StatRest.Rows[j][i].ToString();
                 }
             }

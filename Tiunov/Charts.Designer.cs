@@ -69,9 +69,9 @@ namespace Tiunov
             // 
             // GbtnClear
             // 
-            this.GbtnClear.Location = new System.Drawing.Point(315, 11);
+            this.GbtnClear.Location = new System.Drawing.Point(456, 11);
             this.GbtnClear.Name = "GbtnClear";
-            this.GbtnClear.Size = new System.Drawing.Size(95, 29);
+            this.GbtnClear.Size = new System.Drawing.Size(142, 30);
             this.GbtnClear.TabIndex = 40;
             this.GbtnClear.Text = "Очистить";
             this.GbtnClear.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@ namespace Tiunov
             // 
             // GbtnDelete
             // 
-            this.GbtnDelete.Location = new System.Drawing.Point(214, 11);
+            this.GbtnDelete.Location = new System.Drawing.Point(308, 11);
             this.GbtnDelete.Name = "GbtnDelete";
-            this.GbtnDelete.Size = new System.Drawing.Size(95, 29);
+            this.GbtnDelete.Size = new System.Drawing.Size(142, 30);
             this.GbtnDelete.TabIndex = 39;
             this.GbtnDelete.Text = "Удалить";
             this.GbtnDelete.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@ namespace Tiunov
             // 
             // GbtnUpdate
             // 
-            this.GbtnUpdate.Location = new System.Drawing.Point(113, 11);
+            this.GbtnUpdate.Location = new System.Drawing.Point(160, 11);
             this.GbtnUpdate.Name = "GbtnUpdate";
-            this.GbtnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.GbtnUpdate.Size = new System.Drawing.Size(142, 30);
             this.GbtnUpdate.TabIndex = 38;
             this.GbtnUpdate.Text = "Изменить";
             this.GbtnUpdate.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@ namespace Tiunov
             // 
             this.GbtnInsert.Location = new System.Drawing.Point(12, 11);
             this.GbtnInsert.Name = "GbtnInsert";
-            this.GbtnInsert.Size = new System.Drawing.Size(95, 29);
+            this.GbtnInsert.Size = new System.Drawing.Size(142, 30);
             this.GbtnInsert.TabIndex = 37;
             this.GbtnInsert.Text = "Добавить";
             this.GbtnInsert.UseVisualStyleBackColor = true;

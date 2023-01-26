@@ -30,9 +30,9 @@ namespace Tiunov
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.exportToWord_2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -68,7 +68,7 @@ namespace Tiunov
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(789, 412);
+            this.tabPage2.Size = new System.Drawing.Size(1071, 515);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Статистика приобретения экспонатов";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@ namespace Tiunov
             // 
             this.exportToWord_2.Location = new System.Drawing.Point(7, 6);
             this.exportToWord_2.Name = "exportToWord_2";
-            this.exportToWord_2.Size = new System.Drawing.Size(95, 29);
+            this.exportToWord_2.Size = new System.Drawing.Size(142, 35);
             this.exportToWord_2.TabIndex = 2;
             this.exportToWord_2.Text = "Экспорт";
             this.exportToWord_2.UseVisualStyleBackColor = true;
@@ -96,10 +96,10 @@ namespace Tiunov
             this.колвоЭкспонатовDataGridViewTextBoxColumn1,
             this.итогоDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.statExpBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 47);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 363);
+            this.dataGridView1.Size = new System.Drawing.Size(1058, 460);
             this.dataGridView1.TabIndex = 0;
             // 
             // колвоЭкспонатовDataGridViewTextBoxColumn1
@@ -141,29 +141,27 @@ namespace Tiunov
             // 
             // chart1
             // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.DataSource = this.statRestBindingSource;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(376, 41);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(528, 47);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.IsValueShownAsLabel = true;
-            series1.Label = "#PERCENT";
-            series1.Legend = "Legend1";
-            series1.LegendText = "#VALX";
-            series1.MarkerSize = 3;
-            series1.Name = "Series1";
-            series1.XValueMember = "Статус реставрации";
-            series1.YValueMembers = "Кол-во экспонатов";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(689, 468);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.IsValueShownAsLabel = true;
+            series2.Label = "#PERCENT";
+            series2.Legend = "Legend1";
+            series2.LegendText = "#VALX";
+            series2.MarkerSize = 3;
+            series2.Name = "Series1";
+            series2.XValueMember = "Статус реставрации";
+            series2.YValueMembers = "Кол-во экспонатов";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(537, 460);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
@@ -176,7 +174,7 @@ namespace Tiunov
             // 
             this.exportToWord.Location = new System.Drawing.Point(7, 6);
             this.exportToWord.Name = "exportToWord";
-            this.exportToWord.Size = new System.Drawing.Size(95, 29);
+            this.exportToWord.Size = new System.Drawing.Size(142, 35);
             this.exportToWord.TabIndex = 1;
             this.exportToWord.Text = "Экспорт";
             this.exportToWord.UseVisualStyleBackColor = true;
@@ -192,10 +190,10 @@ namespace Tiunov
             this.статусРеставрацииDataGridViewTextBoxColumn,
             this.колвоЭкспонатовDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.statRestBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 41);
+            this.dataGridView2.Location = new System.Drawing.Point(7, 47);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(363, 466);
+            this.dataGridView2.Size = new System.Drawing.Size(515, 460);
             this.dataGridView2.TabIndex = 0;
             // 
             // статусРеставрацииDataGridViewTextBoxColumn
@@ -240,7 +238,7 @@ namespace Tiunov
             this.ClientSize = new System.Drawing.Size(1082, 553);
             this.Controls.Add(this.tabControl1);
             this.Name = "Statistics";
-            this.Text = "Статистики";
+            this.Text = "Статистика";
             this.Load += new System.EventHandler(this.Statistics_Load);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

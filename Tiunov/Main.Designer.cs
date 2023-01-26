@@ -38,7 +38,8 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label20 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.Pnam = new System.Windows.Forms.TextBox();
@@ -61,7 +62,8 @@ namespace Tiunov
             this.PbtnClear = new System.Windows.Forms.Button();
             this.PbtnDelete = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label21 = new System.Windows.Forms.Label();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.cb_saccess = new System.Windows.Forms.ComboBox();
@@ -104,7 +106,8 @@ namespace Tiunov
             this.SbtnUpdate = new System.Windows.Forms.Button();
             this.SbtnInsert = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label22 = new System.Windows.Forms.Label();
+            this.statusStrip3 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.Ebtncbupd = new System.Windows.Forms.Button();
             this.AddTips = new System.Windows.Forms.Button();
@@ -129,6 +132,9 @@ namespace Tiunov
             this.EbtnUpdate = new System.Windows.Forms.Button();
             this.EbtnInsert = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
+            this.statusStrip4 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label24 = new System.Windows.Forms.Label();
             this.cb_snum = new System.Windows.Forms.ComboBox();
             this.sotrudniki1BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -164,40 +170,38 @@ namespace Tiunov
             this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
             this.restTableAdapter = new Tiunov.TiunovDataSetTableAdapters.restTableAdapter();
             this.sotrudniki1TableAdapter = new Tiunov.TiunovDataSetTableAdapters.Sotrudniki1TableAdapter();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip3 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip4 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pomeshenyaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.statusStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accessesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grafikiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kvalifikacyaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.statusStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.statusStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudniki1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
-            this.statusStrip1.SuspendLayout();
-            this.statusStrip2.SuspendLayout();
-            this.statusStrip3.SuspendLayout();
-            this.statusStrip4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -266,8 +270,9 @@ namespace Tiunov
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.statusStrip1);
             this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.label28);
+            this.tabPage1.Controls.Add(this.statusStrip1);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.Pnam);
@@ -290,19 +295,25 @@ namespace Tiunov
             this.tabPage1.Text = "Помещения";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // statusStrip1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label20.Location = new System.Drawing.Point(845, 6);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(218, 13);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Введите наименование помещения";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 373);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1110, 22);
+            this.statusStrip1.TabIndex = 19;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(892, 27);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(974, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(134, 20);
             this.textBox1.TabIndex = 16;
@@ -327,9 +338,9 @@ namespace Tiunov
             // 
             // PbtnUpdate
             // 
-            this.PbtnUpdate.Location = new System.Drawing.Point(109, 6);
+            this.PbtnUpdate.Location = new System.Drawing.Point(156, 6);
             this.PbtnUpdate.Name = "PbtnUpdate";
-            this.PbtnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.PbtnUpdate.Size = new System.Drawing.Size(142, 30);
             this.PbtnUpdate.TabIndex = 13;
             this.PbtnUpdate.Text = "Изменить";
             this.PbtnUpdate.UseVisualStyleBackColor = true;
@@ -339,7 +350,7 @@ namespace Tiunov
             // 
             this.PbtnInsert.Location = new System.Drawing.Point(8, 6);
             this.PbtnInsert.Name = "PbtnInsert";
-            this.PbtnInsert.Size = new System.Drawing.Size(95, 29);
+            this.PbtnInsert.Size = new System.Drawing.Size(142, 30);
             this.PbtnInsert.TabIndex = 12;
             this.PbtnInsert.Text = "Добавить";
             this.PbtnInsert.UseVisualStyleBackColor = true;
@@ -466,9 +477,9 @@ namespace Tiunov
             // 
             // PbtnClear
             // 
-            this.PbtnClear.Location = new System.Drawing.Point(311, 6);
+            this.PbtnClear.Location = new System.Drawing.Point(452, 6);
             this.PbtnClear.Name = "PbtnClear";
-            this.PbtnClear.Size = new System.Drawing.Size(95, 29);
+            this.PbtnClear.Size = new System.Drawing.Size(142, 30);
             this.PbtnClear.TabIndex = 3;
             this.PbtnClear.Text = "Очистить";
             this.PbtnClear.UseVisualStyleBackColor = true;
@@ -476,9 +487,9 @@ namespace Tiunov
             // 
             // PbtnDelete
             // 
-            this.PbtnDelete.Location = new System.Drawing.Point(210, 6);
+            this.PbtnDelete.Location = new System.Drawing.Point(304, 6);
             this.PbtnDelete.Name = "PbtnDelete";
-            this.PbtnDelete.Size = new System.Drawing.Size(95, 29);
+            this.PbtnDelete.Size = new System.Drawing.Size(142, 30);
             this.PbtnDelete.TabIndex = 2;
             this.PbtnDelete.Text = "Удалить";
             this.PbtnDelete.UseVisualStyleBackColor = true;
@@ -486,8 +497,9 @@ namespace Tiunov
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.statusStrip2);
             this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.label27);
+            this.tabPage2.Controls.Add(this.statusStrip2);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.cb_saccess);
@@ -523,19 +535,25 @@ namespace Tiunov
             this.tabPage2.Text = "Сотрудники";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label21
+            // statusStrip2
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label21.Location = new System.Drawing.Point(863, 8);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(187, 13);
-            this.label21.TabIndex = 45;
-            this.label21.Text = "Введите фамилию сотрудника";
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel2});
+            this.statusStrip2.Location = new System.Drawing.Point(3, 373);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(1110, 22);
+            this.statusStrip2.TabIndex = 46;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(895, 26);
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(974, 26);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(134, 20);
             this.textBox2.TabIndex = 43;
@@ -571,9 +589,9 @@ namespace Tiunov
             // 
             // Sbtncbupd
             // 
-            this.Sbtncbupd.Location = new System.Drawing.Point(412, 8);
+            this.Sbtncbupd.Location = new System.Drawing.Point(600, 6);
             this.Sbtncbupd.Name = "Sbtncbupd";
-            this.Sbtncbupd.Size = new System.Drawing.Size(118, 29);
+            this.Sbtncbupd.Size = new System.Drawing.Size(142, 30);
             this.Sbtncbupd.TabIndex = 39;
             this.Sbtncbupd.Text = "Обновить";
             this.Sbtncbupd.UseVisualStyleBackColor = true;
@@ -699,6 +717,7 @@ namespace Tiunov
             this.Pass.Name = "Pass";
             this.Pass.Size = new System.Drawing.Size(100, 20);
             this.Pass.TabIndex = 28;
+            this.Pass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Pass_KeyPress);
             // 
             // Login
             // 
@@ -706,6 +725,7 @@ namespace Tiunov
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(100, 20);
             this.Login.TabIndex = 27;
+            this.Login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             // 
             // dataGridView2
             // 
@@ -863,9 +883,9 @@ namespace Tiunov
             // 
             // SbtnClear
             // 
-            this.SbtnClear.Location = new System.Drawing.Point(311, 8);
+            this.SbtnClear.Location = new System.Drawing.Point(452, 6);
             this.SbtnClear.Name = "SbtnClear";
-            this.SbtnClear.Size = new System.Drawing.Size(95, 29);
+            this.SbtnClear.Size = new System.Drawing.Size(142, 30);
             this.SbtnClear.TabIndex = 15;
             this.SbtnClear.Text = "Очистить";
             this.SbtnClear.UseVisualStyleBackColor = true;
@@ -873,9 +893,9 @@ namespace Tiunov
             // 
             // SbtnDelete
             // 
-            this.SbtnDelete.Location = new System.Drawing.Point(210, 8);
+            this.SbtnDelete.Location = new System.Drawing.Point(304, 6);
             this.SbtnDelete.Name = "SbtnDelete";
-            this.SbtnDelete.Size = new System.Drawing.Size(95, 29);
+            this.SbtnDelete.Size = new System.Drawing.Size(142, 30);
             this.SbtnDelete.TabIndex = 14;
             this.SbtnDelete.Text = "Удалить";
             this.SbtnDelete.UseVisualStyleBackColor = true;
@@ -883,9 +903,9 @@ namespace Tiunov
             // 
             // SbtnUpdate
             // 
-            this.SbtnUpdate.Location = new System.Drawing.Point(109, 8);
+            this.SbtnUpdate.Location = new System.Drawing.Point(156, 6);
             this.SbtnUpdate.Name = "SbtnUpdate";
-            this.SbtnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.SbtnUpdate.Size = new System.Drawing.Size(142, 30);
             this.SbtnUpdate.TabIndex = 13;
             this.SbtnUpdate.Text = "Изменить";
             this.SbtnUpdate.UseVisualStyleBackColor = true;
@@ -893,9 +913,9 @@ namespace Tiunov
             // 
             // SbtnInsert
             // 
-            this.SbtnInsert.Location = new System.Drawing.Point(8, 8);
+            this.SbtnInsert.Location = new System.Drawing.Point(8, 6);
             this.SbtnInsert.Name = "SbtnInsert";
-            this.SbtnInsert.Size = new System.Drawing.Size(95, 29);
+            this.SbtnInsert.Size = new System.Drawing.Size(142, 30);
             this.SbtnInsert.TabIndex = 12;
             this.SbtnInsert.Text = "Добавить";
             this.SbtnInsert.UseVisualStyleBackColor = true;
@@ -903,8 +923,9 @@ namespace Tiunov
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.statusStrip3);
             this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.statusStrip3);
             this.tabPage3.Controls.Add(this.textBox3);
             this.tabPage3.Controls.Add(this.Ebtncbupd);
             this.tabPage3.Controls.Add(this.AddTips);
@@ -928,19 +949,25 @@ namespace Tiunov
             this.tabPage3.Text = "Экспонаты";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label22
+            // statusStrip3
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label22.Location = new System.Drawing.Point(867, 10);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(182, 13);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "Введите название экспоната";
+            this.statusStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel3});
+            this.statusStrip3.Location = new System.Drawing.Point(0, 376);
+            this.statusStrip3.Name = "statusStrip3";
+            this.statusStrip3.Size = new System.Drawing.Size(1116, 22);
+            this.statusStrip3.TabIndex = 44;
+            this.statusStrip3.Text = "statusStrip3";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 17);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(895, 26);
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.Location = new System.Drawing.Point(974, 26);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(134, 20);
             this.textBox3.TabIndex = 41;
@@ -948,9 +975,9 @@ namespace Tiunov
             // 
             // Ebtncbupd
             // 
-            this.Ebtncbupd.Location = new System.Drawing.Point(407, 3);
+            this.Ebtncbupd.Location = new System.Drawing.Point(600, 6);
             this.Ebtncbupd.Name = "Ebtncbupd";
-            this.Ebtncbupd.Size = new System.Drawing.Size(117, 29);
+            this.Ebtncbupd.Size = new System.Drawing.Size(142, 30);
             this.Ebtncbupd.TabIndex = 40;
             this.Ebtncbupd.Text = "Обновить";
             this.Ebtncbupd.UseVisualStyleBackColor = true;
@@ -1116,9 +1143,9 @@ namespace Tiunov
             // 
             // EbtnClear
             // 
-            this.EbtnClear.Location = new System.Drawing.Point(306, 3);
+            this.EbtnClear.Location = new System.Drawing.Point(452, 6);
             this.EbtnClear.Name = "EbtnClear";
-            this.EbtnClear.Size = new System.Drawing.Size(95, 29);
+            this.EbtnClear.Size = new System.Drawing.Size(142, 30);
             this.EbtnClear.TabIndex = 15;
             this.EbtnClear.Text = "Очистить";
             this.EbtnClear.UseVisualStyleBackColor = true;
@@ -1126,9 +1153,9 @@ namespace Tiunov
             // 
             // EbtnDelete
             // 
-            this.EbtnDelete.Location = new System.Drawing.Point(205, 3);
+            this.EbtnDelete.Location = new System.Drawing.Point(304, 6);
             this.EbtnDelete.Name = "EbtnDelete";
-            this.EbtnDelete.Size = new System.Drawing.Size(95, 29);
+            this.EbtnDelete.Size = new System.Drawing.Size(142, 30);
             this.EbtnDelete.TabIndex = 14;
             this.EbtnDelete.Text = "Удалить";
             this.EbtnDelete.UseVisualStyleBackColor = true;
@@ -1136,9 +1163,9 @@ namespace Tiunov
             // 
             // EbtnUpdate
             // 
-            this.EbtnUpdate.Location = new System.Drawing.Point(104, 3);
+            this.EbtnUpdate.Location = new System.Drawing.Point(156, 6);
             this.EbtnUpdate.Name = "EbtnUpdate";
-            this.EbtnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.EbtnUpdate.Size = new System.Drawing.Size(142, 30);
             this.EbtnUpdate.TabIndex = 13;
             this.EbtnUpdate.Text = "Изменить";
             this.EbtnUpdate.UseVisualStyleBackColor = true;
@@ -1146,9 +1173,9 @@ namespace Tiunov
             // 
             // EbtnInsert
             // 
-            this.EbtnInsert.Location = new System.Drawing.Point(3, 3);
+            this.EbtnInsert.Location = new System.Drawing.Point(8, 6);
             this.EbtnInsert.Name = "EbtnInsert";
-            this.EbtnInsert.Size = new System.Drawing.Size(95, 29);
+            this.EbtnInsert.Size = new System.Drawing.Size(142, 30);
             this.EbtnInsert.TabIndex = 12;
             this.EbtnInsert.Text = "Добавить";
             this.EbtnInsert.UseVisualStyleBackColor = true;
@@ -1156,6 +1183,7 @@ namespace Tiunov
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label25);
             this.tabPage4.Controls.Add(this.statusStrip4);
             this.tabPage4.Controls.Add(this.label24);
             this.tabPage4.Controls.Add(this.cb_snum);
@@ -1179,11 +1207,37 @@ namespace Tiunov
             this.tabPage4.Text = "Реставрация";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label25
+            // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label25.Location = new System.Drawing.Point(1019, 6);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(44, 13);
+            this.label25.TabIndex = 49;
+            this.label25.Text = "Поиск";
+            // 
+            // statusStrip4
+            // 
+            this.statusStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel4});
+            this.statusStrip4.Location = new System.Drawing.Point(0, 376);
+            this.statusStrip4.Name = "statusStrip4";
+            this.statusStrip4.Size = new System.Drawing.Size(1116, 22);
+            this.statusStrip4.TabIndex = 48;
+            this.statusStrip4.Text = "statusStrip4";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(0, 17);
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label24.Location = new System.Drawing.Point(343, 57);
+            this.label24.Location = new System.Drawing.Point(407, 59);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(69, 13);
             this.label24.TabIndex = 47;
@@ -1195,9 +1249,9 @@ namespace Tiunov
             this.cb_snum.DisplayMember = "Сотрудник";
             this.cb_snum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_snum.FormattingEnabled = true;
-            this.cb_snum.Location = new System.Drawing.Point(346, 75);
+            this.cb_snum.Location = new System.Drawing.Point(410, 75);
             this.cb_snum.Name = "cb_snum";
-            this.cb_snum.Size = new System.Drawing.Size(183, 21);
+            this.cb_snum.Size = new System.Drawing.Size(235, 21);
             this.cb_snum.TabIndex = 46;
             this.cb_snum.ValueMember = "Snum";
             // 
@@ -1208,17 +1262,19 @@ namespace Tiunov
             // 
             // label23
             // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label23.Location = new System.Drawing.Point(923, 8);
+            this.label23.Location = new System.Drawing.Point(837, 29);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(182, 13);
+            this.label23.Size = new System.Drawing.Size(131, 13);
             this.label23.TabIndex = 45;
-            this.label23.Text = "Введите название экспоната";
+            this.label23.Text = "Название экспоната";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(951, 24);
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(974, 26);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(134, 20);
             this.textBox4.TabIndex = 44;
@@ -1226,9 +1282,9 @@ namespace Tiunov
             // 
             // Rbtncbupd
             // 
-            this.Rbtncbupd.Location = new System.Drawing.Point(412, 6);
+            this.Rbtncbupd.Location = new System.Drawing.Point(600, 6);
             this.Rbtncbupd.Name = "Rbtncbupd";
-            this.Rbtncbupd.Size = new System.Drawing.Size(117, 29);
+            this.Rbtncbupd.Size = new System.Drawing.Size(142, 30);
             this.Rbtncbupd.TabIndex = 41;
             this.Rbtncbupd.Text = "Обновить";
             this.Rbtncbupd.UseVisualStyleBackColor = true;
@@ -1236,7 +1292,7 @@ namespace Tiunov
             // 
             // AddStatus
             // 
-            this.AddStatus.Location = new System.Drawing.Point(317, 75);
+            this.AddStatus.Location = new System.Drawing.Point(365, 73);
             this.AddStatus.Name = "AddStatus";
             this.AddStatus.Size = new System.Drawing.Size(23, 23);
             this.AddStatus.TabIndex = 38;
@@ -1264,7 +1320,7 @@ namespace Tiunov
             this.cb_rstatus.FormattingEnabled = true;
             this.cb_rstatus.Location = new System.Drawing.Point(172, 75);
             this.cb_rstatus.Name = "cb_rstatus";
-            this.cb_rstatus.Size = new System.Drawing.Size(139, 21);
+            this.cb_rstatus.Size = new System.Drawing.Size(187, 21);
             this.cb_rstatus.TabIndex = 36;
             this.cb_rstatus.ValueMember = "Rstatus";
             // 
@@ -1350,9 +1406,9 @@ namespace Tiunov
             // 
             // RbtnClear
             // 
-            this.RbtnClear.Location = new System.Drawing.Point(311, 6);
+            this.RbtnClear.Location = new System.Drawing.Point(452, 6);
             this.RbtnClear.Name = "RbtnClear";
-            this.RbtnClear.Size = new System.Drawing.Size(95, 29);
+            this.RbtnClear.Size = new System.Drawing.Size(142, 30);
             this.RbtnClear.TabIndex = 30;
             this.RbtnClear.Text = "Очистить";
             this.RbtnClear.UseVisualStyleBackColor = true;
@@ -1360,9 +1416,9 @@ namespace Tiunov
             // 
             // RbtnDelete
             // 
-            this.RbtnDelete.Location = new System.Drawing.Point(210, 6);
+            this.RbtnDelete.Location = new System.Drawing.Point(304, 6);
             this.RbtnDelete.Name = "RbtnDelete";
-            this.RbtnDelete.Size = new System.Drawing.Size(95, 29);
+            this.RbtnDelete.Size = new System.Drawing.Size(142, 30);
             this.RbtnDelete.TabIndex = 29;
             this.RbtnDelete.Text = "Удалить";
             this.RbtnDelete.UseVisualStyleBackColor = true;
@@ -1370,9 +1426,9 @@ namespace Tiunov
             // 
             // RbtnUpdate
             // 
-            this.RbtnUpdate.Location = new System.Drawing.Point(109, 6);
+            this.RbtnUpdate.Location = new System.Drawing.Point(156, 6);
             this.RbtnUpdate.Name = "RbtnUpdate";
-            this.RbtnUpdate.Size = new System.Drawing.Size(95, 29);
+            this.RbtnUpdate.Size = new System.Drawing.Size(142, 30);
             this.RbtnUpdate.TabIndex = 28;
             this.RbtnUpdate.Text = "Изменить";
             this.RbtnUpdate.UseVisualStyleBackColor = true;
@@ -1382,7 +1438,7 @@ namespace Tiunov
             // 
             this.RbtnInsert.Location = new System.Drawing.Point(8, 6);
             this.RbtnInsert.Name = "RbtnInsert";
-            this.RbtnInsert.Size = new System.Drawing.Size(95, 29);
+            this.RbtnInsert.Size = new System.Drawing.Size(142, 30);
             this.RbtnInsert.TabIndex = 27;
             this.RbtnInsert.Text = "Добавить";
             this.RbtnInsert.UseVisualStyleBackColor = true;
@@ -1442,65 +1498,71 @@ namespace Tiunov
             // 
             this.sotrudniki1TableAdapter.ClearBeforeFill = true;
             // 
-            // statusStrip1
+            // label22
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 373);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1110, 22);
-            this.statusStrip1.TabIndex = 19;
-            this.statusStrip1.Text = "statusStrip1";
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label22.Location = new System.Drawing.Point(1019, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(44, 13);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "Поиск";
             // 
-            // toolStripStatusLabel1
+            // label26
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label26.Location = new System.Drawing.Point(837, 29);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(131, 13);
+            this.label26.TabIndex = 50;
+            this.label26.Text = "Название экспоната";
             // 
-            // statusStrip2
+            // label21
             // 
-            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel2});
-            this.statusStrip2.Location = new System.Drawing.Point(3, 373);
-            this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(1110, 22);
-            this.statusStrip2.TabIndex = 46;
-            this.statusStrip2.Text = "statusStrip2";
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label21.Location = new System.Drawing.Point(1018, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(44, 13);
+            this.label21.TabIndex = 51;
+            this.label21.Text = "Поиск";
             // 
-            // toolStripStatusLabel2
+            // label27
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label27.Location = new System.Drawing.Point(833, 29);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(135, 13);
+            this.label27.TabIndex = 50;
+            this.label27.Text = "Фамилия сотрудника";
             // 
-            // statusStrip3
+            // label20
             // 
-            this.statusStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel3});
-            this.statusStrip3.Location = new System.Drawing.Point(0, 376);
-            this.statusStrip3.Name = "statusStrip3";
-            this.statusStrip3.Size = new System.Drawing.Size(1116, 22);
-            this.statusStrip3.TabIndex = 44;
-            this.statusStrip3.Text = "statusStrip3";
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label20.Location = new System.Drawing.Point(1019, 6);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 13);
+            this.label20.TabIndex = 51;
+            this.label20.Text = "Поиск";
             // 
-            // toolStripStatusLabel3
+            // label28
             // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 17);
-            // 
-            // statusStrip4
-            // 
-            this.statusStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel4});
-            this.statusStrip4.Location = new System.Drawing.Point(0, 376);
-            this.statusStrip4.Name = "statusStrip4";
-            this.statusStrip4.Size = new System.Drawing.Size(1116, 22);
-            this.statusStrip4.TabIndex = 48;
-            this.statusStrip4.Text = "statusStrip4";
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(0, 17);
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label28.Location = new System.Drawing.Point(801, 29);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(167, 13);
+            this.label28.TabIndex = 50;
+            this.label28.Text = "Наименование помещения";
             // 
             // Main
             // 
@@ -1519,11 +1581,15 @@ namespace Tiunov
             this.TabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pomeshenyaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.statusStrip2.ResumeLayout(false);
+            this.statusStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accessesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grafikiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kvalifikacyaBindingSource)).EndInit();
@@ -1531,24 +1597,20 @@ namespace Tiunov
             ((System.ComponentModel.ISupportInitialize)(this.sotrBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.statusStrip3.ResumeLayout(false);
+            this.statusStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exponattipBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.statusStrip4.ResumeLayout(false);
+            this.statusStrip4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudniki1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.statusStrip2.ResumeLayout(false);
-            this.statusStrip2.PerformLayout();
-            this.statusStrip3.ResumeLayout(false);
-            this.statusStrip3.PerformLayout();
-            this.statusStrip4.ResumeLayout(false);
-            this.statusStrip4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1652,10 +1714,7 @@ namespace Tiunov
         private TiunovDataSetTableAdapters.AccessesTableAdapter accessesTableAdapter;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.BindingSource sotrBindingSource;
         private TiunovDataSetTableAdapters.SotrTableAdapter sotrTableAdapter;
@@ -1699,6 +1758,13 @@ namespace Tiunov
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.StatusStrip statusStrip4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label26;
     }
 }
 

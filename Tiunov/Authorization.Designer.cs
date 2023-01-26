@@ -45,9 +45,9 @@ namespace Tiunov
             // 
             // Authbtn
             // 
-            this.Authbtn.Location = new System.Drawing.Point(110, 179);
+            this.Authbtn.Location = new System.Drawing.Point(85, 173);
             this.Authbtn.Name = "Authbtn";
-            this.Authbtn.Size = new System.Drawing.Size(98, 29);
+            this.Authbtn.Size = new System.Drawing.Size(142, 30);
             this.Authbtn.TabIndex = 9;
             this.Authbtn.Text = "Войти";
             this.Authbtn.UseVisualStyleBackColor = true;
@@ -109,9 +109,9 @@ namespace Tiunov
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(110, 214);
+            this.button1.Location = new System.Drawing.Point(85, 209);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 29);
+            this.button1.Size = new System.Drawing.Size(142, 30);
             this.button1.TabIndex = 11;
             this.button1.Text = "Выход";
             this.button1.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@ namespace Tiunov
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 262);
+            this.ClientSize = new System.Drawing.Size(322, 270);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.Authbtn);
