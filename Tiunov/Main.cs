@@ -198,6 +198,9 @@ namespace Tiunov
                 cb_saccess.Visible = false;
                 AddKval.Visible = false;
                 AddGraf.Visible = false;
+                dataGridView2.Columns[7].Visible = false;
+                dataGridView2.Columns[8].Visible = false;
+                dataGridView2.Columns[9].Visible = false;
                 //Экспонаты
                 label7.Visible = false;
                 label8.Visible = false;
@@ -440,6 +443,28 @@ namespace Tiunov
         {
             (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"[Sfam] LIKE '%{textBox2.Text}%'";
         }
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == '_' || e.KeyChar == (char)Keys.Back)
+            {
+            }
+            else
+            {
+                MessageBox.Show("Логин должен состоять из символов латинского алфавита");
+                e.Handled = true;
+            }
+        }
+        private void Pass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == '_' || e.KeyChar == (char)Keys.Back)
+            {
+            }
+            else
+            {
+                MessageBox.Show("Пароль должен состоять из символов латинского алфавита");
+                e.Handled = true;
+            }
+        }
         #endregion
         #region Exponat
         private void EbtnInsert_Click(object sender, EventArgs e)
@@ -660,27 +685,5 @@ namespace Tiunov
             (dataGridView4.DataSource as DataTable).DefaultView.RowFilter = $"[Enam] LIKE '%{textBox4.Text}%'";
         }
         #endregion
-        private void Login_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == '_' || e.KeyChar == (char)Keys.Back)
-            {
-            }
-            else
-            {
-                MessageBox.Show("Логин должен состоять из символов латинского алфавита");
-                e.Handled = true;
-            }
-        }
-        private void Pass_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == '_' || e.KeyChar == (char)Keys.Back)
-            {
-            }
-            else
-            {
-                MessageBox.Show("Пароль должен состоять из символов латинского алфавита");
-                e.Handled = true;
-            }
-        }
     }
 }
