@@ -2388,6 +2388,8 @@ namespace Tiunov {
             
             private global::System.Data.DataColumn columnPtreb;
             
+            private global::System.Data.DataColumn columnPopis;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PomeshenyaDataTable() {
@@ -2463,6 +2465,14 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PopisColumn {
+                get {
+                    return this.columnPopis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2498,14 +2508,15 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PomeshenyaRow AddPomeshenyaRow(int Pnum, string Pnam, string Padres, string Pnaz, string Ptreb) {
+            public PomeshenyaRow AddPomeshenyaRow(int Pnum, string Pnam, string Padres, string Pnaz, string Ptreb, string Popis) {
                 PomeshenyaRow rowPomeshenyaRow = ((PomeshenyaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Pnum,
                         Pnam,
                         Padres,
                         Pnaz,
-                        Ptreb};
+                        Ptreb,
+                        Popis};
                 rowPomeshenyaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPomeshenyaRow);
                 return rowPomeshenyaRow;
@@ -2540,6 +2551,7 @@ namespace Tiunov {
                 this.columnPadres = base.Columns["Padres"];
                 this.columnPnaz = base.Columns["Pnaz"];
                 this.columnPtreb = base.Columns["Ptreb"];
+                this.columnPopis = base.Columns["Popis"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2555,14 +2567,21 @@ namespace Tiunov {
                 base.Columns.Add(this.columnPnaz);
                 this.columnPtreb = new global::System.Data.DataColumn("Ptreb", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPtreb);
+                this.columnPopis = new global::System.Data.DataColumn("Popis", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPopis);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPnum}, true));
                 this.columnPnum.AllowDBNull = false;
                 this.columnPnum.Unique = true;
+                this.columnPnam.AllowDBNull = false;
                 this.columnPnam.MaxLength = 25;
+                this.columnPadres.AllowDBNull = false;
                 this.columnPadres.MaxLength = 25;
+                this.columnPnaz.AllowDBNull = false;
                 this.columnPnaz.MaxLength = 25;
+                this.columnPtreb.AllowDBNull = false;
                 this.columnPtreb.MaxLength = 25;
+                this.columnPopis.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2977,6 +2996,10 @@ namespace Tiunov {
             
             private global::System.Data.DataColumn columnSnum;
             
+            private global::System.Data.DataColumn columnRstart;
+            
+            private global::System.Data.DataColumn columnRfinish;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public RestavraciaDataTable() {
@@ -3044,6 +3067,22 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RstartColumn {
+                get {
+                    return this.columnRstart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RfinishColumn {
+                get {
+                    return this.columnRfinish;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3079,13 +3118,15 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RestavraciaRow AddRestavraciaRow(int Rnum, ExponatRow parentExponatRowByExponat_Restavracia, Restoration_statusRow parentRestoration_statusRowByRestoration_status_Restavracia, SotrudnikiRow parentSotrudnikiRowByFK_Restavracia_Sotrudniki) {
+            public RestavraciaRow AddRestavraciaRow(int Rnum, ExponatRow parentExponatRowByExponat_Restavracia, Restoration_statusRow parentRestoration_statusRowByRestoration_status_Restavracia, SotrudnikiRow parentSotrudnikiRowByFK_Restavracia_Sotrudniki, string Rstart, string Rfinish) {
                 RestavraciaRow rowRestavraciaRow = ((RestavraciaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rnum,
                         null,
                         null,
-                        null};
+                        null,
+                        Rstart,
+                        Rfinish};
                 if ((parentExponatRowByExponat_Restavracia != null)) {
                     columnValuesArray[1] = parentExponatRowByExponat_Restavracia[0];
                 }
@@ -3128,6 +3169,8 @@ namespace Tiunov {
                 this.columnEnum = base.Columns["Enum"];
                 this.columnRstatus = base.Columns["Rstatus"];
                 this.columnSnum = base.Columns["Snum"];
+                this.columnRstart = base.Columns["Rstart"];
+                this.columnRfinish = base.Columns["Rfinish"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3141,12 +3184,18 @@ namespace Tiunov {
                 base.Columns.Add(this.columnRstatus);
                 this.columnSnum = new global::System.Data.DataColumn("Snum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSnum);
+                this.columnRstart = new global::System.Data.DataColumn("Rstart", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRstart);
+                this.columnRfinish = new global::System.Data.DataColumn("Rfinish", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRfinish);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRnum}, true));
                 this.columnRnum.AllowDBNull = false;
                 this.columnRnum.Unique = true;
                 this.columnEnum.AllowDBNull = false;
                 this.columnRstatus.AllowDBNull = false;
+                this.columnRstart.MaxLength = 25;
+                this.columnRfinish.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4799,7 +4848,11 @@ namespace Tiunov {
             
             private global::System.Data.DataColumn columnStatus;
             
-            private global::System.Data.DataColumn columnСотрудник;
+            private global::System.Data.DataColumn _columnСотрудник__Квалификация_;
+            
+            private global::System.Data.DataColumn columnRstart;
+            
+            private global::System.Data.DataColumn columnRfinish;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4860,9 +4913,25 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn СотрудникColumn {
+            public global::System.Data.DataColumn _Сотрудник__Квалификация_Column {
                 get {
-                    return this.columnСотрудник;
+                    return this._columnСотрудник__Квалификация_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RstartColumn {
+                get {
+                    return this.columnRstart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RfinishColumn {
+                get {
+                    return this.columnRfinish;
                 }
             }
             
@@ -4903,13 +4972,15 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public restRow AddrestRow(int Rnum, string Enam, string Status, string Сотрудник) {
+            public restRow AddrestRow(int Rnum, string Enam, string Status, string _Сотрудник__Квалификация_, System.DateTime Rstart, System.DateTime Rfinish) {
                 restRow rowrestRow = ((restRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rnum,
                         Enam,
                         Status,
-                        Сотрудник};
+                        _Сотрудник__Квалификация_,
+                        Rstart,
+                        Rfinish};
                 rowrestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrestRow);
                 return rowrestRow;
@@ -4942,7 +5013,9 @@ namespace Tiunov {
                 this.columnRnum = base.Columns["Rnum"];
                 this.columnEnam = base.Columns["Enam"];
                 this.columnStatus = base.Columns["Status"];
-                this.columnСотрудник = base.Columns["Сотрудник"];
+                this._columnСотрудник__Квалификация_ = base.Columns["Сотрудник (Квалификация)"];
+                this.columnRstart = base.Columns["Rstart"];
+                this.columnRfinish = base.Columns["Rfinish"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4954,8 +5027,14 @@ namespace Tiunov {
                 base.Columns.Add(this.columnEnam);
                 this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatus);
-                this.columnСотрудник = new global::System.Data.DataColumn("Сотрудник", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnСотрудник);
+                this._columnСотрудник__Квалификация_ = new global::System.Data.DataColumn("Сотрудник (Квалификация)", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnСотрудник__Квалификация_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnСотрудник__Квалификация_");
+                this._columnСотрудник__Квалификация_.ExtendedProperties.Add("Generator_UserColumnName", "Сотрудник (Квалификация)");
+                base.Columns.Add(this._columnСотрудник__Квалификация_);
+                this.columnRstart = new global::System.Data.DataColumn("Rstart", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRstart);
+                this.columnRfinish = new global::System.Data.DataColumn("Rfinish", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRfinish);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRnum}, true));
                 this.columnRnum.AllowDBNull = false;
@@ -4964,8 +5043,8 @@ namespace Tiunov {
                 this.columnEnam.MaxLength = 25;
                 this.columnStatus.AllowDBNull = false;
                 this.columnStatus.MaxLength = 25;
-                this.columnСотрудник.ReadOnly = true;
-                this.columnСотрудник.MaxLength = 77;
+                this._columnСотрудник__Квалификация_.ReadOnly = true;
+                this._columnСотрудник__Квалификация_.MaxLength = 105;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5099,9 +5178,9 @@ namespace Tiunov {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Sotrudniki1DataTable : global::System.Data.TypedTableBase<Sotrudniki1Row> {
             
-            private global::System.Data.DataColumn columnСотрудник;
-            
             private global::System.Data.DataColumn columnSnum;
+            
+            private global::System.Data.DataColumn _columnСотрудник__Квалификация_;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5138,17 +5217,17 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn СотрудникColumn {
+            public global::System.Data.DataColumn SnumColumn {
                 get {
-                    return this.columnСотрудник;
+                    return this.columnSnum;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SnumColumn {
+            public global::System.Data.DataColumn _Сотрудник__Квалификация_Column {
                 get {
-                    return this.columnSnum;
+                    return this._columnСотрудник__Квалификация_;
                 }
             }
             
@@ -5189,11 +5268,11 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Sotrudniki1Row AddSotrudniki1Row(string Сотрудник, int Snum) {
+            public Sotrudniki1Row AddSotrudniki1Row(int Snum, string _Сотрудник__Квалификация_) {
                 Sotrudniki1Row rowSotrudniki1Row = ((Sotrudniki1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Сотрудник,
-                        Snum};
+                        Snum,
+                        _Сотрудник__Квалификация_};
                 rowSotrudniki1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSotrudniki1Row);
                 return rowSotrudniki1Row;
@@ -5223,23 +5302,25 @@ namespace Tiunov {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnСотрудник = base.Columns["Сотрудник"];
                 this.columnSnum = base.Columns["Snum"];
+                this._columnСотрудник__Квалификация_ = base.Columns["Сотрудник (Квалификация)"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnСотрудник = new global::System.Data.DataColumn("Сотрудник", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnСотрудник);
                 this.columnSnum = new global::System.Data.DataColumn("Snum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSnum);
+                this._columnСотрудник__Квалификация_ = new global::System.Data.DataColumn("Сотрудник (Квалификация)", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnСотрудник__Квалификация_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnСотрудник__Квалификация_");
+                this._columnСотрудник__Квалификация_.ExtendedProperties.Add("Generator_UserColumnName", "Сотрудник (Квалификация)");
+                base.Columns.Add(this._columnСотрудник__Квалификация_);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSnum}, true));
-                this.columnСотрудник.ReadOnly = true;
-                this.columnСотрудник.MaxLength = 77;
                 this.columnSnum.AllowDBNull = false;
                 this.columnSnum.Unique = true;
+                this._columnСотрудник__Квалификация_.ReadOnly = true;
+                this._columnСотрудник__Квалификация_.MaxLength = 105;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6083,12 +6164,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Pnam {
                 get {
-                    try {
-                        return ((string)(this[this.tablePomeshenya.PnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Pnam\' в таблице \'Pomeshenya\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePomeshenya.PnamColumn]));
                 }
                 set {
                     this[this.tablePomeshenya.PnamColumn] = value;
@@ -6099,12 +6175,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Padres {
                 get {
-                    try {
-                        return ((string)(this[this.tablePomeshenya.PadresColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Padres\' в таблице \'Pomeshenya\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePomeshenya.PadresColumn]));
                 }
                 set {
                     this[this.tablePomeshenya.PadresColumn] = value;
@@ -6115,12 +6186,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Pnaz {
                 get {
-                    try {
-                        return ((string)(this[this.tablePomeshenya.PnazColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Pnaz\' в таблице \'Pomeshenya\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePomeshenya.PnazColumn]));
                 }
                 set {
                     this[this.tablePomeshenya.PnazColumn] = value;
@@ -6131,12 +6197,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Ptreb {
                 get {
-                    try {
-                        return ((string)(this[this.tablePomeshenya.PtrebColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Ptreb\' в таблице \'Pomeshenya\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePomeshenya.PtrebColumn]));
                 }
                 set {
                     this[this.tablePomeshenya.PtrebColumn] = value;
@@ -6145,50 +6206,30 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPnamNull() {
-                return this.IsNull(this.tablePomeshenya.PnamColumn);
+            public string Popis {
+                get {
+                    try {
+                        return ((string)(this[this.tablePomeshenya.PopisColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Popis\' в таблице \'Pomeshenya\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePomeshenya.PopisColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPnamNull() {
-                this[this.tablePomeshenya.PnamColumn] = global::System.Convert.DBNull;
+            public bool IsPopisNull() {
+                return this.IsNull(this.tablePomeshenya.PopisColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPadresNull() {
-                return this.IsNull(this.tablePomeshenya.PadresColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPadresNull() {
-                this[this.tablePomeshenya.PadresColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPnazNull() {
-                return this.IsNull(this.tablePomeshenya.PnazColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPnazNull() {
-                this[this.tablePomeshenya.PnazColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPtrebNull() {
-                return this.IsNull(this.tablePomeshenya.PtrebColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPtrebNull() {
-                this[this.tablePomeshenya.PtrebColumn] = global::System.Convert.DBNull;
+            public void SetPopisNull() {
+                this[this.tablePomeshenya.PopisColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6333,6 +6374,38 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Rstart {
+                get {
+                    try {
+                        return ((string)(this[this.tableRestavracia.RstartColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Rstart\' в таблице \'Restavracia\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRestavracia.RstartColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Rfinish {
+                get {
+                    try {
+                        return ((string)(this[this.tableRestavracia.RfinishColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Rfinish\' в таблице \'Restavracia\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRestavracia.RfinishColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Restoration_statusRow Restoration_statusRow {
                 get {
                     return ((Restoration_statusRow)(this.GetParentRow(this.Table.ParentRelations["Restoration_status_Restavracia"])));
@@ -6396,6 +6469,30 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSnumNull() {
                 this[this.tableRestavracia.SnumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRstartNull() {
+                return this.IsNull(this.tableRestavracia.RstartColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRstartNull() {
+                this[this.tableRestavracia.RstartColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRfinishNull() {
+                return this.IsNull(this.tableRestavracia.RfinishColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRfinishNull() {
+                this[this.tableRestavracia.RfinishColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7082,30 +7179,86 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Сотрудник {
+            public string _Сотрудник__Квалификация_ {
                 get {
                     try {
-                        return ((string)(this[this.tablerest.СотрудникColumn]));
+                        return ((string)(this[this.tablerest._Сотрудник__Квалификация_Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Сотрудник\' в таблице \'rest\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Сотрудник (Квалификация)\' в таблице \'rest\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerest.СотрудникColumn] = value;
+                    this[this.tablerest._Сотрудник__Квалификация_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsСотрудникNull() {
-                return this.IsNull(this.tablerest.СотрудникColumn);
+            public System.DateTime Rstart {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablerest.RstartColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Rstart\' в таблице \'rest\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerest.RstartColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetСотрудникNull() {
-                this[this.tablerest.СотрудникColumn] = global::System.Convert.DBNull;
+            public System.DateTime Rfinish {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablerest.RfinishColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Rfinish\' в таблице \'rest\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerest.RfinishColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Is_Сотрудник__Квалификация_Null() {
+                return this.IsNull(this.tablerest._Сотрудник__Квалификация_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set_Сотрудник__Квалификация_Null() {
+                this[this.tablerest._Сотрудник__Квалификация_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRstartNull() {
+                return this.IsNull(this.tablerest.RstartColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRstartNull() {
+                this[this.tablerest.RstartColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRfinishNull() {
+                return this.IsNull(this.tablerest.RfinishColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRfinishNull() {
+                this[this.tablerest.RfinishColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7125,22 +7278,6 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Сотрудник {
-                get {
-                    try {
-                        return ((string)(this[this.tableSotrudniki1.СотрудникColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Сотрудник\' в таблице \'Sotrudniki1\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSotrudniki1.СотрудникColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Snum {
                 get {
                     return ((int)(this[this.tableSotrudniki1.SnumColumn]));
@@ -7152,14 +7289,31 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsСотрудникNull() {
-                return this.IsNull(this.tableSotrudniki1.СотрудникColumn);
+            public string _Сотрудник__Квалификация_ {
+                get {
+                    try {
+                        return ((string)(this[this.tableSotrudniki1._Сотрудник__Квалификация_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Сотрудник (Квалификация)\' в таблице \'Sotrudniki1\' равно DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSotrudniki1._Сотрудник__Квалификация_Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetСотрудникNull() {
-                this[this.tableSotrudniki1.СотрудникColumn] = global::System.Convert.DBNull;
+            public bool Is_Сотрудник__Квалификация_Null() {
+                return this.IsNull(this.tableSotrudniki1._Сотрудник__Квалификация_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set_Сотрудник__Квалификация_Null() {
+                this[this.tableSotrudniki1._Сотрудник__Квалификация_Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9866,50 +10020,49 @@ SELECT Snum, Sfam, Snam, Sotch, Stel, Skval, Sgraf, Login, Pass, Saccess FROM So
             tableMapping.ColumnMappings.Add("Padres", "Padres");
             tableMapping.ColumnMappings.Add("Pnaz", "Pnaz");
             tableMapping.ColumnMappings.Add("Ptreb", "Ptreb");
+            tableMapping.ColumnMappings.Add("Popis", "Popis");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Pomeshenya] WHERE (([Pnum] = @Original_Pnum) AND ((@IsNull_Pnam = 1 AND [Pnam] IS NULL) OR ([Pnam] = @Original_Pnam)) AND ((@IsNull_Padres = 1 AND [Padres] IS NULL) OR ([Padres] = @Original_Padres)) AND ((@IsNull_Pnaz = 1 AND [Pnaz] IS NULL) OR ([Pnaz] = @Original_Pnaz)) AND ((@IsNull_Ptreb = 1 AND [Ptreb] IS NULL) OR ([Ptreb] = @Original_Ptreb)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Pomeshenya] WHERE (([Pnum] = @Original_Pnum) AND ([Pnam] = @Original_Pnam) AND ([Padres] = @Original_Padres) AND ([Pnaz] = @Original_Pnaz) AND ([Ptreb] = @Original_Ptreb) AND ((@IsNull_Popis = 1 AND [Popis] IS NULL) OR ([Popis] = @Original_Popis)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pnam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnam", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Padres", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Padres", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pnaz", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnaz", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ptreb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ptreb", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnam", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Padres", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnaz", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ptreb", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Popis", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Popis", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Popis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Popis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Pomeshenya] ([Pnum], [Pnam], [Padres], [Pnaz], [Ptreb]) VALUES (@Pnu" +
-                "m, @Pnam, @Padres, @Pnaz, @Ptreb);\r\nSELECT Pnum, Pnam, Padres, Pnaz, Ptreb FROM " +
-                "Pomeshenya WHERE (Pnum = @Pnum)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Pomeshenya] ([Pnum], [Pnam], [Padres], [Pnaz], [Ptreb], [Popis]) VAL" +
+                "UES (@Pnum, @Pnam, @Padres, @Pnaz, @Ptreb, @Popis);\r\nSELECT Pnum, Pnam, Padres, " +
+                "Pnaz, Ptreb, Popis FROM Pomeshenya WHERE (Pnum = @Pnum)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnam", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Padres", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnaz", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ptreb", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnam", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Padres", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnaz", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ptreb", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Popis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Popis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Pomeshenya] SET [Pnum] = @Pnum, [Pnam] = @Pnam, [Padres] = @Padres, [Pnaz] = @Pnaz, [Ptreb] = @Ptreb WHERE (([Pnum] = @Original_Pnum) AND ((@IsNull_Pnam = 1 AND [Pnam] IS NULL) OR ([Pnam] = @Original_Pnam)) AND ((@IsNull_Padres = 1 AND [Padres] IS NULL) OR ([Padres] = @Original_Padres)) AND ((@IsNull_Pnaz = 1 AND [Pnaz] IS NULL) OR ([Pnaz] = @Original_Pnaz)) AND ((@IsNull_Ptreb = 1 AND [Ptreb] IS NULL) OR ([Ptreb] = @Original_Ptreb)));
-SELECT Pnum, Pnam, Padres, Pnaz, Ptreb FROM Pomeshenya WHERE (Pnum = @Pnum)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Pomeshenya] SET [Pnum] = @Pnum, [Pnam] = @Pnam, [Padres] = @Padres, [Pnaz] = @Pnaz, [Ptreb] = @Ptreb, [Popis] = @Popis WHERE (([Pnum] = @Original_Pnum) AND ([Pnam] = @Original_Pnam) AND ([Padres] = @Original_Padres) AND ([Pnaz] = @Original_Pnaz) AND ([Ptreb] = @Original_Ptreb) AND ((@IsNull_Popis = 1 AND [Popis] IS NULL) OR ([Popis] = @Original_Popis)));
+SELECT Pnum, Pnam, Padres, Pnaz, Ptreb, Popis FROM Pomeshenya WHERE (Pnum = @Pnum)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnam", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Padres", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnaz", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ptreb", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnam", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Padres", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Pnaz", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ptreb", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Popis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Popis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pnam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnam", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Padres", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Padres", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pnaz", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnaz", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ptreb", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ptreb", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnam", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Padres", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Padres", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pnaz", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pnaz", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ptreb", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ptreb", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Popis", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Popis", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Popis", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Popis", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9925,7 +10078,7 @@ SELECT Pnum, Pnam, Padres, Pnaz, Ptreb FROM Pomeshenya WHERE (Pnum = @Pnum)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT       Pnum, Pnam, Padres, Pnaz, Ptreb\r\nFROM            Pomeshenya";
+            this._commandCollection[0].CommandText = "SELECT       Pnum, Pnam, Padres, Pnaz, Ptreb, Popis\r\nFROM            Pomeshenya";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9986,39 +10139,39 @@ SELECT Pnum, Pnam, Padres, Pnaz, Ptreb FROM Pomeshenya WHERE (Pnum = @Pnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Pnum, string Original_Pnam, string Original_Padres, string Original_Pnaz, string Original_Ptreb) {
+        public virtual int Delete(int Original_Pnum, string Original_Pnam, string Original_Padres, string Original_Pnaz, string Original_Ptreb, string Original_Popis) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Pnum));
             if ((Original_Pnam == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Pnam");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Pnam));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Pnam));
             }
             if ((Original_Padres == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Padres");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Padres));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Padres));
             }
             if ((Original_Pnaz == null)) {
+                throw new global::System.ArgumentNullException("Original_Pnaz");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Pnaz));
+            }
+            if ((Original_Ptreb == null)) {
+                throw new global::System.ArgumentNullException("Original_Ptreb");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Ptreb));
+            }
+            if ((Original_Popis == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Pnaz));
-            }
-            if ((Original_Ptreb == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Ptreb));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Popis));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10040,31 +10193,37 @@ SELECT Pnum, Pnam, Padres, Pnaz, Ptreb FROM Pomeshenya WHERE (Pnum = @Pnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Pnum, string Pnam, string Padres, string Pnaz, string Ptreb) {
+        public virtual int Insert(int Pnum, string Pnam, string Padres, string Pnaz, string Ptreb, string Popis) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Pnum));
             if ((Pnam == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Pnam");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Pnam));
             }
             if ((Padres == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Padres");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Padres));
             }
             if ((Pnaz == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Pnaz");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Pnaz));
             }
             if ((Ptreb == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Ptreb");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Ptreb));
+            }
+            if ((Popis == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Popis));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10086,64 +10245,70 @@ SELECT Pnum, Pnam, Padres, Pnaz, Ptreb FROM Pomeshenya WHERE (Pnum = @Pnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Pnum, string Pnam, string Padres, string Pnaz, string Ptreb, int Original_Pnum, string Original_Pnam, string Original_Padres, string Original_Pnaz, string Original_Ptreb) {
+        public virtual int Update(int Pnum, string Pnam, string Padres, string Pnaz, string Ptreb, string Popis, int Original_Pnum, string Original_Pnam, string Original_Padres, string Original_Pnaz, string Original_Ptreb, string Original_Popis) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Pnum));
             if ((Pnam == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Pnam");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Pnam));
             }
             if ((Padres == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Padres");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Padres));
             }
             if ((Pnaz == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Pnaz");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Pnaz));
             }
             if ((Ptreb == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Ptreb");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Ptreb));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Pnum));
-            if ((Original_Pnam == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((Popis == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Popis));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Pnum));
+            if ((Original_Pnam == null)) {
+                throw new global::System.ArgumentNullException("Original_Pnam");
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Pnam));
             }
             if ((Original_Padres == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Padres");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Padres));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Padres));
             }
             if ((Original_Pnaz == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Pnaz");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Pnaz));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Pnaz));
             }
             if ((Original_Ptreb == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Ptreb");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Ptreb));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Ptreb));
+            }
+            if ((Original_Popis == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Popis));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10165,8 +10330,8 @@ SELECT Pnum, Pnam, Padres, Pnaz, Ptreb FROM Pomeshenya WHERE (Pnum = @Pnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Pnam, string Padres, string Pnaz, string Ptreb, int Original_Pnum, string Original_Pnam, string Original_Padres, string Original_Pnaz, string Original_Ptreb) {
-            return this.Update(Original_Pnum, Pnam, Padres, Pnaz, Ptreb, Original_Pnum, Original_Pnam, Original_Padres, Original_Pnaz, Original_Ptreb);
+        public virtual int Update(string Pnam, string Padres, string Pnaz, string Ptreb, string Popis, int Original_Pnum, string Original_Pnam, string Original_Padres, string Original_Pnaz, string Original_Ptreb, string Original_Popis) {
+            return this.Update(Original_Pnum, Pnam, Padres, Pnaz, Ptreb, Popis, Original_Pnum, Original_Pnam, Original_Padres, Original_Pnaz, Original_Ptreb, Original_Popis);
         }
     }
     
@@ -10620,42 +10785,54 @@ SELECT Rstatus, Status FROM Restoration_status WHERE (Rstatus = @Rstatus)";
             tableMapping.ColumnMappings.Add("Enum", "Enum");
             tableMapping.ColumnMappings.Add("Rstatus", "Rstatus");
             tableMapping.ColumnMappings.Add("Snum", "Snum");
+            tableMapping.ColumnMappings.Add("Rstart", "Rstart");
+            tableMapping.ColumnMappings.Add("Rfinish", "Rfinish");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Restavracia] WHERE (([Rnum] = @Original_Rnum) AND ([Enum] = @Origina" +
-                "l_Enum) AND ([Rstatus] = @Original_Rstatus) AND ((@IsNull_Snum = 1 AND [Snum] IS" +
-                " NULL) OR ([Snum] = @Original_Snum)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Restavracia] WHERE (([Rnum] = @Original_Rnum) AND ([Enum] = @Original_Enum) AND ([Rstatus] = @Original_Rstatus) AND ((@IsNull_Snum = 1 AND [Snum] IS NULL) OR ([Snum] = @Original_Snum)) AND ((@IsNull_Rstart = 1 AND [Rstart] IS NULL) OR ([Rstart] = @Original_Rstart)) AND ((@IsNull_Rfinish = 1 AND [Rfinish] IS NULL) OR ([Rfinish] = @Original_Rfinish)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rstart", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstart", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rstart", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstart", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rfinish", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rfinish", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rfinish", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rfinish", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Restavracia] ([Rnum], [Enum], [Rstatus], [Snum]) VALUES (@Rnum, @Enu" +
-                "m, @Rstatus, @Snum);\r\nSELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (R" +
-                "num = @Rnum)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Restavracia] ([Rnum], [Enum], [Rstatus], [Snum], [Rstart], [Rfinish]" +
+                ") VALUES (@Rnum, @Enum, @Rstatus, @Snum, @Rstart, @Rfinish);\r\nSELECT Rnum, Enum," +
+                " Rstatus, Snum, Rstart, Rfinish FROM Restavracia WHERE (Rnum = @Rnum)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rstart", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rfinish", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rfinish", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Restavracia] SET [Rnum] = @Rnum, [Enum] = @Enum, [Rstatus] = @Rstatus, [Snum] = @Snum WHERE (([Rnum] = @Original_Rnum) AND ([Enum] = @Original_Enum) AND ([Rstatus] = @Original_Rstatus) AND ((@IsNull_Snum = 1 AND [Snum] IS NULL) OR ([Snum] = @Original_Snum)));
-SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Restavracia] SET [Rnum] = @Rnum, [Enum] = @Enum, [Rstatus] = @Rstatus, [Snum] = @Snum, [Rstart] = @Rstart, [Rfinish] = @Rfinish WHERE (([Rnum] = @Original_Rnum) AND ([Enum] = @Original_Enum) AND ([Rstatus] = @Original_Rstatus) AND ((@IsNull_Snum = 1 AND [Snum] IS NULL) OR ([Snum] = @Original_Snum)) AND ((@IsNull_Rstart = 1 AND [Rstart] IS NULL) OR ([Rstart] = @Original_Rstart)) AND ((@IsNull_Rfinish = 1 AND [Rfinish] IS NULL) OR ([Rfinish] = @Original_Rfinish)));
+SELECT Rnum, Enum, Rstatus, Snum, Rstart, Rfinish FROM Restavracia WHERE (Rnum = @Rnum)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rstart", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rfinish", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rfinish", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rnum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rnum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rstatus", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Snum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Snum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rstart", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstart", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rstart", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rstart", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rfinish", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rfinish", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rfinish", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rfinish", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10671,7 +10848,8 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT       Rnum, Enum, Rstatus, Snum\r\nFROM            Restavracia";
+            this._commandCollection[0].CommandText = "SELECT       Rnum, Enum, Rstatus, Snum, Rstart, Rfinish\r\nFROM            Restavra" +
+                "cia";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10732,7 +10910,7 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum) {
+        public virtual int Delete(int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum, string Original_Rstart, string Original_Rfinish) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Rnum));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Enum));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Rstatus));
@@ -10743,6 +10921,22 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Rstart == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Rstart));
+            }
+            if ((Original_Rfinish == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Rfinish));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10764,7 +10958,7 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Rnum, int Enum, int Rstatus, global::System.Nullable<int> Snum) {
+        public virtual int Insert(int Rnum, int Enum, int Rstatus, global::System.Nullable<int> Snum, string Rstart, string Rfinish) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Rnum));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Enum));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Rstatus));
@@ -10773,6 +10967,18 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Rstart == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Rstart));
+            }
+            if ((Rfinish == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Rfinish));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10794,7 +11000,7 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Rnum, int Enum, int Rstatus, global::System.Nullable<int> Snum, int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum) {
+        public virtual int Update(int Rnum, int Enum, int Rstatus, global::System.Nullable<int> Snum, string Rstart, string Rfinish, int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum, string Original_Rstart, string Original_Rfinish) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Rnum));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Enum));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Rstatus));
@@ -10804,16 +11010,44 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Rnum));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Enum));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Rstatus));
-            if ((Original_Snum.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Snum.Value));
+            if ((Rstart == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Rstart));
+            }
+            if ((Rfinish == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Rfinish));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Rnum));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Enum));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Rstatus));
+            if ((Original_Snum.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Snum.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Rstart == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Rstart));
+            }
+            if ((Original_Rfinish == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Rfinish));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10835,8 +11069,8 @@ SELECT Rnum, Enum, Rstatus, Snum FROM Restavracia WHERE (Rnum = @Rnum)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Enum, int Rstatus, global::System.Nullable<int> Snum, int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum) {
-            return this.Update(Original_Rnum, Enum, Rstatus, Snum, Original_Rnum, Original_Enum, Original_Rstatus, Original_Snum);
+        public virtual int Update(int Enum, int Rstatus, global::System.Nullable<int> Snum, string Rstart, string Rfinish, int Original_Rnum, int Original_Enum, int Original_Rstatus, global::System.Nullable<int> Original_Snum, string Original_Rstart, string Original_Rfinish) {
+            return this.Update(Original_Rnum, Enum, Rstatus, Snum, Rstart, Rfinish, Original_Rnum, Original_Enum, Original_Rstatus, Original_Snum, Original_Rstart, Original_Rfinish);
         }
     }
     
@@ -11985,7 +12219,9 @@ FROM            Exponat INNER JOIN
             tableMapping.ColumnMappings.Add("Rnum", "Rnum");
             tableMapping.ColumnMappings.Add("Enam", "Enam");
             tableMapping.ColumnMappings.Add("Status", "Status");
-            tableMapping.ColumnMappings.Add("Сотрудник", "Сотрудник");
+            tableMapping.ColumnMappings.Add("Сотрудник (Квалификация)", "Сотрудник (Квалификация)");
+            tableMapping.ColumnMappings.Add("Rstart", "Rstart");
+            tableMapping.ColumnMappings.Add("Rfinish", "Rfinish");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12002,11 +12238,12 @@ FROM            Exponat INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT       Restavracia.Rnum, Exponat.Enam, Restoration_status.Status, Sotrudniki.Sfam + ' ' + Sotrudniki.Snam + ' ' + Sotrudniki.Sotch AS Сотрудник
+            this._commandCollection[0].CommandText = @"SELECT       Restavracia.Rnum, Exponat.Enam, Restoration_status.Status, Sotrudniki.Sfam + ' ' + Sotrudniki.Snam + ' ' + Sotrudniki.Sotch + ' (' + Kvalifikacya.Kval + ')' AS 'Сотрудник (Квалификация)', Restavracia.Rstart, Restavracia.Rfinish
 FROM            Restavracia INNER JOIN
                          Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus INNER JOIN
                          Exponat ON Restavracia.Enum = Exponat.Enum INNER JOIN
-                         Sotrudniki ON Restavracia.Snum = Sotrudniki.Snum";
+                         Sotrudniki ON Restavracia.Snum = Sotrudniki.Snum INNER JOIN
+                         Kvalifikacya ON Sotrudniki.Skval = Kvalifikacya.Skval";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12156,8 +12393,8 @@ FROM            Restavracia INNER JOIN
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Sotrudniki1";
-            tableMapping.ColumnMappings.Add("Сотрудник", "Сотрудник");
             tableMapping.ColumnMappings.Add("Snum", "Snum");
+            tableMapping.ColumnMappings.Add("Сотрудник (Квалификация)", "Сотрудник (Квалификация)");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12174,8 +12411,9 @@ FROM            Restavracia INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT       Snum, Sfam + \' \' + Snam + \' \' + Sotch AS Сотрудник\r\nFROM            " +
-                "Sotrudniki";
+            this._commandCollection[0].CommandText = @"SELECT       Sotrudniki.Snum, Sotrudniki.Sfam + ' ' + Sotrudniki.Snam + ' ' + Sotrudniki.Sotch + ' (' + Kvalifikacya.Kval + ')' AS 'Сотрудник (Квалификация)'
+FROM            Sotrudniki INNER JOIN
+                         Kvalifikacya ON Sotrudniki.Skval = Kvalifikacya.Skval";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

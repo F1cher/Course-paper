@@ -30,6 +30,7 @@ namespace Tiunov
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,6 +39,10 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Popis = new System.Windows.Forms.RichTextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -51,6 +56,7 @@ namespace Tiunov
             this.padresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnazDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ptrebDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.popisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pomeshenyaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiunovDataSet = new Tiunov.TiunovDataSet();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,6 +68,8 @@ namespace Tiunov
             this.PbtnClear = new System.Windows.Forms.Button();
             this.PbtnDelete = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -106,6 +114,8 @@ namespace Tiunov
             this.SbtnUpdate = new System.Windows.Forms.Button();
             this.SbtnInsert = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.statusStrip3 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -132,12 +142,17 @@ namespace Tiunov
             this.EbtnUpdate = new System.Windows.Forms.Button();
             this.EbtnInsert = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.Rfinish = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.Rstart = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.statusStrip4 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label24 = new System.Windows.Forms.Label();
             this.cb_snum = new System.Windows.Forms.ComboBox();
             this.sotrudniki1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiunovDataSet2 = new Tiunov.TiunovDataSet();
             this.label23 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.Rbtncbupd = new System.Windows.Forms.Button();
@@ -146,11 +161,6 @@ namespace Tiunov
             this.cb_rstatus = new System.Windows.Forms.ComboBox();
             this.restorationstatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.rnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.сотрудникDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.RbtnClear = new System.Windows.Forms.Button();
@@ -161,21 +171,22 @@ namespace Tiunov
             this.grafikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.GrafikiTableAdapter();
             this.kvalifikacyaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.KvalifikacyaTableAdapter();
             this.exponat_tipTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Exponat_tipTableAdapter();
-            this.pomeshenyaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.PomeshenyaTableAdapter();
             this.restoration_statusTableAdapter = new Tiunov.TiunovDataSetTableAdapters.Restoration_statusTableAdapter();
             this.accessesTableAdapter = new Tiunov.TiunovDataSetTableAdapters.AccessesTableAdapter();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sotrTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrTableAdapter();
             this.expTableAdapter = new Tiunov.TiunovDataSetTableAdapters.ExpTableAdapter();
             this.sotrudnikiTableAdapter = new Tiunov.TiunovDataSetTableAdapters.SotrudnikiTableAdapter();
-            this.restTableAdapter = new Tiunov.TiunovDataSetTableAdapters.restTableAdapter();
+            this.pomeshenyaTableAdapter = new Tiunov.TiunovDataSetTableAdapters.PomeshenyaTableAdapter();
             this.sotrudniki1TableAdapter = new Tiunov.TiunovDataSetTableAdapters.Sotrudniki1TableAdapter();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
+            this.restBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.restTableAdapter = new Tiunov.TiunovDataSetTableAdapters.restTableAdapter();
+            this.rnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.сотрудникКвалификацияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rstartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rfinishDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.TabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -198,10 +209,11 @@ namespace Tiunov
             this.tabPage4.SuspendLayout();
             this.statusStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudniki1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -211,7 +223,7 @@ namespace Tiunov
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1124, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1147, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -265,11 +277,13 @@ namespace Tiunov
             this.TabControl1.Location = new System.Drawing.Point(0, 27);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(1124, 424);
+            this.TabControl1.Size = new System.Drawing.Size(1147, 424);
             this.TabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Popis);
+            this.tabPage1.Controls.Add(this.label29);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.label28);
             this.tabPage1.Controls.Add(this.statusStrip1);
@@ -290,10 +304,50 @@ namespace Tiunov
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1116, 398);
+            this.tabPage1.Size = new System.Drawing.Size(1139, 398);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Помещения";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // Popis
+            // 
+            this.Popis.Location = new System.Drawing.Point(765, 76);
+            this.Popis.Name = "Popis";
+            this.Popis.Size = new System.Drawing.Size(199, 51);
+            this.Popis.TabIndex = 54;
+            this.Popis.Text = "";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label29.Location = new System.Drawing.Point(762, 57);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(65, 13);
+            this.label29.TabIndex = 53;
+            this.label29.Text = "Описание";
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label20.Location = new System.Drawing.Point(1019, 6);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 13);
+            this.label20.TabIndex = 51;
+            this.label20.Text = "Поиск";
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label28.Location = new System.Drawing.Point(801, 29);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(167, 13);
+            this.label28.TabIndex = 50;
+            this.label28.Text = "Наименование помещения";
             // 
             // statusStrip1
             // 
@@ -301,7 +355,7 @@ namespace Tiunov
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(3, 373);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1110, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1133, 22);
             this.statusStrip1.TabIndex = 19;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -364,18 +418,28 @@ namespace Tiunov
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pnumDataGridViewTextBoxColumn,
             this.pnamDataGridViewTextBoxColumn,
             this.padresDataGridViewTextBoxColumn,
             this.pnazDataGridViewTextBoxColumn,
-            this.ptrebDataGridViewTextBoxColumn});
+            this.ptrebDataGridViewTextBoxColumn,
+            this.popisDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.pomeshenyaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 102);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(8, 133);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1100, 268);
+            this.dataGridView1.Size = new System.Drawing.Size(1100, 237);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
@@ -413,6 +477,13 @@ namespace Tiunov
             this.ptrebDataGridViewTextBoxColumn.HeaderText = "Требования";
             this.ptrebDataGridViewTextBoxColumn.Name = "ptrebDataGridViewTextBoxColumn";
             this.ptrebDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // popisDataGridViewTextBoxColumn
+            // 
+            this.popisDataGridViewTextBoxColumn.DataPropertyName = "Popis";
+            this.popisDataGridViewTextBoxColumn.HeaderText = "Описание";
+            this.popisDataGridViewTextBoxColumn.Name = "popisDataGridViewTextBoxColumn";
+            this.popisDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pomeshenyaBindingSource
             // 
@@ -530,10 +601,32 @@ namespace Tiunov
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1116, 398);
+            this.tabPage2.Size = new System.Drawing.Size(1139, 398);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Сотрудники";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label21.Location = new System.Drawing.Point(1018, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(44, 13);
+            this.label21.TabIndex = 51;
+            this.label21.Text = "Поиск";
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label27.Location = new System.Drawing.Point(833, 29);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(135, 13);
+            this.label27.TabIndex = 50;
+            this.label27.Text = "Фамилия сотрудника";
             // 
             // statusStrip2
             // 
@@ -541,7 +634,7 @@ namespace Tiunov
             this.toolStripStatusLabel2});
             this.statusStrip2.Location = new System.Drawing.Point(3, 373);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(1110, 22);
+            this.statusStrip2.Size = new System.Drawing.Size(1133, 22);
             this.statusStrip2.TabIndex = 46;
             this.statusStrip2.Text = "statusStrip2";
             // 
@@ -563,7 +656,7 @@ namespace Tiunov
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label15.Location = new System.Drawing.Point(944, 59);
+            this.label15.Location = new System.Drawing.Point(990, 60);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(50, 13);
             this.label15.TabIndex = 42;
@@ -575,7 +668,7 @@ namespace Tiunov
             this.cb_saccess.DisplayMember = "Access";
             this.cb_saccess.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_saccess.FormattingEnabled = true;
-            this.cb_saccess.Location = new System.Drawing.Point(947, 77);
+            this.cb_saccess.Location = new System.Drawing.Point(993, 78);
             this.cb_saccess.MaxLength = 25;
             this.cb_saccess.Name = "cb_saccess";
             this.cb_saccess.Size = new System.Drawing.Size(115, 21);
@@ -608,7 +701,7 @@ namespace Tiunov
             // 
             // AddGraf
             // 
-            this.AddGraf.Location = new System.Drawing.Point(697, 75);
+            this.AddGraf.Location = new System.Drawing.Point(748, 75);
             this.AddGraf.Name = "AddGraf";
             this.AddGraf.Size = new System.Drawing.Size(23, 23);
             this.AddGraf.TabIndex = 37;
@@ -618,7 +711,7 @@ namespace Tiunov
             // 
             // AddKval
             // 
-            this.AddKval.Location = new System.Drawing.Point(552, 76);
+            this.AddKval.Location = new System.Drawing.Point(600, 76);
             this.AddKval.Name = "AddKval";
             this.AddKval.Size = new System.Drawing.Size(23, 23);
             this.AddKval.TabIndex = 36;
@@ -632,7 +725,7 @@ namespace Tiunov
             this.Sgraf.DisplayMember = "Grafik";
             this.Sgraf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Sgraf.FormattingEnabled = true;
-            this.Sgraf.Location = new System.Drawing.Point(591, 78);
+            this.Sgraf.Location = new System.Drawing.Point(642, 78);
             this.Sgraf.MaxLength = 25;
             this.Sgraf.Name = "Sgraf";
             this.Sgraf.Size = new System.Drawing.Size(100, 21);
@@ -652,7 +745,7 @@ namespace Tiunov
             this.Skval.FormattingEnabled = true;
             this.Skval.Location = new System.Drawing.Point(432, 77);
             this.Skval.Name = "Skval";
-            this.Skval.Size = new System.Drawing.Size(114, 21);
+            this.Skval.Size = new System.Drawing.Size(162, 21);
             this.Skval.TabIndex = 34;
             this.Skval.ValueMember = "Skval";
             // 
@@ -665,7 +758,7 @@ namespace Tiunov
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label14.Location = new System.Drawing.Point(838, 59);
+            this.label14.Location = new System.Drawing.Point(884, 59);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(51, 13);
             this.label14.TabIndex = 33;
@@ -675,7 +768,7 @@ namespace Tiunov
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label13.Location = new System.Drawing.Point(732, 59);
+            this.label13.Location = new System.Drawing.Point(778, 59);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 13);
             this.label13.TabIndex = 32;
@@ -695,7 +788,7 @@ namespace Tiunov
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label11.Location = new System.Drawing.Point(588, 60);
+            this.label11.Location = new System.Drawing.Point(639, 60);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 13);
             this.label11.TabIndex = 30;
@@ -713,7 +806,7 @@ namespace Tiunov
             // 
             // Pass
             // 
-            this.Pass.Location = new System.Drawing.Point(841, 78);
+            this.Pass.Location = new System.Drawing.Point(887, 78);
             this.Pass.Name = "Pass";
             this.Pass.Size = new System.Drawing.Size(100, 20);
             this.Pass.TabIndex = 28;
@@ -721,7 +814,7 @@ namespace Tiunov
             // 
             // Login
             // 
-            this.Login.Location = new System.Drawing.Point(735, 78);
+            this.Login.Location = new System.Drawing.Point(781, 78);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(100, 20);
             this.Login.TabIndex = 27;
@@ -944,10 +1037,32 @@ namespace Tiunov
             this.tabPage3.Controls.Add(this.EbtnInsert);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1116, 398);
+            this.tabPage3.Size = new System.Drawing.Size(1139, 398);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Экспонаты";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label22.Location = new System.Drawing.Point(1019, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(44, 13);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "Поиск";
+            // 
+            // label26
+            // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label26.Location = new System.Drawing.Point(837, 29);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(131, 13);
+            this.label26.TabIndex = 50;
+            this.label26.Text = "Название экспоната";
             // 
             // statusStrip3
             // 
@@ -955,7 +1070,7 @@ namespace Tiunov
             this.toolStripStatusLabel3});
             this.statusStrip3.Location = new System.Drawing.Point(0, 376);
             this.statusStrip3.Name = "statusStrip3";
-            this.statusStrip3.Size = new System.Drawing.Size(1116, 22);
+            this.statusStrip3.Size = new System.Drawing.Size(1139, 22);
             this.statusStrip3.TabIndex = 44;
             this.statusStrip3.Text = "statusStrip3";
             // 
@@ -995,8 +1110,7 @@ namespace Tiunov
             // 
             // Cb_pnum
             // 
-            this.Cb_pnum.DataSource = this.pomeshenyaBindingSource;
-            this.Cb_pnum.DisplayMember = "Pnam";
+            this.Cb_pnum.DisplayMember = "Pnum";
             this.Cb_pnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cb_pnum.FormattingEnabled = true;
             this.Cb_pnum.Location = new System.Drawing.Point(414, 78);
@@ -1183,6 +1297,10 @@ namespace Tiunov
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.Rfinish);
+            this.tabPage4.Controls.Add(this.label31);
+            this.tabPage4.Controls.Add(this.Rstart);
+            this.tabPage4.Controls.Add(this.label30);
             this.tabPage4.Controls.Add(this.label25);
             this.tabPage4.Controls.Add(this.statusStrip4);
             this.tabPage4.Controls.Add(this.label24);
@@ -1202,17 +1320,53 @@ namespace Tiunov
             this.tabPage4.Controls.Add(this.RbtnInsert);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1116, 398);
+            this.tabPage4.Size = new System.Drawing.Size(1139, 398);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Реставрация";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // Rfinish
+            // 
+            this.Rfinish.Enabled = false;
+            this.Rfinish.Location = new System.Drawing.Point(951, 75);
+            this.Rfinish.Name = "Rfinish";
+            this.Rfinish.Size = new System.Drawing.Size(180, 20);
+            this.Rfinish.TabIndex = 54;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label31.Location = new System.Drawing.Point(948, 59);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(183, 13);
+            this.label31.TabIndex = 53;
+            this.label31.Text = "Дата окончания реставрации";
+            // 
+            // Rstart
+            // 
+            this.Rstart.Enabled = false;
+            this.Rstart.Location = new System.Drawing.Point(786, 75);
+            this.Rstart.Name = "Rstart";
+            this.Rstart.Size = new System.Drawing.Size(159, 20);
+            this.Rstart.TabIndex = 52;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label30.Location = new System.Drawing.Point(783, 59);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(162, 13);
+            this.label30.TabIndex = 50;
+            this.label30.Text = "Дата начала реставрации";
             // 
             // label25
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label25.Location = new System.Drawing.Point(1019, 6);
+            this.label25.Location = new System.Drawing.Point(1042, 6);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(44, 13);
             this.label25.TabIndex = 49;
@@ -1224,7 +1378,7 @@ namespace Tiunov
             this.toolStripStatusLabel4});
             this.statusStrip4.Location = new System.Drawing.Point(0, 376);
             this.statusStrip4.Name = "statusStrip4";
-            this.statusStrip4.Size = new System.Drawing.Size(1116, 22);
+            this.statusStrip4.Size = new System.Drawing.Size(1139, 22);
             this.statusStrip4.TabIndex = 48;
             this.statusStrip4.Text = "statusStrip4";
             // 
@@ -1237,7 +1391,7 @@ namespace Tiunov
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label24.Location = new System.Drawing.Point(407, 59);
+            this.label24.Location = new System.Drawing.Point(437, 59);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(69, 13);
             this.label24.TabIndex = 47;
@@ -1246,26 +1400,31 @@ namespace Tiunov
             // cb_snum
             // 
             this.cb_snum.DataSource = this.sotrudniki1BindingSource;
-            this.cb_snum.DisplayMember = "Сотрудник";
+            this.cb_snum.DisplayMember = "Сотрудник (Квалификация)";
             this.cb_snum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_snum.FormattingEnabled = true;
-            this.cb_snum.Location = new System.Drawing.Point(410, 75);
+            this.cb_snum.Location = new System.Drawing.Point(440, 75);
             this.cb_snum.Name = "cb_snum";
-            this.cb_snum.Size = new System.Drawing.Size(235, 21);
+            this.cb_snum.Size = new System.Drawing.Size(340, 21);
             this.cb_snum.TabIndex = 46;
             this.cb_snum.ValueMember = "Snum";
             // 
             // sotrudniki1BindingSource
             // 
             this.sotrudniki1BindingSource.DataMember = "Sotrudniki1";
-            this.sotrudniki1BindingSource.DataSource = this.tiunovDataSet;
+            this.sotrudniki1BindingSource.DataSource = this.tiunovDataSet2;
+            // 
+            // tiunovDataSet2
+            // 
+            this.tiunovDataSet2.DataSetName = "TiunovDataSet";
+            this.tiunovDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label23
             // 
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label23.Location = new System.Drawing.Point(837, 29);
+            this.label23.Location = new System.Drawing.Point(860, 29);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(131, 13);
             this.label23.TabIndex = 45;
@@ -1274,7 +1433,7 @@ namespace Tiunov
             // textBox4
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(974, 26);
+            this.textBox4.Location = new System.Drawing.Point(997, 26);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(134, 20);
             this.textBox4.TabIndex = 44;
@@ -1292,7 +1451,7 @@ namespace Tiunov
             // 
             // AddStatus
             // 
-            this.AddStatus.Location = new System.Drawing.Point(365, 73);
+            this.AddStatus.Location = new System.Drawing.Point(396, 73);
             this.AddStatus.Name = "AddStatus";
             this.AddStatus.Size = new System.Drawing.Size(23, 23);
             this.AddStatus.TabIndex = 38;
@@ -1308,7 +1467,7 @@ namespace Tiunov
             this.cb_enum.FormattingEnabled = true;
             this.cb_enum.Location = new System.Drawing.Point(8, 75);
             this.cb_enum.Name = "cb_enum";
-            this.cb_enum.Size = new System.Drawing.Size(158, 21);
+            this.cb_enum.Size = new System.Drawing.Size(187, 21);
             this.cb_enum.TabIndex = 37;
             this.cb_enum.ValueMember = "Enum";
             // 
@@ -1318,9 +1477,9 @@ namespace Tiunov
             this.cb_rstatus.DisplayMember = "Status";
             this.cb_rstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_rstatus.FormattingEnabled = true;
-            this.cb_rstatus.Location = new System.Drawing.Point(172, 75);
+            this.cb_rstatus.Location = new System.Drawing.Point(201, 75);
             this.cb_rstatus.Name = "cb_rstatus";
-            this.cb_rstatus.Size = new System.Drawing.Size(187, 21);
+            this.cb_rstatus.Size = new System.Drawing.Size(189, 21);
             this.cb_rstatus.TabIndex = 36;
             this.cb_rstatus.ValueMember = "Rstatus";
             // 
@@ -1342,53 +1501,22 @@ namespace Tiunov
             this.rnumDataGridViewTextBoxColumn,
             this.enamDataGridViewTextBoxColumn1,
             this.statusDataGridViewTextBoxColumn,
-            this.сотрудникDataGridViewTextBoxColumn});
+            this.сотрудникКвалификацияDataGridViewTextBoxColumn,
+            this.rstartDataGridViewTextBoxColumn,
+            this.rfinishDataGridViewTextBoxColumn});
             this.dataGridView4.DataSource = this.restBindingSource;
             this.dataGridView4.Location = new System.Drawing.Point(8, 102);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(1100, 256);
+            this.dataGridView4.Size = new System.Drawing.Size(1123, 271);
             this.dataGridView4.TabIndex = 35;
             this.dataGridView4.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellEnter);
-            // 
-            // rnumDataGridViewTextBoxColumn
-            // 
-            this.rnumDataGridViewTextBoxColumn.DataPropertyName = "Rnum";
-            this.rnumDataGridViewTextBoxColumn.HeaderText = "№ реставрации";
-            this.rnumDataGridViewTextBoxColumn.Name = "rnumDataGridViewTextBoxColumn";
-            this.rnumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // enamDataGridViewTextBoxColumn1
-            // 
-            this.enamDataGridViewTextBoxColumn1.DataPropertyName = "Enam";
-            this.enamDataGridViewTextBoxColumn1.HeaderText = "Название экспоната";
-            this.enamDataGridViewTextBoxColumn1.Name = "enamDataGridViewTextBoxColumn1";
-            this.enamDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус реставрации";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // сотрудникDataGridViewTextBoxColumn
-            // 
-            this.сотрудникDataGridViewTextBoxColumn.DataPropertyName = "Сотрудник";
-            this.сотрудникDataGridViewTextBoxColumn.HeaderText = "Сотрудник";
-            this.сотрудникDataGridViewTextBoxColumn.Name = "сотрудникDataGridViewTextBoxColumn";
-            this.сотрудникDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // restBindingSource
-            // 
-            this.restBindingSource.DataMember = "rest";
-            this.restBindingSource.DataSource = this.tiunovDataSet;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label16.Location = new System.Drawing.Point(172, 57);
+            this.label16.Location = new System.Drawing.Point(198, 57);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(127, 13);
             this.label16.TabIndex = 34;
@@ -1461,10 +1589,6 @@ namespace Tiunov
             // 
             this.exponat_tipTableAdapter.ClearBeforeFill = true;
             // 
-            // pomeshenyaTableAdapter
-            // 
-            this.pomeshenyaTableAdapter.ClearBeforeFill = true;
-            // 
             // restoration_statusTableAdapter
             // 
             this.restoration_statusTableAdapter.ClearBeforeFill = true;
@@ -1490,85 +1614,70 @@ namespace Tiunov
             // 
             this.sotrudnikiTableAdapter.ClearBeforeFill = true;
             // 
-            // restTableAdapter
+            // pomeshenyaTableAdapter
             // 
-            this.restTableAdapter.ClearBeforeFill = true;
+            this.pomeshenyaTableAdapter.ClearBeforeFill = true;
             // 
             // sotrudniki1TableAdapter
             // 
             this.sotrudniki1TableAdapter.ClearBeforeFill = true;
             // 
-            // label22
+            // restBindingSource
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label22.Location = new System.Drawing.Point(1019, 6);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(44, 13);
-            this.label22.TabIndex = 51;
-            this.label22.Text = "Поиск";
+            this.restBindingSource.DataMember = "rest";
+            this.restBindingSource.DataSource = this.tiunovDataSet;
             // 
-            // label26
+            // restTableAdapter
             // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label26.Location = new System.Drawing.Point(837, 29);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(131, 13);
-            this.label26.TabIndex = 50;
-            this.label26.Text = "Название экспоната";
+            this.restTableAdapter.ClearBeforeFill = true;
             // 
-            // label21
+            // rnumDataGridViewTextBoxColumn
             // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label21.Location = new System.Drawing.Point(1018, 6);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(44, 13);
-            this.label21.TabIndex = 51;
-            this.label21.Text = "Поиск";
+            this.rnumDataGridViewTextBoxColumn.DataPropertyName = "Rnum";
+            this.rnumDataGridViewTextBoxColumn.HeaderText = "Rnum";
+            this.rnumDataGridViewTextBoxColumn.Name = "rnumDataGridViewTextBoxColumn";
+            this.rnumDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label27
+            // enamDataGridViewTextBoxColumn1
             // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label27.Location = new System.Drawing.Point(833, 29);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(135, 13);
-            this.label27.TabIndex = 50;
-            this.label27.Text = "Фамилия сотрудника";
+            this.enamDataGridViewTextBoxColumn1.DataPropertyName = "Enam";
+            this.enamDataGridViewTextBoxColumn1.HeaderText = "Enam";
+            this.enamDataGridViewTextBoxColumn1.Name = "enamDataGridViewTextBoxColumn1";
+            this.enamDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // label20
+            // statusDataGridViewTextBoxColumn
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label20.Location = new System.Drawing.Point(1019, 6);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(44, 13);
-            this.label20.TabIndex = 51;
-            this.label20.Text = "Поиск";
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label28
+            // сотрудникКвалификацияDataGridViewTextBoxColumn
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label28.Location = new System.Drawing.Point(801, 29);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(167, 13);
-            this.label28.TabIndex = 50;
-            this.label28.Text = "Наименование помещения";
+            this.сотрудникКвалификацияDataGridViewTextBoxColumn.DataPropertyName = "Сотрудник (Квалификация)";
+            this.сотрудникКвалификацияDataGridViewTextBoxColumn.HeaderText = "Сотрудник (Квалификация)";
+            this.сотрудникКвалификацияDataGridViewTextBoxColumn.Name = "сотрудникКвалификацияDataGridViewTextBoxColumn";
+            this.сотрудникКвалификацияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rstartDataGridViewTextBoxColumn
+            // 
+            this.rstartDataGridViewTextBoxColumn.DataPropertyName = "Rstart";
+            this.rstartDataGridViewTextBoxColumn.HeaderText = "Rstart";
+            this.rstartDataGridViewTextBoxColumn.Name = "rstartDataGridViewTextBoxColumn";
+            this.rstartDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rfinishDataGridViewTextBoxColumn
+            // 
+            this.rfinishDataGridViewTextBoxColumn.DataPropertyName = "Rfinish";
+            this.rfinishDataGridViewTextBoxColumn.HeaderText = "Rfinish";
+            this.rfinishDataGridViewTextBoxColumn.Name = "rfinishDataGridViewTextBoxColumn";
+            this.rfinishDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1124, 450);
+            this.ClientSize = new System.Drawing.Size(1147, 450);
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -1607,10 +1716,11 @@ namespace Tiunov
             this.statusStrip4.ResumeLayout(false);
             this.statusStrip4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudniki1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiunovDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restorationstatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sotrudnikiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.restBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1692,18 +1802,11 @@ namespace Tiunov
         private TiunovDataSetTableAdapters.KvalifikacyaTableAdapter kvalifikacyaTableAdapter;
         private System.Windows.Forms.BindingSource exponattipBindingSource;
         private TiunovDataSetTableAdapters.Exponat_tipTableAdapter exponat_tipTableAdapter;
-        private System.Windows.Forms.BindingSource pomeshenyaBindingSource;
-        private TiunovDataSetTableAdapters.PomeshenyaTableAdapter pomeshenyaTableAdapter;
         private System.Windows.Forms.Button AddTips;
         private System.Windows.Forms.BindingSource restorationstatusBindingSource;
         private TiunovDataSetTableAdapters.Restoration_statusTableAdapter restoration_statusTableAdapter;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem1;
         private System.Windows.Forms.Button AddStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pnumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pnamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn padresDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pnazDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ptrebDataGridViewTextBoxColumn;
         private System.Windows.Forms.MaskedTextBox Stel;
         private System.Windows.Forms.Button Sbtncbupd;
         private System.Windows.Forms.Button Ebtncbupd;
@@ -1742,14 +1845,6 @@ namespace Tiunov
         private System.Windows.Forms.BindingSource sotrudnikiBindingSource;
         private TiunovDataSetTableAdapters.SotrudnikiTableAdapter sotrudnikiTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource restBindingSource;
-        private TiunovDataSetTableAdapters.restTableAdapter restTableAdapter;
-        private System.Windows.Forms.BindingSource sotrudniki1BindingSource;
-        private TiunovDataSetTableAdapters.Sotrudniki1TableAdapter sotrudniki1TableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enamDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn сотрудникDataGridViewTextBoxColumn;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.StatusStrip statusStrip2;
@@ -1765,6 +1860,36 @@ namespace Tiunov
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.RichTextBox Popis;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.BindingSource pomeshenyaBindingSource;
+        private TiunovDataSetTableAdapters.PomeshenyaTableAdapter pomeshenyaTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pnumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pnamDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn padresDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pnazDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ptrebDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn popisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox Rfinish;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox Rstart;
+        private System.Windows.Forms.Label label30;
+        private TiunovDataSet tiunovDataSet2;
+        private System.Windows.Forms.BindingSource sotrudniki1BindingSource;
+        private TiunovDataSetTableAdapters.Sotrudniki1TableAdapter sotrudniki1TableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rstart1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rfinish1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource restBindingSource;
+        private TiunovDataSetTableAdapters.restTableAdapter restTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enamDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn сотрудникКвалификацияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rstartDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rfinishDataGridViewTextBoxColumn;
     }
 }
 

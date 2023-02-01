@@ -58,7 +58,7 @@ namespace Tiunov
         }
         void GetRest()
         {
-            da = new SqlDataAdapter("SELECT Restavracia.Rnum, Exponat.Enam, Restoration_status.Status, Sotrudniki.Sfam + ' ' + Sotrudniki.Snam + ' ' + Sotrudniki.Sotch AS Сотрудник FROM Restavracia INNER JOIN Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus INNER JOIN Exponat ON Restavracia.Enum = Exponat.Enum INNER JOIN Sotrudniki ON Restavracia.Snum = Sotrudniki.Snum", con);
+            da = new SqlDataAdapter("SELECT Restavracia.Rnum, Exponat.Enam, Restoration_status.Status, Sotrudniki.Sfam + ' ' + Sotrudniki.Snam + ' ' + Sotrudniki.Sotch + ' (' + Kvalifikacya.Kval + ')' AS 'Сотрудник (Квалификация)', Restavracia.Rstart, Restavracia.Rfinish FROM Restavracia INNER JOIN Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus INNER JOIN Exponat ON Restavracia.Enum = Exponat.Enum INNER JOIN Sotrudniki ON Restavracia.Snum = Sotrudniki.Snum INNER JOIN Kvalifikacya ON Sotrudniki.Skval = Kvalifikacya.Skval", con);
             ds = new DataSet();
             con.Open();
             da.Fill(ds, "Restavracia");
@@ -130,10 +130,14 @@ namespace Tiunov
         #region Main Form and Load
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki1". При необходимости она может быть перемещена или удалена.
-            this.sotrudniki1TableAdapter.Fill(this.tiunovDataSet.Sotrudniki1);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
             this.restTableAdapter.Fill(this.tiunovDataSet.rest);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
+            this.restTableAdapter.Fill(this.tiunovDataSet.rest);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet2.Sotrudniki1". При необходимости она может быть перемещена или удалена.
+            this.sotrudniki1TableAdapter.Fill(this.tiunovDataSet2.Sotrudniki1);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Pomeshenya". При необходимости она может быть перемещена или удалена.
+            this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
             this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exp". При необходимости она может быть перемещена или удалена.
@@ -236,17 +240,18 @@ namespace Tiunov
         #region Pomeshenya
         private void PbtnInsert_Click(object sender, EventArgs e)
         {
-            if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
+            if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "" || Popis.Text == "")
             {
                 MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
             }
-            string query = "Insert into Pomeshenya (Pnam, Padres, Pnaz, Ptreb) values (@Pnam,@Padres,@Pnaz,@Ptreb)";
+            string query = "Insert into Pomeshenya (Pnam, Padres, Pnaz, Ptreb, Popis) values (@Pnam,@Padres,@Pnaz,@Ptreb,@Popis)";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Pnam", Pnam.Text);
             cmd.Parameters.AddWithValue("@Padres", Padres.Text);
             cmd.Parameters.AddWithValue("@Pnaz", Pnaz.Text);
             cmd.Parameters.AddWithValue("@Ptreb", Ptreb.Text);
+            cmd.Parameters.AddWithValue("@Popis", Popis.Text);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -255,7 +260,7 @@ namespace Tiunov
         }
         private void PbtnUpdate_Click(object sender, EventArgs e)
         {
-            if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "")
+            if (Pnam.Text == "" || Padres.Text == "" || Pnaz.Text == "" || Ptreb.Text == "" || Popis.Text == "")
             {
                 MessageBox.Show("Пожалуйста, заполните все поля!");
                 return;
@@ -263,12 +268,13 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Pomeshenya Set Pnam=@Pnam,Padres=@Padres,Pnaz=@Pnaz,Ptreb=@Ptreb Where Pnum=@Pnum";
+                string query = "Update Pomeshenya Set Pnam=@Pnam,Padres=@Padres,Pnaz=@Pnaz,Ptreb=@Ptreb,Popis=@Popis Where Pnum=@Pnum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Pnam", Pnam.Text);
                 cmd.Parameters.AddWithValue("@Padres", Padres.Text);
                 cmd.Parameters.AddWithValue("@Pnaz", Pnaz.Text);
                 cmd.Parameters.AddWithValue("@Ptreb", Ptreb.Text);
+                cmd.Parameters.AddWithValue("@Popis", Popis.Text);
                 cmd.Parameters.AddWithValue("@Pnum", dataGridView1.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -311,6 +317,7 @@ namespace Tiunov
             Padres.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             Pnaz.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             Ptreb.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            Popis.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -592,11 +599,12 @@ namespace Tiunov
                     return;
                 }
             }
-            string query = "Insert into Restavracia (Enum, Rstatus, Snum) values (@Enum,@Rstatus,@Snum)";
+            string query = "Insert into Restavracia (Enum, Rstatus, Snum, Rstart) values (@Enum,@Rstatus,@Snum,@Rstart)";
             cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
             cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedValue);
             cmd.Parameters.AddWithValue("@Snum", cb_snum.SelectedValue);
+            cmd.Parameters.AddWithValue("@Rstart", DateTime.Now);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -614,12 +622,20 @@ namespace Tiunov
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите редактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string query = "Update Restavracia Set Enum=@Enum,Rstatus=@Rstatus,Snum=@Snum Where Rnum=@Rnum";
+                string query = "Update Restavracia Set Enum=@Enum,Rstatus=@Rstatus,Snum=@Snum,Rfinish=@Rfinish Where Rnum=@Rnum";
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Enum", cb_enum.SelectedValue);
                 cmd.Parameters.AddWithValue("@Rstatus", cb_rstatus.SelectedValue);
-                cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
                 cmd.Parameters.AddWithValue("@Snum", cb_snum.SelectedValue);
+                if (cb_rstatus.SelectedIndex == 1)
+                {
+                    cmd.Parameters.AddWithValue("@Rfinish", DateTime.Now);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Rfinish", "");
+                }
+                cmd.Parameters.AddWithValue("@Rnum", dataGridView4.CurrentRow.Cells[0].Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -660,6 +676,8 @@ namespace Tiunov
             cb_enum.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
             cb_rstatus.Text = dataGridView4.CurrentRow.Cells[2].Value.ToString();
             cb_snum.Text = dataGridView4.CurrentRow.Cells[3].Value.ToString();
+            Rstart.Text = dataGridView4.CurrentRow.Cells[4].Value.ToString();
+            Rfinish.Text = dataGridView4.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void AddTips_Click(object sender, EventArgs e)
