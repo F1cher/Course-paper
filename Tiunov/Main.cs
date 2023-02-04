@@ -49,7 +49,7 @@ namespace Tiunov
         }
         void GetExp()
         {
-            da = new SqlDataAdapter("SELECT Exponat.Enum, Exponat.Enam, Exponat_tip.Tip, Exponat.Ecena, Pomeshenya.Pnam FROM Exponat INNER JOIN Exponat_tip ON Exponat.Etip = Exponat_tip.Etip INNER JOIN Pomeshenya ON Exponat.Pnum = Pomeshenya.Pnum", con);
+            da = new SqlDataAdapter("SELECT Exponat.Enum, Exponat.Enam, Exponat_tip.Tip, Exponat.Ecena, Pomeshenya.Pnam, Restoration_status.Status FROM Exponat INNER JOIN Exponat_tip ON Exponat.Etip = Exponat_tip.Etip INNER JOIN Pomeshenya ON Exponat.Pnum = Pomeshenya.Pnum INNER JOIN Restavracia ON Exponat.Enum = Restavracia.Enum INNER JOIN Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus", con);
             ds = new DataSet();
             con.Open();
             da.Fill(ds, "Exponat");
@@ -130,6 +130,8 @@ namespace Tiunov
         #region Main Form and Load
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exp". При необходимости она может быть перемещена или удалена.
+            this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
             this.restTableAdapter.Fill(this.tiunovDataSet.rest);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
@@ -552,6 +554,7 @@ namespace Tiunov
             Cb_etip.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
             Ecena.Text = dataGridView3.CurrentRow.Cells[3].Value.ToString();
             Cb_pnum.Text = dataGridView3.CurrentRow.Cells[4].Value.ToString();
+            Status.Text = dataGridView3.CurrentRow.Cells[5].Value.ToString();
         }
         private void AddGraf_Click(object sender, EventArgs e)
         {
@@ -646,6 +649,7 @@ namespace Tiunov
             {
                 return;
             }
+            GetExp();
         }
 
         private void RbtnDelete_Click(object sender, EventArgs e)

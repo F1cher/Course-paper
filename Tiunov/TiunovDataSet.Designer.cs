@@ -4535,6 +4535,8 @@ namespace Tiunov {
             
             private global::System.Data.DataColumn columnPnam;
             
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ExpDataTable() {
@@ -4610,6 +4612,14 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4645,14 +4655,15 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ExpRow AddExpRow(int Enum, string Enam, string Tip, int Ecena, string Pnam) {
+            public ExpRow AddExpRow(int Enum, string Enam, string Tip, int Ecena, string Pnam, string Status) {
                 ExpRow rowExpRow = ((ExpRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Enum,
                         Enam,
                         Tip,
                         Ecena,
-                        Pnam};
+                        Pnam,
+                        Status};
                 rowExpRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowExpRow);
                 return rowExpRow;
@@ -4687,6 +4698,7 @@ namespace Tiunov {
                 this.columnTip = base.Columns["Tip"];
                 this.columnEcena = base.Columns["Ecena"];
                 this.columnPnam = base.Columns["Pnam"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4702,13 +4714,21 @@ namespace Tiunov {
                 base.Columns.Add(this.columnEcena);
                 this.columnPnam = new global::System.Data.DataColumn("Pnam", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPnam);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnEnum}, true));
                 this.columnEnum.AllowDBNull = false;
                 this.columnEnum.Unique = true;
+                this.columnEnam.AllowDBNull = false;
                 this.columnEnam.MaxLength = 25;
+                this.columnTip.AllowDBNull = false;
                 this.columnTip.MaxLength = 25;
+                this.columnEcena.AllowDBNull = false;
+                this.columnPnam.AllowDBNull = false;
                 this.columnPnam.MaxLength = 25;
+                this.columnStatus.AllowDBNull = false;
+                this.columnStatus.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7010,12 +7030,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Enam {
                 get {
-                    try {
-                        return ((string)(this[this.tableExp.EnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Enam\' в таблице \'Exp\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tableExp.EnamColumn]));
                 }
                 set {
                     this[this.tableExp.EnamColumn] = value;
@@ -7026,12 +7041,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Tip {
                 get {
-                    try {
-                        return ((string)(this[this.tableExp.TipColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Tip\' в таблице \'Exp\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tableExp.TipColumn]));
                 }
                 set {
                     this[this.tableExp.TipColumn] = value;
@@ -7042,12 +7052,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Ecena {
                 get {
-                    try {
-                        return ((int)(this[this.tableExp.EcenaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Ecena\' в таблице \'Exp\' равно DBNull.", e);
-                    }
+                    return ((int)(this[this.tableExp.EcenaColumn]));
                 }
                 set {
                     this[this.tableExp.EcenaColumn] = value;
@@ -7058,12 +7063,7 @@ namespace Tiunov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Pnam {
                 get {
-                    try {
-                        return ((string)(this[this.tableExp.PnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Pnam\' в таблице \'Exp\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tableExp.PnamColumn]));
                 }
                 set {
                     this[this.tableExp.PnamColumn] = value;
@@ -7072,50 +7072,13 @@ namespace Tiunov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEnamNull() {
-                return this.IsNull(this.tableExp.EnamColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEnamNull() {
-                this[this.tableExp.EnamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTipNull() {
-                return this.IsNull(this.tableExp.TipColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTipNull() {
-                this[this.tableExp.TipColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEcenaNull() {
-                return this.IsNull(this.tableExp.EcenaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEcenaNull() {
-                this[this.tableExp.EcenaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPnamNull() {
-                return this.IsNull(this.tableExp.PnamColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPnamNull() {
-                this[this.tableExp.PnamColumn] = global::System.Convert.DBNull;
+            public string Status {
+                get {
+                    return ((string)(this[this.tableExp.StatusColumn]));
+                }
+                set {
+                    this[this.tableExp.StatusColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12047,6 +12010,7 @@ FROM            Sotrudniki INNER JOIN
             tableMapping.ColumnMappings.Add("Tip", "Tip");
             tableMapping.ColumnMappings.Add("Ecena", "Ecena");
             tableMapping.ColumnMappings.Add("Pnam", "Pnam");
+            tableMapping.ColumnMappings.Add("Status", "Status");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12063,10 +12027,12 @@ FROM            Sotrudniki INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT       Exponat.Enum, Exponat.Enam, Exponat_tip.Tip, Exponat.Ecena, Pomeshenya.Pnam
+            this._commandCollection[0].CommandText = @"SELECT       Exponat.Enum, Exponat.Enam, Exponat_tip.Tip, Exponat.Ecena, Pomeshenya.Pnam, Restoration_status.Status
 FROM            Exponat INNER JOIN
                          Exponat_tip ON Exponat.Etip = Exponat_tip.Etip INNER JOIN
-                         Pomeshenya ON Exponat.Pnum = Pomeshenya.Pnum";
+                         Pomeshenya ON Exponat.Pnum = Pomeshenya.Pnum INNER JOIN
+                         Restavracia ON Exponat.Enum = Restavracia.Enum INNER JOIN
+                         Restoration_status ON Restavracia.Rstatus = Restoration_status.Rstatus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
