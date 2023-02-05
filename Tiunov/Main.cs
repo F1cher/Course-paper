@@ -476,6 +476,7 @@ namespace Tiunov
             con.Close();
             GetExp();
             toolStripStatusLabel3.Text = "Запись была добавлена!";
+            this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
         }
 
         private void EbtnUpdate_Click(object sender, EventArgs e)
@@ -682,7 +683,7 @@ namespace Tiunov
         private void Rbtncbupd_Click(object sender, EventArgs e)
         {
             this.restoration_statusTableAdapter.Fill(this.tiunovDataSet.Restoration_status);
-            this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
+            this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
             this.sotrudniki1TableAdapter.Fill(this.tiunovDataSet.Sotrudniki1);
             GetRest();
         }
