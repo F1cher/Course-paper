@@ -15,3 +15,20 @@ E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Tips_Exp.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Statistics.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.Restoration_status.resources
 E:\Program Files\projects\Tiunov\obj\Debug\Tiunov.csproj.ResolveComReference.cache
+C:\Users\tiuno\Desktop\Tiunov\bin\Debug\Tiunov.exe.config
+C:\Users\tiuno\Desktop\Tiunov\bin\Debug\Tiunov.exe
+C:\Users\tiuno\Desktop\Tiunov\bin\Debug\Tiunov.pdb
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.csproj.AssemblyReference.cache
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.csproj.ResolveComReference.cache
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Authorization.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Charts.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Main.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Properties.Resources.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Qualifications.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Restoration_status.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Statistics.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.Tips_Exp.resources
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.csproj.GenerateResource.cache
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.csproj.CoreCompileInputs.cache
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.exe
+C:\Users\tiuno\Desktop\Tiunov\obj\Debug\Tiunov.pdb

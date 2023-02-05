@@ -132,8 +132,8 @@ namespace Tiunov
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exp". При необходимости она может быть перемещена или удалена.
             this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
-            this.restTableAdapter.Fill(this.tiunovDataSet.rest);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exponat". При необходимости она может быть перемещена или удалена.
+            this.exponatTableAdapter.Fill(this.tiunovDataSet.Exponat);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.rest". При необходимости она может быть перемещена или удалена.
             this.restTableAdapter.Fill(this.tiunovDataSet.rest);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet2.Sotrudniki1". При необходимости она может быть перемещена или удалена.
@@ -142,8 +142,6 @@ namespace Tiunov
             this.pomeshenyaTableAdapter.Fill(this.tiunovDataSet.Pomeshenya);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotrudniki". При необходимости она может быть перемещена или удалена.
             this.sotrudnikiTableAdapter.Fill(this.tiunovDataSet.Sotrudniki);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Exp". При необходимости она может быть перемещена или удалена.
-            this.expTableAdapter.Fill(this.tiunovDataSet.Exp);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Sotr". При необходимости она может быть перемещена или удалена.
             this.sotrTableAdapter.Fill(this.tiunovDataSet.Sotr);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "tiunovDataSet.Accesses". При необходимости она может быть перемещена или удалена.
@@ -166,25 +164,16 @@ namespace Tiunov
             if (Access == "2")
             {
                 //Помещения
-                label1.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label19.Visible = false;
                 PbtnInsert.Visible = false;
                 PbtnUpdate.Visible = false;
                 PbtnDelete.Visible = false;
                 PbtnClear.Visible = false;
-                Pnam.Visible = false;
-                Padres.Visible = false;
-                Pnaz.Visible = false;
-                Ptreb.Visible = false;
+                Pnam.Enabled = false;
+                Padres.Enabled = false;
+                Pnaz.Enabled = false;
+                Ptreb.Enabled = false;
+                Popis.Enabled = false;
                 //Сотрудники
-                label4.Visible = false;
-                label5.Visible = false;
-                label6.Visible = false;
-                label10.Visible = false;
-                label11.Visible = false;
-                label12.Visible = false;
                 label13.Visible = false;
                 label14.Visible = false;
                 label15.Visible = false;
@@ -193,12 +182,12 @@ namespace Tiunov
                 SbtnDelete.Visible = false;
                 SbtnClear.Visible = false;
                 Sbtncbupd.Visible = false;
-                Sfam.Visible = false;
-                Snam.Visible = false;
-                Sotch.Visible = false;
-                Stel.Visible = false;
-                Skval.Visible = false;
-                Sgraf.Visible = false;
+                Sfam.Enabled = false;
+                Snam.Enabled = false;
+                Sotch.Enabled = false;
+                Stel.Enabled = false;
+                Skval.Enabled = false;
+                Sgraf.Enabled = false;
                 Login.Visible = false;
                 Pass.Visible = false;
                 cb_saccess.Visible = false;
@@ -208,32 +197,25 @@ namespace Tiunov
                 dataGridView2.Columns[8].Visible = false;
                 dataGridView2.Columns[9].Visible = false;
                 //Экспонаты
-                label7.Visible = false;
-                label8.Visible = false;
-                label9.Visible = false;
-                label18.Visible = false;
                 EbtnInsert.Visible = false;
                 EbtnUpdate.Visible = false;
                 EbtnDelete.Visible = false;
                 EbtnClear.Visible = false;
                 Ebtncbupd.Visible = false;
-                Enam.Visible = false;
-                Cb_etip.Visible = false;
-                Ecena.Visible = false;
-                Cb_pnum.Visible = false;
+                Enam.Enabled = false;
+                Cb_etip.Enabled = false;
+                Ecena.Enabled = false;
+                Cb_pnum.Enabled = false;
                 AddTips.Visible = false;
                 //Реставрация
-                label16.Visible = false;
-                label17.Visible = false;
-                label24.Visible = false;
                 RbtnInsert.Visible = false;
                 RbtnUpdate.Visible = false;
                 RbtnDelete.Visible = false;
                 RbtnClear.Visible = false;
                 Rbtncbupd.Visible = false;
-                cb_enum.Visible = false;
-                cb_rstatus.Visible = false;
-                cb_snum.Visible = false;
+                cb_enum.Enabled = false;
+                cb_rstatus.Enabled = false;
+                cb_snum.Enabled = false;
                 AddStatus.Visible = false;
             }
         }
@@ -613,6 +595,7 @@ namespace Tiunov
             con.Close();
             GetRest();
             toolStripStatusLabel4.Text = "Запись была добавлена!";
+            GetExp();
         }
 
         private void RbtnUpdate_Click(object sender, EventArgs e)
@@ -670,6 +653,7 @@ namespace Tiunov
             {
                 return;
             }
+            GetExp();
         }
         private void RbtnClear_Click(object sender, EventArgs e)
         {
